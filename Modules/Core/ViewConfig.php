@@ -45,6 +45,11 @@ class ViewConfig extends ViewConfig_parent
             return true;
         }
 
+        // Aggrosoft Cookie Consent
+        if (method_exists($this, "isCookieCategoryEnabled")) {
+            return $this->isCookieCategoryEnabled("ANALYTICS");
+        }
+
         return false;
     }
 
