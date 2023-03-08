@@ -75,7 +75,7 @@ class ViewConfig extends ViewConfig_parent
         /** @var FrontendController $oShop */
         $oUser = $oConfig->getUser();
 
-        $cl         = $this->getTopActionClassName();
+        $cl         = $this->getTopActiveClassName();
         $aPageTypes = [
             "content"  => "cms",
             "details"  => "product",
