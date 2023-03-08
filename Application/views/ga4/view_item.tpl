@@ -3,7 +3,7 @@
     [{assign var="gtmCurrency" value=$oView->getActCurrency()}]
     [{assign var="gtmManufacturer" value=$gtmProduct->getManufacturer()}]
     [{assign var="gtmCategory" value=$gtmProduct->getCategory()}]
-    <script type="text/javascript">
+    <script>
         dataLayer.push({ecommerce: null});
         dataLayer.push({
             'event':'GA4_event',

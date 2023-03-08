@@ -160,6 +160,13 @@ $aModule          = [
         ],
         [
             'group'    => 'd3_gtm_settings_cookiemanager',
+            'name'     => 'd3_gtm_settings_blEnableUserCentrics',
+            'type'     => 'bool',
+            'value'    => false,
+            'position' => 999
+        ],
+        [
+            'group'    => 'd3_gtm_settings_cookiemanager',
             'name'     => 'd3_gtm_settings_cookieName',
             'type'     => 'str',
             'value'    => 'example',

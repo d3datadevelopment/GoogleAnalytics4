@@ -1,5 +1,5 @@
 [{strip}]
-    <script type="text/javascript">
+    <script>
       window.dataLayer = window.dataLayer || [];
       dataLayer.push({ ecommerce: null });
       dataLayer.push({

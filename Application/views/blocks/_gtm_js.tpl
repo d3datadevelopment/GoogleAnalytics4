@@ -10,7 +10,7 @@
 }]
     [{if $oViewConf->getGtmContainerId()}][{strip}]
     <!-- Google Tag Manager -->
-    <script>
+    <script [{$oViewConf->getGtmScriptAttributes()}]>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});

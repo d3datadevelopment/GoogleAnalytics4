@@ -35,4 +35,6 @@ $aLang = [
     'SHOP_MODULE_GROUP_d3_gtm_settings_cookiemanager'   => 'Cookie Manager Einstellungen',
     'SHOP_MODULE_d3_gtm_settings_hasOwnCookieManager'   => 'Eigenen Cookie Manager nutzen?',
     'SHOP_MODULE_d3_gtm_settings_cookieName'            => 'Cookie-Name',
+    'SHOP_MODULE_d3_gtm_settings_blEnableUserCentrics'  => 'UserCentrics verwenden',
+    'HELP_SHOP_MODULE_d3_gtm_settings_blEnableUserCentrics' => 'Wenn Sie UserCentrics nutzen, geben sie Feld "Cookie-Name" die in UserCentrics definierte Bezeichnung des Service ("Google Analytics") ein.',
 ];

@@ -41,11 +41,36 @@ class ViewConfig extends ViewConfig_parent
         $oSession = Registry::getSession();
         $aCookies = $oSession->getVariable("aCookieSel");
 
+        // Allow UserCentrics - It always needs the script-tags
+        if ($this->getConfig()->getConfigParam('d3_gtm_settings_blEnableUserCentrics')) {
+            return true;
+        }
+
         if (!is_null($aCookies) && is_array($aCookies) && array_key_exists($sCookieID, $aCookies) && $aCookies[$sCookieID] == "1") {
             return true;
         }
 
         return false;
+    }
+
+    /**
+     * Get additional attributes for all script tags.
+     * This is especially important for UserCentrics.
+     * @return string
+     */
+    public function getGtmScriptAttributes()
+    {
+        $oConfig = $this->getConfig();
+
+        if ($oConfig->getConfigParam('d3_gtm_settings_hasOwnCookieManager') && $oConfig->getConfigParam('d3_gtm_settings_blEnableUserCentrics')) {
+            $sCookieId = $oConfig->getConfigParam('d3_gtm_settings_cookieName');
+
+            if ($sCookieId) {
+                return 'type="text/plain" data-usercentrics="'.$sCookieId.'"';
+            }
+        }
+
+        return "";
     }
 
     private $blGA4enabled = null;
