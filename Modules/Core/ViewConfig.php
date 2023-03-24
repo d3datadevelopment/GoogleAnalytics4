@@ -32,25 +32,86 @@ class ViewConfig extends ViewConfig_parent
         return $this->sContainerId;
     }
 
+    private $sCookieManagerType = null;
+
+    public function getCookieManagerType()
+    {
+        if ($this->sCookieManagerType === null)
+        {
+            $this->sCookieManagerType = false;
+
+            $allowedManagerTypes = [
+                'net_cookie_manager',
+                'agcookiecompliance',
+                'oxps_usercentrics'
+            ];
+
+            foreach ($allowedManagerTypes as $type) {
+                if ($this->isModuleActive($type)) {
+                    $this->sCookieManagerType = $type;
+                    break;
+                }
+            }
+        }
+        return $this->sCookieManagerType;
+    }
+
     /**
-     * @param $sCookieID
      * @return bool
      */
-    public function D3blAcceptedCookie($sCookieID)
+    public function D3blShowGtmScript()
     {
-        $oSession = Registry::getSession();
-        $aCookies = $oSession->getVariable("aCookieSel");
+        $oConfig = $this->getConfig();
 
-        if (!is_null($aCookies) && is_array($aCookies) && array_key_exists($sCookieID, $aCookies) && $aCookies[$sCookieID] == "1") {
+        // No Cookie Manager in use
+        if (!$oConfig->getConfigParam('d3_gtm_settings_hasOwnCookieManager')) {
             return true;
         }
 
-        // Aggrosoft Cookie Consent
-        if (method_exists($this, "isCookieCategoryEnabled")) {
-            return $this->isCookieCategoryEnabled($sCookieID);
+        $sCookieID = $oConfig->getConfigParam('d3_gtm_settings_cookieName');
+
+        // Netensio Cookie Manager
+        if ($this->getCookieManagerType() == "net_cookie_manager") {
+            $oSession = Registry::getSession();
+            $aCookies = $oSession->getVariable("aCookieSel");
+
+            return (!is_null($aCookies) && is_array($aCookies) && array_key_exists($sCookieID, $aCookies) && $aCookies[$sCookieID] == "1");
         }
 
+        // Aggrosoft Cookie Consent
+        if ($this->getCookieManagerType() == "agcookiecompliance") {
+            if (method_exists($this, "isCookieCategoryEnabled")) {
+                return $this->isCookieCategoryEnabled($sCookieID);
+            }
+        }
+
+        // UserCentrics
+        if ($this->getCookieManagerType() == "oxps_usercentrics") {
+            // Always needs the script-tags delivered to the DOM.
+            return true;
+        }
+
+        // Cookie Manager not (yet) supported
         return false;
+    }
+
+    /**
+     * Get additional attributes for script tags.
+     * This is especially important for UserCentrics.
+     * @return string
+     */
+    public function getGtmScriptAttributes()
+    {
+        if ($this->getCookieManagerType() == "oxps_usercentrics") {
+            $oConfig = $this->getConfig();
+            $sCookieId = $oConfig->getConfigParam('d3_gtm_settings_cookieName');
+
+            if ($sCookieId) {
+                return 'type="text/plain" data-usercentrics="' . $sCookieId . '"';
+            }
+        }
+
+        return "";
     }
 
     private $blGA4enabled = null;

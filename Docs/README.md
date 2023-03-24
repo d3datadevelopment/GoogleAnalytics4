@@ -55,6 +55,7 @@ Aktivieren Sie anschließend diese Weiche. Setzen Sie den Haken bei "Eigenen Coo
   - https://github.com/aggrosoft/oxid-cookie-compliance
   - die entsprechend gewählte Kategorie in den Moduleinstellungen des 'Google Analytics 4' unter
   ```Einstell. > Cookie Manager Einstellungen > Cookie-ID``` eintragen
+  - Default-Werte sind entweder ```ANALYTICS``` oder ```MARKETING```. Bitte auf die Großschreibung achten.
 
 - [Netensio - Cookie Consent Manager](https://www.netensio.de/oxid-eshop-module/cookie-consent-manager-fuer-oxid-eshop.html)
   - Modul entsprechend konfigurieren
@@ -62,4 +63,6 @@ Aktivieren Sie anschließend diese Weiche. Setzen Sie den Haken bei "Eigenen Coo
     ```Einstell. > Cookie Manager Einstellungen > Cookie-ID``` eintragen
   
 - [OXID Cookie Management powered by usercentrics](https://docs.oxid-esales.com/modules/usercentrics/de/latest/einfuehrung.html)
-  - soweit ich weiß nichts weiter?
+  - In der Usercentrics-Verwaltung einen Service für Google Analytics anlegen
+  - Den Service-Namen in den Moduleinstellungen des 'Google Analytics 4' unter
+    ```Einstell. > Cookie Manager Einstellungen > Cookie-ID``` eintragen

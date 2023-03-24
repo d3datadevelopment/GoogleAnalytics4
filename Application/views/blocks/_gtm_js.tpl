@@ -3,14 +3,10 @@
     var dataLayer = [{$oViewConf->getGtmDataLayer()}] || [];
 </script>
 
-[{assign var="d3VtConfigObject" value=$oViewConf->getConfig()}]
-
-[{if !$d3VtConfigObject->getConfigParam('d3_gtm_settings_hasOwnCookieManager') ||
-    ($d3VtConfigObject->getConfigParam('d3_gtm_settings_hasOwnCookieManager') && $oViewConf->D3blAcceptedCookie($d3VtConfigObject->getConfigParam('d3_gtm_settings_cookieName')))
-}]
+[{if $oViewConf->D3blShowGtmScript()}]
     [{if $oViewConf->getGtmContainerId()}][{strip}]
     <!-- Google Tag Manager -->
-    <script>
+    <script [{$oViewConf->getGtmScriptAttributes()}]>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
