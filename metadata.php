@@ -22,7 +22,7 @@ $aModule          = [
                       Die Entwicklung basiert auf einem Fork von Marat Bedoev - <a href='https://github.com/vanilla-thunder/oxid-module-gtm'>Github-Link</a>
                       ",
     'thumbnail'   => 'thumbnail.png',
-    'version'     => '2.10.0',
+    'version'     => '2.10.1',
     'author'      => 'Data Development (Inh.: Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'https://www.oxidmodule.com/',
@@ -59,6 +59,11 @@ $aModule          = [
             'block'    => 'checkout_basket_main',
             'file'     => '/Application/views/blocks/view_cart.tpl'
         ],
+		[
+			'template' => 'page/checkout/user.tpl',
+			'block'    => 'checkout_user_main',
+			'file'     => '/Application/views/blocks/begin_checkout.tpl'
+		],
         [
             'template' => 'page/checkout/thankyou.tpl',
             'block'    => 'checkout_thankyou_main',

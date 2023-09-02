@@ -27,6 +27,10 @@ Für den geregelten Ablauf sind folgende Blöcke nötig:
     - Blockname: checkout_basket_main
     - Datei: page/checkout/basket.tpl
     - GA4 Event: view_cart
+- Checkout starten
+    - Blockname: checkout_user_main
+    - Datei: page/checkout/user.tpl
+    - GA4 Event: begin_checkout
 - abgeschlossener Kauf
     - Blockname: checkout_thankyou_main
     - Datei: page/checkout/thankyou.tpl
