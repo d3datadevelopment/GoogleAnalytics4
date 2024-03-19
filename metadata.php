@@ -210,5 +210,18 @@ $aModule          = [
             'value' => 'none',
             'constraints' => 'NONE|CONSENTMANAGER|USERCENTRICS|COOKIEFIRST|COOKIEBOT',
         ],
+        // OST929760 - Erweiterung für Serverside Tagging
+        [
+            'group' => 'd3_gtm_settings_serversidetagging',
+            'name' => 'd3_gtm_settings_serversidetagging_js',
+            'type'     => 'str',
+            'value'    => 'https://www.googletagmanager.com/gtm.js',
+        ],
+        [
+            'group' => 'd3_gtm_settings_serversidetagging',
+            'name' => 'd3_gtm_settings_serversidetagging_nojs',
+            'type'     => 'str',
+            'value'    => 'https://www.googletagmanager.com/ns.html',
+        ],
     ]
 ];
