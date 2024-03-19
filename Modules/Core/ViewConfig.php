@@ -215,4 +215,30 @@ class ViewConfig extends ViewConfig_parent
         $oConfig           = Registry::getConfig();
         $aPromotionListIds = $oConfig->getConfigParam("") ?? ['bargainItems', 'newItems', 'topBox', 'alsoBought', 'accessories', 'cross'];
     }
+
+    /**
+     * @return string
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function getServerSidetaggingJsDomain() :string
+    {
+        return ContainerFactory::getInstance()
+            ->getContainer()
+            ->get(ModuleSettingBridgeInterface::class)
+            ->get('d3_gtm_settings_serversidetagging_js', 'd3googleanalytics4');
+    }
+
+    /**
+     * @return string
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function getServerSidetaggingNoJsDomain() :string
+    {
+        return ContainerFactory::getInstance()
+            ->getContainer()
+            ->get(ModuleSettingBridgeInterface::class)
+            ->get('d3_gtm_settings_serversidetagging_nojs', 'd3googleanalytics4');
+    }
 }
