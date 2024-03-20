@@ -27,6 +27,52 @@ $aLang = [
     'SHOP_MODULE_d3_gtm_blGA4enab'          => 'GA4 Aktivieren',
     'SHOP_MODULE_d3_gtm_blUAenabled'        => 'UA Aktivieren',
     'SHOP_MODULE_d3_gtm_blEnableDebug'      => 'Debug-Modus aktivieren',
+    'SHOP_MODULE_GROUP_d3_gtm_settings_serversidetagging'         => 'Server-Side tagging',
+    'SHOP_MODULE_d3_gtm_settings_serversidetagging_js'      => 'Servercontainer Ausführender-Code',
+    'HELP_SHOP_MODULE_d3_gtm_settings_serversidetagging_js'      => 'Diese Domain wird im <strong>aktiven</strong>-code ausgefüht. Das heißt,
+                                                                        dass es sich hierbei um das HTML-Tag <code>script</code> handelt.
+                                                                        Dieses kümmert sich darum, dass die, im data_layer
+                                                                        zusammengefassten Daten an den GTM weitergeleitet werden.<br>
+                                                                        <br>
+                                                                        <h4>Folgend eine Darstellung, was genau ausgetauscht wird</h4>
+                                                                        <pre>
+<code>
+Vorher:
+https://www.googletagmanager.com/gtm.js?id=
+
+Nachher:
+{Domain}?id=
+</code>
+                                                                        </pre>
+                                                                        Die Conatiner-ID wird weiterhin im Punkt "Einstellung" eingetragen!
+                                                                        ',
+    'SHOP_MODULE_d3_gtm_settings_serversidetagging_nojs'    => 'Servercontainer NICHT Ausführender-Code<br><br>
+    "Serverseitiges Tagging ist eine neue Möglichkeit, mit Google Tag Manager Ihre Anwendung geräteübergreifend zu verwalten.<br>
+    Servercontainer verwenden dasselbe Tag-, Trigger- und Variablenmodell, das Sie gewohnt sind.<br> 
+    Außerdem bieten sie neue Tools, mit denen Sie Nutzeraktivitäten überall messen können." <br>
+    <br>
+    - Quelle <a href="https://developers.google.com/tag-platform/tag-manager/server-side/intro">Developers-Google Server-Side tagging</a><br>
+    <br>
+    <strong>Verändern Sie die Werte nur, wenn Sie Server-Side tagging verwenden wollen!</strong>
+',
+    'HELP_SHOP_MODULE_d3_gtm_settings_serversidetagging_nojs'    => 'Diese Domain wird im <strong>passiven</strong>-code ausgefüht. Das heißt,
+                                                                        dass es sich hierbei um das HTML-Tag <code>noscript</code> handelt.
+                                                                        Dieses wird ausgeführt, wenn aus einem bestimmten Grund
+                                                                        das Javascript nicht ausgeführt wird.<br>
+                                                                        ( keine Cookies erlaubt, JavaScript-Unterbindung, ... )
+                                                                        <br>
+                                                                        <h4>Folgend eine Darstellung, was genau ausgetauscht wird</h4>
+                                                                        <pre>
+<code>
+Vorher:
+src="https://www.googletagmanager.com/ns.html?id={Container-ID}"
+
+Nachher:
+src="{Domain}?id={Container-ID}"
+</code>
+                                                                        </pre>
+                                                                        Die Conatiner-ID wird weiterhin im Punkt "Einstellung" eingetragen!
+                                                                        ',
 
     // for cookie manager settings
     'SHOP_MODULE_GROUP_d3_gtm_settings_cookiemanager'   => 'Cookie Manager Einstellungen',
