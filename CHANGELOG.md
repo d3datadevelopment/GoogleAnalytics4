@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.16.0](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.15.0...2.16.0) - 2024-03-20
+### Added
+- ( Google ) Server-Side tagging usability
+
 ## [2.15.0](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.14.0...2.15.0) - 2024-02-05
 ### Fixed
 - missing Component-ArticleDetails extension, missing ManufacturerListController extension
