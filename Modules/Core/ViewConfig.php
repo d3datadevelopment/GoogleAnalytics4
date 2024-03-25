@@ -12,6 +12,7 @@
 
 namespace D3\GoogleAnalytics4\Modules\Core;
 
+use D3\GoogleAnalytics4\Application\Model\Constants;
 use D3\GoogleAnalytics4\Application\Model\ManagerHandler;
 use D3\GoogleAnalytics4\Application\Model\ManagerTypes;
 use OxidEsales\Eshop\Application\Controller\FrontendController;
@@ -36,7 +37,7 @@ class ViewConfig extends ViewConfig_parent
             $this->sContainerId = ContainerFactory::getInstance()
                                                   ->getContainer()
                                                   ->get(ModuleSettingBridgeInterface::class)
-                                                  ->get('d3_gtm_sContainerID', 'd3googleanalytics4');
+                                                  ->get('d3_gtm_sContainerID', Constants::OXID_MODULE_ID);
         }
         return $this->sContainerId;
     }
@@ -162,7 +163,7 @@ class ViewConfig extends ViewConfig_parent
             $this->sContainerId = ContainerFactory::getInstance()
                                                   ->getContainer()
                                                   ->get(ModuleSettingBridgeInterface::class)
-                                                  ->get('d3_gtm_blEnableGA4', 'd3googleanalytics4');
+                                                  ->get('d3_gtm_blEnableGA4', Constants::OXID_MODULE_ID);
         }
 
         return $this->blGA4enabled;
@@ -226,7 +227,7 @@ class ViewConfig extends ViewConfig_parent
         return ContainerFactory::getInstance()
             ->getContainer()
             ->get(ModuleSettingBridgeInterface::class)
-            ->get('d3_gtm_settings_serversidetagging_js', 'd3googleanalytics4');
+            ->get('d3_gtm_settings_serversidetagging_js', Constants::OXID_MODULE_ID);
     }
 
     /**
@@ -239,6 +240,6 @@ class ViewConfig extends ViewConfig_parent
         return ContainerFactory::getInstance()
             ->getContainer()
             ->get(ModuleSettingBridgeInterface::class)
-            ->get('d3_gtm_settings_serversidetagging_nojs', 'd3googleanalytics4');
+            ->get('d3_gtm_settings_serversidetagging_nojs', Constants::OXID_MODULE_ID);
     }
 }

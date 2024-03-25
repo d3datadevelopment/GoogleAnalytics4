@@ -1,5 +1,6 @@
 <?php
 
+use D3\GoogleAnalytics4\Application\Model\Constants as Constants;
 use D3\GoogleAnalytics4\Modules\Application\Component\d3GtmBasketComponentExtension;
 use D3\GoogleAnalytics4\Modules\Application\Component\Widget\d3GtmWidgetArticleDetails as d3GtmWidgetArticleDetails;
 use D3\GoogleAnalytics4\Modules\Application\Controller\ArticleDetailsController;
@@ -35,7 +36,7 @@ use OxidEsales\Eshop\Core\ViewConfig as OEViewConfig;
 
 $sMetadataVersion = '2.1';
 $aModule          = [
-    'id'          => 'd3googleanalytics4',
+    'id'          => Constants::OXID_MODULE_ID,
     'title'       => 'Google Analytics 4',
     'description' => "Dieses Modul bietet die Möglichkeit in Ihrem OXID eShop (6.x) die neue 'Property' 
                       Google Analytics 4 (GA4) von Google zu integrieren.<br>
