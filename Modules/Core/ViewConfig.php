@@ -12,6 +12,7 @@
 
 namespace D3\GoogleAnalytics4\Modules\Core;
 
+use D3\GoogleAnalytics4\Application\Model\Constants;
 use D3\GoogleAnalytics4\Application\Model\ManagerHandler;
 use D3\GoogleAnalytics4\Application\Model\ManagerTypes;
 use OxidEsales\Eshop\Application\Controller\FrontendController;
