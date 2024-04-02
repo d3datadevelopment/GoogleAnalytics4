@@ -191,6 +191,13 @@ $aModule          = [
             'position' => 999
         ],
         [
+            'group'    => 'd3_gtm_settings',
+            'name'     => 'd3_gtm_blActivateConsentMode',
+            'type'     => 'bool',
+            'value'    => false,
+            'position' => 999
+        ],
+        [
             'group'    => 'd3_gtm_settings_cookiemanager',
             'name'     => 'd3_gtm_settings_hasOwnCookieManager',
             'type'     => 'bool',
