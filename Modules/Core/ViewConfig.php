@@ -169,6 +169,14 @@ class ViewConfig extends ViewConfig_parent
         return $this->blGA4enabled;
     }
 
+    public function isGtmConsentModeSetActivated() :bool
+    {
+        return $this->sContainerId = ContainerFactory::getInstance()
+            ->getContainer()
+            ->get(ModuleSettingBridgeInterface::class)
+            ->get('d3_gtm_blActivateConsentMode', Constants::OXID_MODULE_ID);
+    }
+
     public function getGtmDataLayer()
     {
         if (!$this->getGtmContainerId()) return "[]";
