@@ -95,5 +95,10 @@ src="{Domain}?id={Container-ID}"
                                                         <strong>Beachte:</strong><br>
                                                         Sofern Sie die <a target="_blank" href="https://consentmanager.net" style="color: blue">consentmanager</a> CMP verwenden,
                                                         bitte ich Sie, gründlichst, die Hinweise der <a target="_blank" href="https://git.d3data.de/D3Public/GoogleAnalytics4/src/branch/master/Docs/CMP/consentmanager.md">Moduldokumentation/Consentmanager</a> zu lesen.
-                                                        '
+                                                        ',
+    'SHOP_MODULE_d3_gtm_blActivateConsentMode'            => "Google Consent Mode 'Default Values' aktivieren",
+    'HELP_SHOP_MODULE_d3_gtm_blActivateConsentMode'       => 'Diese Einstellung ist zu aktivieren, wenn Sie den Google-Consent-Mode ( Einwilligungsmodus ) verwenden wollen.
+                                                                    <hr>
+                                                                    "Im Einwilligungsmodus können Sie Google über den Cookie- oder App-ID-Einwilligungsstatus Ihrer Nutzer informieren. 
+                                                                    Mit Tags wird das Verhalten angepasst. Dabei werden die Einstellungen der Nutzer berücksichtigt." ~ <a href="https://support.google.com/google-ads/answer/10000067">Google Einwilligungsmodus</a>',
 ];
