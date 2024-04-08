@@ -9,8 +9,6 @@
 
             [{if $oViewConf->isGtmConsentModeSetActivated()}]
             <script type="text/javascript">
-                // create dataLayer
-                window.dataLayer = window.dataLayer || [];
                 function gtag() {
                     dataLayer.push(arguments);
                 }
