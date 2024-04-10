@@ -13,16 +13,14 @@
                     dataLayer.push(arguments);
                 }
 
-                // set „denied" as default for both ad and analytics storage, as well as ad_user_data and ad_personalization,
                 gtag("consent", "default", {
                     ad_user_data: "denied",
                     ad_personalization: "denied",
                     ad_storage: "denied",
                     analytics_storage: "denied",
-                    wait_for_update: 2000 // milliseconds to wait for update
+                    wait_for_update: 2000
                 });
 
-                // Enable ads data redaction by default [optional]
                 gtag("set", "ads_data_redaction", true);
             </script>
             [{/if}]
