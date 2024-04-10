@@ -20,8 +20,6 @@
                     analytics_storage: "denied",
                     wait_for_update: 2000
                 });
-
-                gtag("set", "ads_data_redaction", true);
             </script>
             [{/if}]
 
