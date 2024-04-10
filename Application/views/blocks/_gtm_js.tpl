@@ -3,12 +3,14 @@
   var dataLayer = [{$oViewConf->getGtmDataLayer()}] || [];
 </script>
 
+[{assign var="d3GtmContainerIdString" value=$oViewConf->getGtmContainerId()}]
+
 [{if $oViewConf->D3blShowGtmScript()}]
-    [{if $oViewConf->getGtmContainerId()}]
+    [{if $d3GtmContainerIdString}]
         [{strip}]
 
             [{if $oViewConf->isGtmConsentModeSetActivated()}]
-                <script type="text/javascript">
+                <script>
                     function gtag() {
                         dataLayer.push(arguments);
                     }
@@ -32,7 +34,7 @@
                 j.async = true;
                 j.src = '[{$oViewConf->getServerSidetaggingJsDomain()}]?id=' + i + dl;
                 f.parentNode.insertBefore(j, f);
-              })(window, document, 'script', 'dataLayer', '[{$oViewConf->getGtmContainerId()}]');
+              })(window, document, 'script', 'dataLayer', '[{$d3GtmContainerIdString}]');
             </script>
             <!-- End Google Tag Manager -->
         [{/strip}]
