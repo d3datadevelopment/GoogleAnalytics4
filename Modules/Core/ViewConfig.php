@@ -12,7 +12,6 @@
 
 namespace D3\GoogleAnalytics4\Modules\Core;
 
-use D3\GoogleAnalytics4\Application\Model\Constants;
 use D3\GoogleAnalytics4\Application\Model\ManagerHandler;
 use D3\GoogleAnalytics4\Application\Model\ManagerTypes;
 use OxidEsales\Eshop\Application\Controller\FrontendController;
@@ -145,7 +144,10 @@ class ViewConfig extends ViewConfig_parent
 
     private $blGA4enabled = null;
 
-    
+
+    /**
+     * @return null
+     */
     public function isGA4enabled()
     {
         if ($this->blGA4enabled === null)
@@ -156,14 +158,17 @@ class ViewConfig extends ViewConfig_parent
         return $this->blGA4enabled;
     }
 
+    /**
+     * @return bool
+     */
     public function isGtmConsentModeSetActivated() :bool
     {
-        return $this->sContainerId = ContainerFactory::getInstance()
-            ->getContainer()
-            ->get(ModuleSettingBridgeInterface::class)
-            ->get('d3_gtm_blActivateConsentMode', Constants::OXID_MODULE_ID);
+        return Registry::getConfig()->getConfigParam('d3_gtm_blActivateConsentMode');
     }
 
+    /**
+     * @return false|string
+     */
     public function getGtmDataLayer()
     {
         if (!$this->getGtmContainerId()) return "[]";
@@ -202,11 +207,18 @@ class ViewConfig extends ViewConfig_parent
         return json_encode([$dataLayer], JSON_PRETTY_PRINT);
     }
 
+    /**
+     * @return bool
+     */
     public function isDebugModeOn() :bool
     {
         return Registry::getConfig()->getConfigParam('d3_gtm_blEnableDebug');
     }
 
+    /**
+     * @param $listId
+     * @return void
+     */
     public function isPromotionList($listId)
     {
         $oConfig           = Registry::getConfig();
@@ -215,8 +227,6 @@ class ViewConfig extends ViewConfig_parent
 
     /**
      * @return string
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
      */
     public function getServerSidetaggingJsDomain() :string
     {
@@ -225,8 +235,6 @@ class ViewConfig extends ViewConfig_parent
 
     /**
      * @return string
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
      */
     public function getServerSidetaggingNoJsDomain() :string
     {
