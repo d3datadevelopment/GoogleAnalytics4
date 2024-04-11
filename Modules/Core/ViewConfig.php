@@ -211,10 +211,7 @@ class ViewConfig extends ViewConfig_parent
      */
     public function getServerSidetaggingJsDomain() :string
     {
-        return ContainerFactory::getInstance()
-            ->getContainer()
-            ->get(ModuleSettingBridgeInterface::class)
-            ->get('d3_gtm_settings_serversidetagging_js', 'd3googleanalytics4');
+        return Registry::getConfig()->getConfigParam('d3_gtm_settings_serversidetagging_js');
     }
 
     /**
@@ -224,9 +221,6 @@ class ViewConfig extends ViewConfig_parent
      */
     public function getServerSidetaggingNoJsDomain() :string
     {
-        return ContainerFactory::getInstance()
-            ->getContainer()
-            ->get(ModuleSettingBridgeInterface::class)
-            ->get('d3_gtm_settings_serversidetagging_nojs', 'd3googleanalytics4');
+        return Registry::getConfig()->getConfigParam('d3_gtm_settings_serversidetagging_nojs');
     }
 }
