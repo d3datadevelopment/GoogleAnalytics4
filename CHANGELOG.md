@@ -4,10 +4,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.17.2](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.17.1...2.17.2) - 2024-04-11
-### Fixed
-- error on missing necessary-component
-
 ## [2.17.1](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.17.0...2.17.1) - 2024-04-10
 ### Fixed
 - second call of getGtmContainerId() ( returned false )
@@ -17,7 +13,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Google-Analytics default values
 - default values switch ( admin module settings )
 - translations
-
 ## Changed
 - centralized metadata-id
 
@@ -162,6 +157,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/1.1...2.0) - 2023-01-20
 ### Added
 - using of ContainerFactory in ViewConfig
+
+## [1.17.0](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/1.16.0...1.17.0) - 2024-04-11
+### Added
+- multilang translations
+- GA4 consent-mode default values
+### Changed
+- metadataID centralized
+
+## [1.16.0](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/1.15.1...1.16.0) - 2024-04-11
+### Added
+- ( Google ) Server-Side tagging usability
 
 ## [1.15.0](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/1.14.0...1.15.0) - 2024-01-25
 ### Fixed
