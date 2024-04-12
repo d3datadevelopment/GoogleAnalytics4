@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace D3\GoogleAnalytics4\Modules\Application\Model;
 
-class Manufacturer extends Manufacturer_parent
+
+class Vendor extends \OxidEsales\Eshop\Application\Model\Vendor
 {
     use articleTreeStructure;
 }
