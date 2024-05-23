@@ -170,66 +170,66 @@ $aModule          = [
     ],
     'settings'    => [
         [
-            'group'    => 'd3_gtm_settings',
-            'name'     => 'd3_gtm_sContainerID',
-            'type'     => 'str',
-            'value'    => 'GTM-',
-            'position' => 0
+            'group'     => Constants::OXID_MODULE_ID.'_settings',
+            'name'      => Constants::OXID_MODULE_ID.'_sContainerID',
+            'type'      => 'str',
+            'value'     => 'GTM-',
+            'position'  => 0
         ],
         [
-            'group'    => 'd3_gtm_settings',
-            'name'     => 'd3_gtm_blGA4enab',
-            'type'     => 'bool',
-            'value'    => true,
-            'position' => 1
+            'group'     => Constants::OXID_MODULE_ID.'_settings',
+            'name'      => Constants::OXID_MODULE_ID.'_blGA4enab',
+            'type'      => 'bool',
+            'value'     => true,
+            'position'  => 1
         ],
         [
-            'group'    => 'd3_gtm_settings',
-            'name'     => 'd3_gtm_blEnableDebug',
-            'type'     => 'bool',
-            'value'    => false,
-            'position' => 999
+            'group'     => Constants::OXID_MODULE_ID.'_settings',
+            'name'      => Constants::OXID_MODULE_ID.'_blEnableDebug',
+            'type'      => 'bool',
+            'value'     => false,
+            'position'  => 999
         ],
         [
-            'group'    => 'd3_gtm_settings',
-            'name'     => 'd3_gtm_blActivateConsentMode',
-            'type'     => 'bool',
-            'value'    => false,
-            'position' => 999
+            'group'     => Constants::OXID_MODULE_ID.'_settings',
+            'name'      => Constants::OXID_MODULE_ID.'_blActivateConsentMode',
+            'type'      => 'bool',
+            'value'     => false,
+            'position'  => 999
         ],
         [
-            'group'    => 'd3_gtm_settings_cookiemanager',
-            'name'     => 'd3_gtm_settings_hasOwnCookieManager',
-            'type'     => 'bool',
-            'value'    => false,
-            'position' => 999
+            'group'     => Constants::OXID_MODULE_ID.'_cookiemanager',
+            'name'      => Constants::OXID_MODULE_ID.'_hasOwnCookieManager',
+            'type'      => 'bool',
+            'value'     => false,
+            'position'  => 999
         ],
         [
-            'group'    => 'd3_gtm_settings_cookiemanager',
-            'name'     => 'd3_gtm_settings_controlParameter',
-            'type'     => 'str',
-            'value'    => '',
-            'position' => 999
+            'group'     => Constants::OXID_MODULE_ID.'_cookiemanager',
+            'name'      => Constants::OXID_MODULE_ID.'_controlParameter',
+            'type'      => 'str',
+            'value'     => '',
+            'position'  => 999
         ],
         [
-            'group' => 'd3_gtm_settings_cookiemanager',
-            'name' => 'd3_gtm_settings_HAS_STD_MANAGER',
-            'type' => 'select',
-            'value' => 'none',
+            'group'     => Constants::OXID_MODULE_ID.'_cookiemanager',
+            'name'      => Constants::OXID_MODULE_ID.'_HAS_STD_MANAGER',
+            'type'      => 'select',
+            'value'     => 'none',
             'constraints' => 'NONE|CONSENTMANAGER|USERCENTRICS|COOKIEFIRST|COOKIEBOT',
         ],
         // OST929760 - Erweiterung für Serverside Tagging
         [
-            'group' => 'd3_gtm_settings_serversidetagging',
-            'name' => 'd3_gtm_settings_serversidetagging_js',
-            'type'     => 'str',
-            'value'    => 'https://www.googletagmanager.com/gtm.js',
+            'group'     => Constants::OXID_MODULE_ID.'_serversidetagging',
+            'name'      => Constants::OXID_MODULE_ID.'_serversidetagging_js',
+            'type'      => 'str',
+            'value'     => 'https://www.googletagmanager.com/gtm.js',
         ],
         [
-            'group' => 'd3_gtm_settings_serversidetagging',
-            'name' => 'd3_gtm_settings_serversidetagging_nojs',
-            'type'     => 'str',
-            'value'    => 'https://www.googletagmanager.com/ns.html',
+            'group'     => Constants::OXID_MODULE_ID.'_serversidetagging',
+            'name'      => Constants::OXID_MODULE_ID.'_serversidetagging_nojs',
+            'type'      => 'str',
+            'value'     => 'https://www.googletagmanager.com/ns.html',
         ],
     ]
 ];
