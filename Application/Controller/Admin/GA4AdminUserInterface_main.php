@@ -7,6 +7,7 @@ namespace D3\GoogleAnalytics4\Application\Controller\Admin;
 use D3\GoogleAnalytics4\Application\Model\Constants;
 use D3\GoogleAnalytics4\Application\Model\ManagerTypes;
 use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\ViewConfig;
 
 class GA4AdminUserInterface_main extends \OxidEsales\Eshop\Application\Controller\Admin\AdminDetailsController
 {
@@ -92,6 +93,6 @@ class GA4AdminUserInterface_main extends \OxidEsales\Eshop\Application\Controlle
      */
     public function d3GetModuleConfigParam(string $configParamName)
     {
-        return Registry::getConfig()->getShopConfVar(Constants::OXID_MODULE_ID.$configParamName, null, Constants::OXID_MODULE_ID);
+        return Registry::get(ViewConfig::class)->d3GetModuleConfigParam($configParamName);
     }
 }

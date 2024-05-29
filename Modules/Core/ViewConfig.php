@@ -34,10 +34,7 @@ class ViewConfig extends ViewConfig_parent
     {
         if ($this->sContainerId === null)
         {
-            $this->sContainerId = ContainerFactory::getInstance()
-                                                  ->getContainer()
-                                                  ->get(ModuleSettingBridgeInterface::class)
-                                                  ->get('d3_gtm_sContainerID', Constants::OXID_MODULE_ID);
+            $this->sContainerId = $this->d3GetModuleConfigParam("_sContainerID");
         }
         return $this->sContainerId;
     }
@@ -60,7 +57,7 @@ class ViewConfig extends ViewConfig_parent
      */
     public function shallUseOwnCookieManager() :bool
     {
-        return (bool) Registry::getConfig()->getConfigParam('d3_gtm_settings_hasOwnCookieManager');
+        return (bool) $this->d3GetModuleConfigParam('_blEnableOwnCookieManager');
     }
 
     /**
@@ -78,7 +75,7 @@ class ViewConfig extends ViewConfig_parent
 
         $this->defineCookieManagerType();
 
-        $sCookieID = trim($oConfig->getConfigParam('d3_gtm_settings_controlParameter'));
+        $sCookieID = trim($this->d3GetModuleConfigParam('_sControlParameter'));
 
         // Netensio Cookie Manager
         if ($this->sCookieManagerType === ManagerTypes::NET_COOKIE_MANAGER) {
@@ -120,7 +117,7 @@ class ViewConfig extends ViewConfig_parent
      */
     public function getGtmScriptAttributes() :string
     {
-        $sControlParameter = trim(Registry::getConfig()->getConfigParam('d3_gtm_settings_controlParameter'));
+        $sControlParameter = trim($this->d3GetModuleConfigParam('_sControlParameter'));
 
         if (false === $this->shallUseOwnCookieManager() or ($sControlParameter === '')){
             return "";
@@ -160,10 +157,7 @@ class ViewConfig extends ViewConfig_parent
     {
         if ($this->blGA4enabled === null)
         {
-            $this->sContainerId = ContainerFactory::getInstance()
-                                                  ->getContainer()
-                                                  ->get(ModuleSettingBridgeInterface::class)
-                                                  ->get('d3_gtm_blEnableGA4', Constants::OXID_MODULE_ID);
+            $this->sContainerId = $this->d3GetModuleConfigParam("d3_gtm_blEnableGA4");
         }
 
         return $this->blGA4enabled;
@@ -171,10 +165,7 @@ class ViewConfig extends ViewConfig_parent
 
     public function isGtmConsentModeSetActivated() :bool
     {
-        return $this->sContainerId = ContainerFactory::getInstance()
-            ->getContainer()
-            ->get(ModuleSettingBridgeInterface::class)
-            ->get('d3_gtm_blActivateConsentMode', Constants::OXID_MODULE_ID);
+        return $this->sContainerId = $this->d3GetModuleConfigParam("_blEnableConsentMode");
     }
 
     public function getGtmDataLayer()
@@ -216,7 +207,7 @@ class ViewConfig extends ViewConfig_parent
 
     public function isDebugModeOn() :bool
     {
-        return Registry::getConfig()->getConfigParam('d3_gtm_blEnableDebug');
+        return $this->d3GetModuleConfigParam("_blEnableDebug");
     }
 
     public function isPromotionList($listId)
@@ -232,10 +223,7 @@ class ViewConfig extends ViewConfig_parent
      */
     public function getServerSidetaggingJsDomain() :string
     {
-        return ContainerFactory::getInstance()
-            ->getContainer()
-            ->get(ModuleSettingBridgeInterface::class)
-            ->get('d3_gtm_settings_serversidetagging_js', Constants::OXID_MODULE_ID);
+        return $this->d3GetModuleConfigParam("_sServersidetagging_js");
     }
 
     /**
@@ -245,9 +233,15 @@ class ViewConfig extends ViewConfig_parent
      */
     public function getServerSidetaggingNoJsDomain() :string
     {
-        return ContainerFactory::getInstance()
-            ->getContainer()
-            ->get(ModuleSettingBridgeInterface::class)
-            ->get('d3_gtm_settings_serversidetagging_nojs', Constants::OXID_MODULE_ID);
+        return $this->d3GetModuleConfigParam('_sServersidetagging_nojs');
+    }
+
+    /**
+     * @param string $configParamName
+     * @return mixed
+     */
+    public function d3GetModuleConfigParam(string $configParamName)
+    {
+        return Registry::getConfig()->getShopConfVar(Constants::OXID_MODULE_ID.$configParamName, null, Constants::OXID_MODULE_ID);
     }
 }

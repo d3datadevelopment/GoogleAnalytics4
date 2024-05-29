@@ -34,7 +34,7 @@ class ManagerHandler
      */
     public function getModuleSettingExplicitManagerSelectValue() :string
     {
-        return Registry::getConfig()->getConfigParam('d3_gtm_settings_HAS_STD_MANAGER');
+        return Registry::get(ViewConfig::class)->d3GetModuleConfigParam('_HAS_STD_MANAGER');
     }
 
     /**
