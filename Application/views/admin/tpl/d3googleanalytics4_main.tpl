@@ -59,11 +59,11 @@
                     <div class="accordion" id="accordionPanelsStayOpenExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-cmpsettings" aria-expanded="true" aria-controls="panelsStayOpen-cmpsettings">
                                     [{oxmultilang ident="D3CMPTABTITLE"}]
                                 </button>
                             </h2>
-                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                            <div id="panelsStayOpen-cmpsettings" class="accordion-collapse collapse show">
                                 <div class="accordion-body">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="editval[bool][_blEnableOwnCookieManager]" value="" id="_hasOwnCookieManager" [{if $d3ViewObject->d3GetModuleConfigParam('_blEnableOwnCookieManager')}]checked[{/if}]>
@@ -89,11 +89,11 @@
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-serversidetagging" aria-expanded="false" aria-controls="panelsStayOpen-serversidetagging">
                                     [{oxmultilang ident="D3SERVERSIDETAGGING"}]
                                 </button>
                             </h2>
-                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                            <div id="panelsStayOpen-serversidetagging" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     <div class="card bg-light rounded mb-3">
                                         <div class="card-body">
