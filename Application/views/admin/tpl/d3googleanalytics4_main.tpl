@@ -32,7 +32,7 @@
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="checkbox" value="" name="editval[bool][_blEnableGa4]" [{if $d3ViewObject->d3GetModuleConfigParam('_blEnableGa4')}]checked[{/if}] id="blGA4enab">
                             <label class="form-check-label" for="flexCheckDefault">
-                                [{oxmultilang ident="D3ACTIVATEMOD"}]
+                                [{oxmultilang ident="D3ACTIVATEMOD"}] [{if false === $d3ViewObject->d3GetModuleConfigParam('_blEnableGa4')}]<span style="color: red">[{oxmultilang ident="D3INACTIVATEMOD"}]</span>[{/if}]
                             </label>
                         </div>
                         <div class="input-group mb-3 w-50">
@@ -185,54 +185,3 @@
         </div>
     </form>
 </div>
-
-<script>
-    // Active-Button and it's placed
-    let activeButton            = document.querySelector('input[name="_blEnableGa4"]');
-    let containerIdInput        = document.querySelector('input[name="_sContainerID"]');
-    let debugModeCheckbox       = document.querySelector('input[name="_blEnableDebug"]');
-    let GConsentModeCheckbox    = document.querySelector('input[name="_blEnableConsentMode"]');
-    let inputs = [containerIdInput, debugModeCheckbox, GConsentModeCheckbox];
-
-    let d3Disable = true;
-
-    if (activeButton.checked){
-        d3Disable = false;
-    }
-
-    // Initial setup
-    inputs.forEach(function(input) {
-        input.disabled = d3Disable;
-    });
-
-    activeButton.addEventListener('change', function() {
-        d3Disable = !activeButton.checked;
-        inputs.forEach(function(input) {
-            input.disabled = d3Disable;
-        });
-    });
-
-    // Cookie Manager-Button and it's placed
-    let usingCMP        = document.querySelector('input[name="_blEnableOwnCookieManager"]');
-    let controlParam    = document.querySelector('input[name="_sControlParameter"]');
-    let cmp             = document.querySelector('select[name="_HAS_STD_MANAGER"]');
-
-    let usingCmpInputs  = [controlParam, cmp];
-    d3Disable = true;
-
-    if (usingCMP.checked){
-        d3Disable = false;
-    }
-
-    // Initial setup
-    usingCmpInputs.forEach(function(input) {
-        input.disabled = d3Disable;
-    });
-
-    usingCMP.addEventListener('change', function() {
-        d3Disable = !usingCMP.checked;
-        usingCmpInputs.forEach(function(input) {
-            input.disabled = d3Disable;
-        });
-    });
-</script>

@@ -1,9 +1,10 @@
 [{* Always prepare the data layer to avoid errors *}]
-<script>
-  var dataLayer = [{$oViewConf->getGtmDataLayer()}] || [];
-</script>
-
-[{assign var="d3GtmContainerIdString" value=$oViewConf->getGtmContainerId()}]
+[{if $oViewConf->isGA4enabled()}]
+    [{assign var="d3GtmContainerIdString" value=$oViewConf->getGtmContainerId()}]
+    <script>
+      var dataLayer = [{$oViewConf->getGtmDataLayer()}] || [];
+    </script>
+[{/if}]
 
 [{if $oViewConf->isGA4enabled() and $oViewConf->D3blShowGtmScript()}]
     [{if $d3GtmContainerIdString}]
@@ -15,15 +16,15 @@
                         [{$oViewConf->d3GetModuleConfigParam('_sMeasurementCapabilities')|strip}]
                 [{else}]
                     function gtag() {
-                        dataLayer.push(arguments);
+                    dataLayer.push(arguments);
                     }
 
                     gtag("consent", "default", {
-                        ad_user_data: "denied",
-                        ad_personalization: "denied",
-                        ad_storage: "denied",
-                        analytics_storage: "denied",
-                        wait_for_update: 2000
+                    ad_user_data: "denied",
+                    ad_personalization: "denied",
+                    ad_storage: "denied",
+                    analytics_storage: "denied",
+                    wait_for_update: 2000
                     });
                 [{/if}]
                 </script>
