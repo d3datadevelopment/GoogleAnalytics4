@@ -12,6 +12,7 @@
 
 namespace D3\GoogleAnalytics4\Modules\Core;
 
+use D3\GoogleAnalytics4\Application\Model\CMP\Usercentrics;
 use D3\GoogleAnalytics4\Application\Model\Constants;
 use D3\GoogleAnalytics4\Application\Model\ManagerHandler;
 use D3\GoogleAnalytics4\Application\Model\ManagerTypes;
@@ -244,5 +245,14 @@ class ViewConfig extends ViewConfig_parent
     public function d3GetModuleConfigParam(string $configParamName)
     {
         return Registry::getConfig()->getShopConfVar(Constants::OXID_MODULE_ID.$configParamName, null, Constants::OXID_MODULE_ID);
+    }
+
+    /**
+     * @return bool
+     */
+    public function d3IsUsercentricsCMPChosen() :bool
+    {
+        return (bool) ($this->d3GetModuleConfigParam('_HAS_STD_MANAGER') === Usercentrics::sCMPName
+            or $this->d3GetModuleConfigParam('_HAS_STD_MANAGER') === Usercentrics::sAlternatename);
     }
 }

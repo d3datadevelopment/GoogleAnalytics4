@@ -7,6 +7,7 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 [{if $readonly}]
     [{assign var="readonly" value="readonly disabled"}]
@@ -135,6 +136,49 @@
                                 </div>
                             </div>
                         </div>
+                        [{if $d3ViewConfObject->d3IsUsercentricsCMPChosen()}]
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-usercentricsdynamicoptions" aria-expanded="false" aria-controls="panelsStayOpen-usercentricsdynamicoptions">
+                                    [{oxmultilang ident="D3USRCNTRCSDYNOPT"}]
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-usercentricsdynamicoptions" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <div class="card bg-light rounded mb-3">
+                                        <div class="card-body">
+                                            <div class="text-danger mb-3">
+                                                [{oxmultilang ident="D3USRCNTRCSCFG_WARNING"}]
+                                            </div>
+                                            [{oxmultilang ident="D3USRCNTRCSCFG_DOCS"}]
+                                        </div>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="enabledefaultmeasurementvalues" name="editval[bool][_blEnableMeasurementCapabilities]" [{if $d3ViewObject->d3GetModuleConfigParam('_blEnableMeasurementCapabilities')}]checked[{/if}]>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            [{oxmultilang ident="D3USRCNTRCSCFG_ACT_INDIVDEFVAL"}]
+                                        </label>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text w-25" id="basic-addon3">[{oxmultilang ident="D3USRCNTRCSCFG_STD_CNST"}]</span>
+                                        <textarea name="editval[str][_sMeasurementCapabilities]" class="form-control" rows="15">[{$d3ViewObject->d3GetModuleConfigParam('_sDefaultMeasurementCapabilities')}]</textarea>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="enableUsercentricsConsentModeApi" name="editval[bool][_blEnableUsercentricsConsentModeApi]" [{if $d3ViewObject->d3GetModuleConfigParam('_blEnableUsercentricsConsentModeApi')}]checked[{/if}]>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            [{oxmultilang ident="D3USRCNTRCSCFG_ACT_CNSTMDE_API"}]
+                                        </label>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text w-25" id="basic-addon3">[{oxmultilang ident="D3USRCNTRCSCFG_CNSTMDE_API"}]</span>
+                                        <textarea name="editval[str][_sUsercentricsConsentModeApi]" class="form-control" rows="40">[{$d3ViewObject->d3GetModuleConfigParam('_sDefaultUsercentricsConsentModeApi')}]</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        [{/if}]
                     </div>
                 </div>
             </div>

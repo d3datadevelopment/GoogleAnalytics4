@@ -10,7 +10,10 @@
         [{strip}]
 
             [{if $oViewConf->isGtmConsentModeSetActivated()}]
-                <script>
+                <script type="text/javascript">
+                [{if $oViewConf->d3IsUsercentricsCMPChosen() and $oViewConf->d3GetModuleConfigParam('_blEnableMeasurementCapabilities')}]
+                        [{$oViewConf->d3GetModuleConfigParam('_sMeasurementCapabilities')|strip}]
+                [{else}]
                     function gtag() {
                         dataLayer.push(arguments);
                     }
@@ -22,6 +25,13 @@
                         analytics_storage: "denied",
                         wait_for_update: 2000
                     });
+                [{/if}]
+                </script>
+            [{/if}]
+
+            [{if $oViewConf->d3IsUsercentricsCMPChosen() and $oViewConf->d3GetModuleConfigParam('_blEnableUsercentricsConsentModeApi')}]
+                <script type="text/javascript">
+                    [{$oViewConf->d3GetModuleConfigParam('_sUsercentricsConsentModeApi')|strip}]
                 </script>
             [{/if}]
 

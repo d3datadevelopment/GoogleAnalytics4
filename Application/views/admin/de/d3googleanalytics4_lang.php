@@ -16,6 +16,9 @@ $aLang = array(
     'D3CONTAINERID'             => 'Container-ID',
     'D3ACTIVATEMOD'             => 'Modul aktivieren',
     'D3CNTRLPARAM'              => 'Steuerungsparameter',
+    'D3INACTIVATEMOD'           => 'Modul ist nicht aktiv! Es werde keine Funktionen ausgespielt!',
+    // Usercentrics Dynamische Optionen
+    'D3USRCNTRCSDYNOPT'         => 'Usercentrics Dynamische Optionen',
 
     // Use debug mode?
     'D3USEDEBUGMODE'            => "Debug-Modus aktivieren",
@@ -27,6 +30,20 @@ $aLang = array(
     'D3CMPTABTITLE'             => 'Cookie Manager Einstellungen',
     'D3CMPUSEQ'                 => 'Cookie Manager nutzen?',
     'D3CMP'                     => 'Consent Management Platform ( CMP )',
+
+    // Usercentrics Config
+    // activate Individual Default Values
+    'D3USRCNTRCSCFG_ACT_INDIVDEFVAL'    => "usercentrics individual 'Default Values' aktiveren",
+    // standard Consent
+    'D3USRCNTRCSCFG_STD_CNST'           => "GTM Standard Consent",
+    // activate consent mode API
+    'D3USRCNTRCSCFG_ACT_CNSTMDE_API'    => "Usercentrics Consent Mode API aktivieren",
+    // consent mode api
+    'D3USRCNTRCSCFG_CNSTMDE_API'        => "Consent Mode API",
+    'D3USRCNTRCSCFG_DOCS'               => 'Nähere Infos zu den hier konfigurierbaren Einstellungen entnehmen Sie bitte der offiziellen
+                                            Dokumentation von Usercentrics selbst: <a href="https://docs.usercentrics.com/#/consent-mode" class="text-primary"><i class="bi bi-book-half"></i> Dokumentation</a>',
+    'D3USRCNTRCSCFG_WARNING'            => "Bevor Sie hier Anpassungen machen, konsultieren Sie bitte einen technischen Support!<br>
+                                            Anpassungen können zu Beeinträchtigungen und Ausfall von Funktionen im Frontend führen!",
 
     // Additional Config
     // Server-Side tagging
