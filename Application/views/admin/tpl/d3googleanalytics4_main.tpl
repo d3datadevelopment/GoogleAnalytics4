@@ -86,6 +86,7 @@
                                         [{/foreach}]
                                     </select>
                                 </div>
+                                <button type="submit" name="save" class="btn btn-light w-100" onClick="Javascript:document.d3gtmformedit.fnc.value='save'">[{oxmultilang ident="GENERAL_SAVE"}]</button>
                             </div>
                         </div>
                         <div class="accordion-item">
@@ -134,6 +135,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <button type="submit" name="save" class="btn btn-light w-100" onClick="Javascript:document.d3gtmformedit.fnc.value='save'">[{oxmultilang ident="GENERAL_SAVE"}]</button>
                             </div>
                         </div>
                         [{if $d3ViewConfObject->d3IsUsercentricsCMPChosen()}]
@@ -176,6 +178,7 @@
                                         <textarea name="editval[str][_sUsercentricsConsentModeApi]" class="form-control" rows="40">[{$d3ViewObject->d3GetModuleConfigParam('_sDefaultUsercentricsConsentModeApi')}]</textarea>
                                     </div>
                                 </div>
+                                <button type="submit" name="save" class="btn btn-light w-100" onClick="Javascript:document.d3gtmformedit.fnc.value='save'">[{oxmultilang ident="GENERAL_SAVE"}]</button>
                             </div>
                         </div>
                         [{/if}]
