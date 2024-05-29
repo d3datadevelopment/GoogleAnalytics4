@@ -28,7 +28,12 @@ class ViewConfig extends ViewConfig_parent
 
     // Google Tag Manager Container ID
     private $sContainerId = null;
-    private $sCookieManagerType = null;
+
+    // used CMP
+    private $sCookieManagerType = null;#
+
+    // isModule Activated properly?
+    private $blGA4enabled = null;
 
     public function getGtmContainerId()
     {
@@ -147,8 +152,6 @@ class ViewConfig extends ViewConfig_parent
         return "";
     }
 
-    private $blGA4enabled = null;
-
     /**
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
@@ -157,7 +160,7 @@ class ViewConfig extends ViewConfig_parent
     {
         if ($this->blGA4enabled === null)
         {
-            $this->sContainerId = $this->d3GetModuleConfigParam("d3_gtm_blEnableGA4");
+            $this->blGA4enabled = $this->d3GetModuleConfigParam("_blEnableGA4");
         }
 
         return $this->blGA4enabled;
@@ -165,7 +168,7 @@ class ViewConfig extends ViewConfig_parent
 
     public function isGtmConsentModeSetActivated() :bool
     {
-        return $this->sContainerId = $this->d3GetModuleConfigParam("_blEnableConsentMode");
+        return $this->d3GetModuleConfigParam("_blEnableConsentMode");
     }
 
     public function getGtmDataLayer()
