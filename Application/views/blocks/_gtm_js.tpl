@@ -5,7 +5,7 @@
 
 [{assign var="d3GtmContainerIdString" value=$oViewConf->getGtmContainerId()}]
 
-[{if $oViewConf->D3blShowGtmScript()}]
+[{if $oViewConf->isGA4enabled() and $oViewConf->D3blShowGtmScript()}]
     [{if $d3GtmContainerIdString}]
         [{strip}]
 

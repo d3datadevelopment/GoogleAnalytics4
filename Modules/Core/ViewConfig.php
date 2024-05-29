@@ -73,6 +73,10 @@ class ViewConfig extends ViewConfig_parent
         /** @var Config $oConfig */
         $oConfig = Registry::getConfig();
 
+        if (false === $this->isGA4enabled()){
+            return false;
+        }
+
         // No Cookie Manager in use
         if (!$this->shallUseOwnCookieManager()) {
             return true;
