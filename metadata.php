@@ -1,5 +1,6 @@
 <?php
 
+use D3\GoogleAnalytics4\Application\Controller\Admin\GA4AdminUserInterface_main as GA4AdminUserInterfaceMainController;
 use D3\GoogleAnalytics4\Application\Model\Constants as Constants;
 use D3\GoogleAnalytics4\Modules\Application\Component\d3GtmBasketComponentExtension;
 use D3\GoogleAnalytics4\Modules\Application\Component\Widget\d3GtmWidgetArticleDetails as d3GtmWidgetArticleDetails;
@@ -53,6 +54,9 @@ $aModule          = [
     'author'      => 'Data Development (Inh.: Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'https://www.oxidmodule.com/',
+    'controllers' => [
+        'd3googleanalytics4_main' => GA4AdminUserInterfaceMainController::class
+    ],
     'extend'      => [
         // Core
         OEViewConfig::class                     => ViewConfig::class,
@@ -93,6 +97,9 @@ $aModule          = [
         'page/account/d3gtmnoticelist.tpl'          => 'd3/googleanalytics4/Application/views/tpl/page/account/d3gtmnoticelist.tpl',
         'page/account/d3gtmrecommendationlist.tpl'  => 'd3/googleanalytics4/Application/views/tpl/page/account/d3gtmrecommendationlist.tpl',
         'page/account/d3gtmwishlist.tpl'            => 'd3/googleanalytics4/Application/views/tpl/page/account/d3gtmwishlist.tpl',
+
+        // Admin Templates
+        'ga4/admin/d3ga4uimain.tpl'                 => 'd3/googleanalytics4/Application/views/admin/tpl/d3googleanalytics4_main.tpl',
     ],
     'blocks'      => [
         // tag manager js
