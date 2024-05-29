@@ -42,13 +42,13 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="_blEnableDebug" name="editval[bool][_blEnableDebug]" [{if $d3ViewObject->d3GetModuleConfigParam('_blEnableDebug')}]checked[{/if}]>
                             <label class="form-check-label" for="flexCheckDefault">
-                                [{oxmultilang ident="D3USEDEBUGMODE"}]
+                                [{oxmultilang ident="D3USEDEBUGMODE"}][{oxinputhelp ident="D3USEDEBUGMODE_HELP"}]
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="_blActivateConsentMode" name="editval[bool][_blEnableConsentMode]" [{if $d3ViewObject->d3GetModuleConfigParam('_blEnableConsentMode')}]checked[{/if}]>
                             <label class="form-check-label" for="flexCheckChecked">
-                                [{oxmultilang ident="D3USEGOOGLECONSENTMODE"}]
+                                [{oxmultilang ident="D3USEGOOGLECONSENTMODE"}][{oxinputhelp ident="D3USEGOOGLECONSENTMODE_HELP"}]
                             </label>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="editval[bool][_blEnableOwnCookieManager]" value="" id="_hasOwnCookieManager" [{if $d3ViewObject->d3GetModuleConfigParam('_blEnableOwnCookieManager')}]checked[{/if}]>
                                         <label class="form-check-label" for="flexCheckChecked">
-                                            [{oxmultilang ident="D3CMPUSEQ"}]
+                                            [{oxmultilang ident="D3CMPUSEQ"}][{oxinputhelp ident="D3CMPUSEQ_HELP"}]
                                         </label>
                                     </div>
                                     <div class="input-group mb-3 w-75">

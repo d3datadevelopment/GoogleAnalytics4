@@ -22,13 +22,40 @@ $aLang = array(
 
     // Use debug mode?
     'D3USEDEBUGMODE'            => "Debug-Modus aktivieren",
+    'D3USEDEBUGMODE_HELP'       => "Der <strong>Debug Modus</strong> setzt an alle DataLayer ( also Daten Sammlungen im Frontend )
+                                    <strong>'debug_mode': 'true'</strong> und ermöglicht im Google Tag Manager selbst ein detaillierteres
+                                    Auswerten des einfließenden Datenstroms.",
 
     // Use Consentmode?
     'D3USEGOOGLECONSENTMODE'    => "Google Consent Mode 'Default Values' akivieren",
+    'D3USEGOOGLECONSENTMODE_HELP'   => "Der <trong>Consent Mode 'Default Values'</trong> setzt im Frontend, 
+                                        vor jedem Sammeln und Senden von Daten, einen Befehl der die Bearbeitung der Daten fortlaufend verändert.<br>
+                                        <br>
+                                        Diese Veränderte Berarbeitung heißt im Detail, dass der Google Tag Manager ( GTM ) 
+                                        bzw. in erster Instanz die Consent Management Platform ( CMP ) keine Daten zur Verarbeitung an Google sendet,
+                                        bis ein entsprechendes Zustimmungs-Signal vom Kunden explizit erteilt wurde.<br>
+                                        Die CMP ist sogar derartig restriktiv, dass diese den Datenstrom zum GTM ( Vorinstanz zu Google Analytics ) 
+                                        völlig verhindert, solange keine Zustimmung erteilt wurde.<br>
+                                        <br>
+                                        Ein einfaches anschalten dieser Funktion regelt noch <strong>nicht</strong> die völlige Funktionsweise
+                                        aller beteiligten Instanzen; diese bedarf eine detailiertere Konfiguration!<br>",
 
     // Use CMP?
     'D3CMPTABTITLE'             => 'Cookie Manager Einstellungen',
-    'D3CMPUSEQ'                 => 'Cookie Manager nutzen?',
+    'D3CMPUSEQ'                 => 'Consent Management Platform ( CMP ) nutzen?',
+    'D3CMPUSEQ_HELP'            => '"Eine Consent Management Platform ( CMP ) ist eine Software, mit der Website-Betreiber 
+                                    oder Anbieter von Web-Apps über ein Banner oder ein Pop-up eine datenschutzrechtliche 
+                                    Einwilligung der Besucher einholen und speichern, bevor Nutzerdaten über 
+                                    Website-Skripte erfasst werden (Tracking)." <a target="_blank" href="https://de.wikipedia.org/wiki/Consent_Management_Platform">Wikipedia Beschreibung</a><br>
+                                    <br>
+                                    Um Google Analytics 4 ( <a target="_blank" href="https://marketingplatform.google.com/intl/de/about/analytics/">Google Analytics</a> ) weiterhin nutzen zu können,
+                                    und dank fortschreitendem Datenschutz unserer personenbezogener Daten, ist das Nutzen eines konformen CMP
+                                    heute zwangläufig nötig.<br>
+                                    <br>
+                                    Diese konformen CMP sind in 
+                                    <a target="_blank" href="https://cmppartnerprogram.withgoogle.com/">offizieller Partnerschaft mit Google ( Liste der Partner )</a> 
+                                    und unterliegen strengen Vorschriften, um ein ordnungsgemäßes Senden und 
+                                    Verarbeiten der Zustimmung unterliegenden Daten sicher zu stellen.',
     'D3CMP'                     => 'Consent Management Platform ( CMP )',
 
     // Usercentrics Config
