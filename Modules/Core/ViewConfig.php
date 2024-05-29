@@ -210,12 +210,6 @@ class ViewConfig extends ViewConfig_parent
         return $this->d3GetModuleConfigParam("_blEnableDebug");
     }
 
-    public function isPromotionList($listId)
-    {
-        $oConfig           = Registry::getConfig();
-        $aPromotionListIds = $oConfig->getConfigParam("") ?? ['bargainItems', 'newItems', 'topBox', 'alsoBought', 'accessories', 'cross'];
-    }
-
     /**
      * @return string
      * @throws ContainerExceptionInterface

@@ -8,6 +8,8 @@ use OxidEsales\Eshop\Core\ViewConfig;
 class ManagerHandler
 {
     /**
+     * Gets current chosen Manager
+     *
      * @return string
      */
     public function getCurrManager() :string

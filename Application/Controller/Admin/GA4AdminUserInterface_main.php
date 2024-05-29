@@ -17,8 +17,6 @@ class GA4AdminUserInterface_main extends \OxidEsales\Eshop\Application\Controlle
     {
         $return = parent::render();
 
-        $oConf = Registry::getConfig();
-        $this->addTplParam('d3ConfigObject', $oConf);
         $this->addTplParam('d3ViewObject', $this);
         $this->addTplParam('d3ManagerTypeArray', oxNew(ManagerTypes::class)->getManagerList());
 
@@ -69,22 +67,6 @@ class GA4AdminUserInterface_main extends \OxidEsales\Eshop\Application\Controlle
                 }
             }
         }
-    }
-
-    /**
-     * @param array $postArray
-     * @param array $toExcludeArray
-     * @return array
-     */
-    public function clearOffPostParams(array $postArray, array $toExcludeArray) :array
-    {
-        foreach ($toExcludeArray as $excludeThis){
-            if (in_array($excludeThis, array_keys($postArray))){
-                unset($postArray[$excludeThis]);
-            }
-        }
-
-        return $postArray;
     }
 
     /**
