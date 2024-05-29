@@ -100,6 +100,7 @@ $aModule          = [
 
         // Admin Templates
         'ga4/admin/d3ga4uimain.tpl'                 => 'd3/googleanalytics4/Application/views/admin/tpl/d3googleanalytics4_main.tpl',
+        'ga4/admin/d3ga4uiheaditem.tpl'             => 'd3/googleanalytics4/Application/views/admin/tpl/d3googleanalytics4_headitem.tpl',
     ],
     'blocks'      => [
         // tag manager js
