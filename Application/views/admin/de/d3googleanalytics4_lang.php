@@ -8,6 +8,7 @@ $aLang = array(
 
     'd3mxgoogleanalytics4'      => 'Google Analytics 4',
     'd3mxgoogleanalytics4set'   => 'Einstellungen',
+    'd3mxd3modules'             => "<i class='fab fa-fw fa-d3 d3fa-color-blue'></i> Module",
 
     // Base Translations
     'D3BASECONFIG'              => 'Grundeinstellungen',
