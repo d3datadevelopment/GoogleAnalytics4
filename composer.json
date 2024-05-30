@@ -37,7 +37,6 @@
         "*.md",
         "composer.json",
         ".php-cs-fixer.php",
-        "*.xml",
         "*.neon"
       ],
       "target-directory": "d3/googleanalytics4"
