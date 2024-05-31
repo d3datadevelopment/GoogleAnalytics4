@@ -35,9 +35,12 @@
                                 [{oxmultilang ident="D3ACTIVATEMOD"}] [{if false === $d3ViewObject->d3GetModuleConfigParam('_blEnableGa4')}]<span style="color: red">[{oxmultilang ident="D3INACTIVATEMOD"}]</span>[{/if}]
                             </label>
                         </div>
-                        <div class="input-group mb-3 w-50">
-                            <span class="input-group-text" id="basic-addon3">[{oxmultilang ident="D3CONTAINERID"}]</span>
-                            <input type="text" class="form-control" id="_sContainerID" name="editval[str][_sContainerID]" aria-describedby="basic-addon3" value="[{$d3ViewObject->d3GetModuleConfigParam('_sContainerID')}]">
+                        <div class="mb-3">
+                            <div class="input-group w-50">
+                                <span class="input-group-text" id="basic-addon3">[{oxmultilang ident="D3CONTAINERID"}]</span>
+                                <input type="text" class="form-control" id="_sContainerID" name="editval[str][_sContainerID]" aria-describedby="basic-addon3" value="[{$d3ViewObject->d3GetModuleConfigParam('_sContainerID')}]">
+                            </div>
+                            <div class="text-muted">[{oxmultilang ident="D3CONTAINERID_HELP"}]</div>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="_blEnableDebug" name="editval[bool][_blEnableDebug]" [{if $d3ViewObject->d3GetModuleConfigParam('_blEnableDebug')}]checked[{/if}]>
@@ -72,19 +75,24 @@
                                             [{oxmultilang ident="D3CMPUSEQ"}][{oxinputhelp ident="D3CMPUSEQ_HELP"}]
                                         </label>
                                     </div>
-                                    <div class="input-group mb-3 w-75">
-                                        <span class="input-group-text" id="basic-addon3">[{oxmultilang ident="D3CNTRLPARAM"}]</span>
-                                        <input type="text" class="form-control" id="_controlParameter" name="editval[str][_sControlParameter]" value="[{$d3ViewObject->d3GetModuleConfigParam('_sControlParameter')}]" aria-describedby="basic-addon3">
+                                    <div class="mb-3">
+                                        <label>
+                                            [{oxmultilang ident="D3CMP"}]
+                                        </label>
+                                        <select class="form-select w-50" name="editval[select][_HAS_STD_MANAGER]" aria-label="Default select example">
+                                            <option value="NONE" selected>[{oxmultilang ident="D3NONE"}]</option>
+                                            [{foreach from=$d3ManagerTypeArray key="sManagerName" item="sCmpName" name="editval[aCmpNameArray]"}]
+                                            <option value="[{$sCmpName}]" [{if $sCmpName === $d3ViewObject->d3GetModuleConfigParam('_HAS_STD_MANAGER')}]SELECTED[{/if}]>[{$sManagerName}]</option>
+                                            [{/foreach}]
+                                        </select>
                                     </div>
-                                    <label>
-                                        [{oxmultilang ident="D3CMP"}]
-                                    </label>
-                                    <select class="form-select w-50" name="editval[select][_HAS_STD_MANAGER]" aria-label="Default select example">
-                                        <option value="NONE" selected>[{oxmultilang ident="D3NONE"}]</option>
-                                        [{foreach from=$d3ManagerTypeArray key="sManagerName" item="sCmpName" name="editval[aCmpNameArray]"}]
-                                        <option value="[{$sCmpName}]" [{if $sCmpName === $d3ViewObject->d3GetModuleConfigParam('_HAS_STD_MANAGER')}]SELECTED[{/if}]>[{$sManagerName}]</option>
-                                        [{/foreach}]
-                                    </select>
+                                    <div>
+                                        <div class="input-group w-75">
+                                            <span class="input-group-text" id="basic-addon3">[{oxmultilang ident="D3CNTRLPARAM"}]</span>
+                                            <input type="text" class="form-control" id="_controlParameter" name="editval[str][_sControlParameter]" value="[{$d3ViewObject->d3GetModuleConfigParam('_sControlParameter')}]" aria-describedby="basic-addon3">
+                                        </div>
+                                        <div class="text-muted">[{oxmultilang ident="D3CNTRLPARAM_HELP"}]</div>
+                                    </div>
                                 </div>
                                 <button type="submit" name="save" class="btn btn-light w-100" onClick="Javascript:document.d3gtmformedit.fnc.value='save'">[{oxmultilang ident="GENERAL_SAVE"}]</button>
                             </div>
