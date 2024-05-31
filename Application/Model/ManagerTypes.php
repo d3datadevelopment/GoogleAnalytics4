@@ -6,11 +6,8 @@ use D3\GoogleAnalytics4\Application\Model\CMP\Usercentrics;
 
 class ManagerTypes
 {
-    #ToDo: make own classes for each of the manager
-
-
-    const EXTERNAL_SERVICE          = "externalService";
-    const NET_COOKIE_MANAGER        = "net_cookie_manager";
+    const EXTERNAL_SERVICE          = "eigener Service";
+    const NET_COOKIE_MANAGER        = "Netensio Cookie Manager";
 
     /**
      * Further information's:
@@ -20,11 +17,9 @@ class ManagerTypes
 
     const CONSENTMANAGER            = "Consentmanager";
 
-    const CONSENTMANAGER            = "CONSENTMANAGER";
+    const COOKIEFIRST               = "Cookiefirst";
 
-    const COOKIEFIRST               = "COOKIEFIRST";
-
-    const COOKIEBOT               = "COOKIEBOT";
+    const COOKIEBOT                 = "Cookiebot";
 
     /**
      * @return array
@@ -49,6 +44,6 @@ class ManagerTypes
      */
     public function isManagerInList(string $sManager) :bool
     {
-        return in_array($sManager, $this->getManagerList(), true);
+        return in_array($sManager, array_keys($this->getManagerList()), true);
     }
 }

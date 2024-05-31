@@ -79,7 +79,7 @@ class ViewConfig extends ViewConfig_parent
         }
 
         // No Cookie Manager in use
-        if (!$this->shallUseOwnCookieManager()) {
+        if (false === $this->shallUseOwnCookieManager()) {
             return true;
         }
 
