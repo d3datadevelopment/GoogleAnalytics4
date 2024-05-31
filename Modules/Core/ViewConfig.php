@@ -104,8 +104,8 @@ class ViewConfig extends ViewConfig_parent
 
         // UserCentrics or consentmanager
         if (
-            $this->sCookieManagerType       === ManagerTypes::USERCENTRICS_MODULE
-            or $this->sCookieManagerType    === ManagerTypes::USERCENTRICS_MANUALLY
+            $this->sCookieManagerType       === Usercentrics::sModuleIncludationInternalName
+            or $this->sCookieManagerType    === Usercentrics::sExternalIncludationInternalName
             or $this->sCookieManagerType    === ManagerTypes::CONSENTMANAGER
             or $this->sCookieManagerType    === ManagerTypes::COOKIEFIRST
             or $this->sCookieManagerType    === ManagerTypes::COOKIEBOT
@@ -134,8 +134,8 @@ class ViewConfig extends ViewConfig_parent
         }
 
         if (
-            $this->sCookieManagerType === ManagerTypes::USERCENTRICS_MODULE
-            or $this->sCookieManagerType === ManagerTypes::USERCENTRICS_MANUALLY
+            $this->sCookieManagerType === Usercentrics::sModuleIncludationInternalName
+            or $this->sCookieManagerType === Usercentrics::sExternalIncludationInternalName
         )
         {
             return 'data-usercentrics="' . $sControlParameter . '" type="text/plain" async=""';
@@ -252,7 +252,10 @@ class ViewConfig extends ViewConfig_parent
      */
     public function d3IsUsercentricsCMPChosen() :bool
     {
-        return (bool) ($this->d3GetModuleConfigParam('_HAS_STD_MANAGER') === Usercentrics::sCMPName
-            or $this->d3GetModuleConfigParam('_HAS_STD_MANAGER') === Usercentrics::sAlternatename);
+        $sCMPPubName    = $this->d3GetModuleConfigParam('_HAS_STD_MANAGER');
+        $aPossibleCMP   = (oxNew(ManagerTypes::class))->getManagerList();
+
+        return (bool) ($sCMPPubName === Usercentrics::sExternalIncludationInternalName
+            or $sCMPPubName === Usercentrics::sModuleIncludationInternalName);
     }
 }

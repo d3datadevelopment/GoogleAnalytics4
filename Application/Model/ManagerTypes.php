@@ -2,6 +2,8 @@
 
 namespace D3\GoogleAnalytics4\Application\Model;
 
+use D3\GoogleAnalytics4\Application\Model\CMP\Usercentrics;
+
 class ManagerTypes
 {
     #ToDo: make own classes for each of the manager
@@ -14,23 +16,9 @@ class ManagerTypes
      * Further information's:
      * https://github.com/aggrosoft/oxid-cookie-compliance
      */
-    const AGCOOKIECOMPLIANCE        = "agcookiecompliance";
+    const AGCOOKIECOMPLIANCE        = "Aggrosoft Cookie Compliance";
 
-    /**
-     * Used the OXID Module.
-     *
-     * Further information's:
-     * https://docs.oxid-esales.com/modules/usercentrics/de/latest/einfuehrung.html
-     *
-     * Usercentrics homepage:
-     * https://usercentrics.com
-     */
-    const USERCENTRICS_MODULE       = "oxps_usercentrics";
-
-    /**
-     * manually included usercentrics script
-     */
-    const USERCENTRICS_MANUALLY     = "USERCENTRICS";
+    const CONSENTMANAGER            = "Consentmanager";
 
     const CONSENTMANAGER            = "CONSENTMANAGER";
 
@@ -47,9 +35,9 @@ class ManagerTypes
             "externalService"       => self::EXTERNAL_SERVICE,
             "agcookiecompliance"    => self::AGCOOKIECOMPLIANCE,
             "net_cookie_manager"    => self::NET_COOKIE_MANAGER,
-            "oxps_usercentrics"     => self::USERCENTRICS_MODULE,
-            "usercentrics"          => self::USERCENTRICS_MANUALLY,
-            "consentmanager"        => self::CONSENTMANAGER,
+            Usercentrics::sModuleIncludationInternalName    => Usercentrics::sModuleIncludationPublicName,
+            Usercentrics::sExternalIncludationInternalName  => Usercentrics::sExternalIncludationPublicName,
+            "cmconsentmanager"      => self::CONSENTMANAGER,
             "cookiefirst"           => self::COOKIEFIRST,
             "cookiebot"             => self::COOKIEBOT,
         ];
