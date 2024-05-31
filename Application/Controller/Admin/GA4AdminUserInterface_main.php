@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace D3\GoogleAnalytics4\Application\Controller\Admin;
 
 use D3\GoogleAnalytics4\Application\Model\Constants;
+use D3\GoogleAnalytics4\Application\Model\ManagerHandler;
 use D3\GoogleAnalytics4\Application\Model\ManagerTypes;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\ViewConfig;
@@ -20,6 +21,7 @@ class GA4AdminUserInterface_main extends \OxidEsales\Eshop\Application\Controlle
         $this->addTplParam('d3ViewObject', $this);
         $this->addTplParam('d3ViewConfObject', Registry::get(ViewConfig::class));
         $this->addTplParam('d3ManagerTypeArray', oxNew(ManagerTypes::class)->getManagerList());
+        $this->addTplParam('d3CurrentCMP', oxNew(ManagerHandler::class)->getCurrManager());
 
         return $return;
     }

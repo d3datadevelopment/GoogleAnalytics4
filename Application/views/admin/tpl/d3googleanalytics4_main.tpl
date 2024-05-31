@@ -81,8 +81,8 @@
                                         </label>
                                         <select class="form-select w-50" name="editval[select][_HAS_STD_MANAGER]" aria-label="Default select example">
                                             <option value="NONE" selected>[{oxmultilang ident="D3NONE"}]</option>
-                                            [{foreach from=$d3ManagerTypeArray key="sManagerName" item="sCmpName" name="editval[aCmpNameArray]"}]
-                                            <option value="[{$sCmpName}]" [{if $sCmpName === $d3ViewObject->d3GetModuleConfigParam('_HAS_STD_MANAGER')}]SELECTED[{/if}]>[{$sManagerName}]</option>
+                                            [{foreach from=$d3ManagerTypeArray key="sInternalName" item="sPublicName" name="editval[aCmpNameArray]"}]
+                                            <option value="[{$sInternalName}]" [{if $sInternalName === $d3CurrentCMP}]SELECTED[{/if}]>[{$sPublicName}]</option>
                                             [{/foreach}]
                                         </select>
                                     </div>
