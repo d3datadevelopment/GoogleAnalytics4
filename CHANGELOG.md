@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - additional help texts, translations, explanations
 - extended docs
 - auto safe on first approach ga4 + cmp-mod
+- onActivate/ onDeactivate
 ## Changed
 - declare module settings consistency
 - configParamGetter
