@@ -175,5 +175,9 @@ $aModule          = [
             'file'     => '/Application/views/blocks/remove_from_cart.tpl',
             'position' => 150
         ]
-    ]
+    ],
+    'events'      => [
+        'onActivate'    => '\D3\GoogleAnalytics4\Setup\Events::onActivate',
+        'onDeactivate'  => '\D3\GoogleAnalytics4\Setup\Events::onDeactivate',
+    ],
 ];
