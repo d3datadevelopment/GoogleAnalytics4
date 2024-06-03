@@ -29,6 +29,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - clear code and adjust Naming
 ## Fixed
 - false class-property declaration
+## Removed
+- deprecated and obsolete module-settings
+- false composer xml-excludation
 
 ## [2.17.2](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.17.1...2.17.2) - 2024-04-11
 ### Fixed
