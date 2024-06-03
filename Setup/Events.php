@@ -20,7 +20,7 @@ class Events
         );
         $oActions->d3SaveDefaultSettings(
             'str',
-            '_sServersidetagging_js',
+            '_sServersidetagging_nojs',
             'https://www.googletagmanager.com/ns.html'
         );
         $oActions->d3SaveDefaultSettings(
