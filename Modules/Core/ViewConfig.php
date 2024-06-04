@@ -173,7 +173,7 @@ class ViewConfig extends ViewConfig_parent
 
     public function isGtmConsentModeSetActivated() :bool
     {
-        return $this->d3GetModuleConfigParam("_blEnableConsentMode");
+        return $this->d3GetModuleConfigParam("_blEnableConsentMode")?: false;
     }
 
     public function getGtmDataLayer()
@@ -215,7 +215,7 @@ class ViewConfig extends ViewConfig_parent
 
     public function isDebugModeOn() :bool
     {
-        return $this->d3GetModuleConfigParam("_blEnableDebug");
+        return $this->d3GetModuleConfigParam("_blEnableDebug")?: false;
     }
 
     /**
@@ -225,7 +225,7 @@ class ViewConfig extends ViewConfig_parent
      */
     public function getServerSidetaggingJsDomain() :string
     {
-        return $this->d3GetModuleConfigParam("_sServersidetagging_js");
+        return $this->d3GetModuleConfigParam("_sServersidetagging_js")?: "";
     }
 
     /**
@@ -235,7 +235,7 @@ class ViewConfig extends ViewConfig_parent
      */
     public function getServerSidetaggingNoJsDomain() :string
     {
-        return $this->d3GetModuleConfigParam('_sServersidetagging_nojs');
+        return $this->d3GetModuleConfigParam('_sServersidetagging_nojs')?: "";
     }
 
     /**

@@ -32,6 +32,8 @@ class ManagerHandler
                return $shopModuleId;
            }
         }
+
+        return "";
     }
 
     /**
@@ -53,7 +55,7 @@ class ManagerHandler
      */
     public function getModuleSettingExplicitManagerSelectValue() :string
     {
-        return Registry::get(ViewConfig::class)->d3GetModuleConfigParam('_HAS_STD_MANAGER');
+        return Registry::get(ViewConfig::class)->d3GetModuleConfigParam('_HAS_STD_MANAGER')?:"";
     }
 
     /**
