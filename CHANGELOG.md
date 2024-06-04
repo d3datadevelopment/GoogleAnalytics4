@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.17.2...rel_2.x) - 2024-x
 
+## [2.18.1](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.18.0...2.18.1) - 2024-06-04
+### Fixed
+- missing return statement, on null/ none
+
 ## [2.18.0](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.17.2...2.18.0) - 2024-06-03
 ### Added
 - trait for generalized method
