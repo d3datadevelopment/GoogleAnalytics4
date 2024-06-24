@@ -7,6 +7,7 @@ namespace D3\GoogleAnalytics4\Setup;
 
 use D3\GoogleAnalytics4\Application\Model\Constants;
 use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\ViewConfig;
 
 class Actions
 {
@@ -19,12 +20,23 @@ class Actions
     public function d3SaveDefaultSettings(string $sVarType, string $sSettingName, string $sSettingValue){
         $oConfig = Registry::getConfig();
 
-        $oConfig->saveShopConfVar(
-            $sVarType,
-            Constants::OXID_MODULE_ID.$sSettingName,
-            $sSettingValue,
-            $oConfig->getShopId(),
-            Constants::OXID_MODULE_ID
-        );
+        if (false === ($this->d3GetModuleConfigParam($sSettingName) === $sSettingValue)){
+            $oConfig->saveShopConfVar(
+                $sVarType,
+                Constants::OXID_MODULE_ID.$sSettingName,
+                $sSettingValue,
+                $oConfig->getShopId(),
+                Constants::OXID_MODULE_ID
+            );
+        }
+    }
+
+    /**
+     * @param string $configParamName
+     * @return mixed
+     */
+    public function d3GetModuleConfigParam(string $configParamName)
+    {
+        return Registry::get(ViewConfig::class)->d3GetModuleConfigParam($configParamName);
     }
 }
