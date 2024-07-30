@@ -20,7 +20,7 @@ class Actions
     public function d3SaveDefaultSettings(string $sVarType, string $sSettingName, string $sSettingValue){
         $oConfig = Registry::getConfig();
 
-        if (trim($this->d3GetModuleConfigParam($sSettingName)) !== trim($sSettingValue)){
+        if ($this->d3GetModuleConfigParam($sSettingName) and (trim($this->d3GetModuleConfigParam($sSettingName)) !== trim($sSettingValue))){
             $sSettingValue = trim($this->d3GetModuleConfigParam($sSettingName));
         }
 
@@ -39,6 +39,6 @@ class Actions
      */
     public function d3GetModuleConfigParam(string $configParamName)
     {
-        return Registry::get(ViewConfig::class)->d3GetModuleConfigParam($configParamName);
+        return Registry::getConfig()->getShopConfVar(Constants::OXID_MODULE_ID.$configParamName, null, Constants::OXID_MODULE_ID);
     }
 }
