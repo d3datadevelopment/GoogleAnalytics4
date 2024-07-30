@@ -18,7 +18,7 @@ $aLang = array(
     'D3ACTIVATEMOD'             => 'Modul aktivieren',
     'D3CNTRLPARAM'              => 'Steuerungsparameter',
     'D3CNTRLPARAM_HELP'         => '<a target="_blank" href="https://github.com/d3datadevelopment/GoogleAnalytics4/blob/master/Docs/README.md#steuerungsparameter" class="text-muted text-decoration-none"><i class="bi bi-book-half"></i> Was ist der <strong>Steuerungsparameter</strong>?</a>',
-    'D3INACTIVATEMOD'           => 'Modul ist nicht aktiv! Es werde keine Funktionen ausgespielt!',
+    'D3INACTIVATEMOD'           => 'Modul ist nicht aktiv! Es werden keine Funktionen ausgespielt!',
     // Usercentrics Dynamische Optionen
     'D3USRCNTRCSDYNOPT'         => 'Usercentrics Dynamische Optionen',
 
