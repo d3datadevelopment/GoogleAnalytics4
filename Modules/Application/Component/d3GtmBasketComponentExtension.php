@@ -57,6 +57,26 @@ class d3GtmBasketComponentExtension extends d3GtmBasketComponentExtension_parent
         return (bool) $decision;
     }
 
+    public function getRemoveFromBasketDecision() :bool
+    {
+        $decision = Registry::getSession()->getVariable('d3GtmRemoveFromBasketTrigger');
+
+        Registry::getSession()->setVariable('d3GtmRemoveFromBasketTrigger', false);
+
+        return (bool) $decision;
+    }
+
+    protected function _getItems($sProductId = null, $dAmount = null, $aSel = null, $aPersParam = null, $blOverride = false)
+    {
+        $aProducts = parent::_getItems($sProductId, $dAmount, $aSel, $aPersParam, $blOverride);
+
+        if (is_array($aProducts) && count($aProducts)) {
+            Registry::getSession()->setVariable('d3GtmRemoveFromBasketTrigger', true);
+        }
+
+        return $return;
+    }
+
     /**
      * @return Article|null
      */
