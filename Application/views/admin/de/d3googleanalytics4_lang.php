@@ -18,7 +18,7 @@ $aLang = array(
     'D3ACTIVATEMOD'             => 'Modul aktivieren',
     'D3CNTRLPARAM'              => 'Steuerungsparameter',
     'D3CNTRLPARAM_HELP'         => '<a target="_blank" href="https://github.com/d3datadevelopment/GoogleAnalytics4/blob/master/Docs/README.md#steuerungsparameter" class="text-muted text-decoration-none"><i class="bi bi-book-half"></i> Was ist der <strong>Steuerungsparameter</strong>?</a>',
-    'D3INACTIVATEMOD'           => 'Modul ist nicht aktiv! Es werde keine Funktionen ausgespielt!',
+    'D3INACTIVATEMOD'           => 'Modul ist nicht aktiv! Es werden keine Funktionen ausgespielt!',
     // Usercentrics Dynamische Optionen
     'D3USRCNTRCSDYNOPT'         => 'Usercentrics Dynamische Optionen',
 
@@ -40,7 +40,7 @@ $aLang = array(
                                         völlig verhindert, solange keine Zustimmung erteilt wurde.<br>
                                         <br>
                                         Ein einfaches anschalten dieser Funktion regelt noch <strong>nicht</strong> die völlige Funktionsweise
-                                        aller beteiligten Instanzen; diese bedarf eine detailiertere Konfiguration!<br>",
+                                        aller beteiligten Instanzen; diese bedarf eine detailliertere Konfiguration!<br>",
 
     // Use CMP?
     'D3CMPTABTITLE'             => 'Cookie Manager Einstellungen',
@@ -57,12 +57,12 @@ $aLang = array(
                                     Diese konformen CMP sind in 
                                     <a target="_blank" href="https://cmppartnerprogram.withgoogle.com/">offizieller Partnerschaft mit Google ( Liste der Partner )</a> 
                                     und unterliegen strengen Vorschriften, um ein ordnungsgemäßes Senden und 
-                                    Verarbeiten der Zustimmung unterliegenden Daten sicher zu stellen.',
+                                    Verarbeiten der Zustimmung unterliegenden Daten sicher stellen zu können.',
     'D3CMP'                     => 'Consent Management Platform ( CMP ) wählen',
 
     // Usercentrics Config
     // activate Individual Default Values
-    'D3USRCNTRCSCFG_ACT_INDIVDEFVAL'    => "usercentrics individual 'Default Values' aktiveren",
+    'D3USRCNTRCSCFG_ACT_INDIVDEFVAL'    => "Usercentrics individual 'Default Values' aktiveren",
     // standard Consent
     'D3USRCNTRCSCFG_STD_CNST'           => "GTM Standard Consent",
     // activate consent mode API
@@ -70,7 +70,7 @@ $aLang = array(
     // consent mode api
     'D3USRCNTRCSCFG_CNSTMDE_API'        => "Consent Mode API",
     'D3USRCNTRCSCFG_DOCS'               => 'Nähere Infos zu den hier konfigurierbaren Einstellungen entnehmen Sie bitte der offiziellen
-                                            Dokumentation von Usercentrics selbst: <a href="https://docs.usercentrics.com/#/consent-mode" class="text-primary"><i class="bi bi-book-half"></i> Dokumentation</a>',
+                                            Dokumentation von Usercentrics selbst: <a target="_blank" href="https://docs.usercentrics.com/#/consent-mode" class="text-primary"><i class="bi bi-book-half"></i> Dokumentation</a>',
     'D3USRCNTRCSCFG_WARNING'            => "Bevor Sie hier Anpassungen machen, konsultieren Sie bitte einen technischen Support!<br>
                                             Anpassungen können zu Beeinträchtigungen und Ausfall von Funktionen im Frontend führen!",
 
