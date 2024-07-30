@@ -15,8 +15,10 @@ $aLang = array(
     'D3CLOSE'                   => 'Schließen',
     'D3NONE'                    => '- keinen -',
     'D3CONTAINERID'             => 'Container-ID',
+    'D3CONTAINERID_HELP'        => '<a target="_blank" href="https://github.com/d3datadevelopment/GoogleAnalytics4/blob/master/Docs/README.md#Container-ID" class="text-muted text-decoration-none"><i class="bi bi-book-half"></i> Was ist die <strong>Container-ID</strong>?</a>',
     'D3ACTIVATEMOD'             => 'Modul aktivieren',
     'D3CNTRLPARAM'              => 'Steuerungsparameter',
+    'D3CNTRLPARAM_HELP'         => '<a target="_blank" href="https://github.com/d3datadevelopment/GoogleAnalytics4/blob/master/Docs/README.md#steuerungsparameter" class="text-muted text-decoration-none"><i class="bi bi-book-half"></i> Was ist der <strong>Steuerungsparameter</strong>?</a>',
     'D3INACTIVATEMOD'           => 'Modul ist nicht aktiv! Es werde keine Funktionen ausgespielt!',
     // Usercentrics Dynamische Optionen
     'D3USRCNTRCSDYNOPT'         => 'Usercentrics Dynamische Optionen',
@@ -57,7 +59,7 @@ $aLang = array(
                                     <a target="_blank" href="https://cmppartnerprogram.withgoogle.com/">offizieller Partnerschaft mit Google ( Liste der Partner )</a> 
                                     und unterliegen strengen Vorschriften, um ein ordnungsgemäßes Senden und 
                                     Verarbeiten der Zustimmung unterliegenden Daten sicher zu stellen.',
-    'D3CMP'                     => 'Consent Management Platform ( CMP )',
+    'D3CMP'                     => 'Consent Management Platform ( CMP ) wählen',
 
     // Usercentrics Config
     // activate Individual Default Values

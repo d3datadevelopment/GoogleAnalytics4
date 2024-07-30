@@ -5,6 +5,13 @@ Die Einbindung dieser Event-Templates erfolgt über TPL-Blöcke unter `source/mo
 *Hinweis: nicht alle templates sind bereits gefüllt. Wünschen Sie die Implementierung eines unausgefüllten templates?
 Kommen Sie auf uns zu unter https://www.d3data.de/
 
+## Container-ID
+Diese finden Sie im "Google-Tag-Manager"-Arbeitsbereich in der Navigationsleiste.
+Sie beginnt mit GTM, gefolgt von einem Bindestrich und einer Zeichenkette. 
+
+Diese ID wird benötigt, um Google anzuweise, zu welchem "Google Tag Manager"-Arbeitsbereich die
+gesammelten Daten im Daten-Stream geleitet werden sollen.
+
 ## Steuerungsparameter
 Tragen Sie hier im Normalfall die ID des zu prüfenden Cookies ein.  
 In bestimmten Fällen, müssen Sie hier alternative Werte eintragen. Diese Fälle sind bedingt

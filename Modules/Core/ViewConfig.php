@@ -79,7 +79,7 @@ class ViewConfig extends ViewConfig_parent
         }
 
         // No Cookie Manager in use
-        if (!$this->shallUseOwnCookieManager()) {
+        if (false === $this->shallUseOwnCookieManager()) {
             return true;
         }
 
@@ -104,8 +104,8 @@ class ViewConfig extends ViewConfig_parent
 
         // UserCentrics or consentmanager
         if (
-            $this->sCookieManagerType       === ManagerTypes::USERCENTRICS_MODULE
-            or $this->sCookieManagerType    === ManagerTypes::USERCENTRICS_MANUALLY
+            $this->sCookieManagerType       === Usercentrics::sModuleIncludationInternalName
+            or $this->sCookieManagerType    === Usercentrics::sExternalIncludationInternalName
             or $this->sCookieManagerType    === ManagerTypes::CONSENTMANAGER
             or $this->sCookieManagerType    === ManagerTypes::COOKIEFIRST
             or $this->sCookieManagerType    === ManagerTypes::COOKIEBOT
@@ -134,8 +134,8 @@ class ViewConfig extends ViewConfig_parent
         }
 
         if (
-            $this->sCookieManagerType === ManagerTypes::USERCENTRICS_MODULE
-            or $this->sCookieManagerType === ManagerTypes::USERCENTRICS_MANUALLY
+            $this->sCookieManagerType === Usercentrics::sModuleIncludationInternalName
+            or $this->sCookieManagerType === Usercentrics::sExternalIncludationInternalName
         )
         {
             return 'data-usercentrics="' . $sControlParameter . '" type="text/plain" async=""';
@@ -173,7 +173,7 @@ class ViewConfig extends ViewConfig_parent
 
     public function isGtmConsentModeSetActivated() :bool
     {
-        return $this->d3GetModuleConfigParam("_blEnableConsentMode");
+        return $this->d3GetModuleConfigParam("_blEnableConsentMode")?: false;
     }
 
     public function getGtmDataLayer()
@@ -215,7 +215,7 @@ class ViewConfig extends ViewConfig_parent
 
     public function isDebugModeOn() :bool
     {
-        return $this->d3GetModuleConfigParam("_blEnableDebug");
+        return $this->d3GetModuleConfigParam("_blEnableDebug")?: false;
     }
 
     /**
@@ -225,7 +225,7 @@ class ViewConfig extends ViewConfig_parent
      */
     public function getServerSidetaggingJsDomain() :string
     {
-        return $this->d3GetModuleConfigParam("_sServersidetagging_js");
+        return $this->d3GetModuleConfigParam("_sServersidetagging_js")?: "";
     }
 
     /**
@@ -235,7 +235,7 @@ class ViewConfig extends ViewConfig_parent
      */
     public function getServerSidetaggingNoJsDomain() :string
     {
-        return $this->d3GetModuleConfigParam('_sServersidetagging_nojs');
+        return $this->d3GetModuleConfigParam('_sServersidetagging_nojs')?: "";
     }
 
     /**
@@ -252,7 +252,10 @@ class ViewConfig extends ViewConfig_parent
      */
     public function d3IsUsercentricsCMPChosen() :bool
     {
-        return (bool) ($this->d3GetModuleConfigParam('_HAS_STD_MANAGER') === Usercentrics::sCMPName
-            or $this->d3GetModuleConfigParam('_HAS_STD_MANAGER') === Usercentrics::sAlternatename);
+        $sCMPPubName    = $this->d3GetModuleConfigParam('_HAS_STD_MANAGER');
+        $aPossibleCMP   = (oxNew(ManagerTypes::class))->getManagerList();
+
+        return (bool) ($sCMPPubName === Usercentrics::sExternalIncludationInternalName
+            or $sCMPPubName === Usercentrics::sModuleIncludationInternalName);
     }
 }

@@ -5,8 +5,43 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [unreleased](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.17.2...rel_2.x) - 2024-x
+
+## [2.18.2](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.18.0...2.18.1) - 2024-06-25
+### Fixed
+- oe-console apply-configuration triggers on-activate and overwrites existing values
+
+## [2.18.1](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.18.0...2.18.1) - 2024-06-04
+### Fixed
+- missing return statement, on null/ none
+
+## [2.18.0](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.17.2...2.18.0) - 2024-06-03
 ### Added
 - trait for generalized method
+- new admin UI
+- additional check for properly activated module
+- admin headitem alternative
+- usercentrips step/ option 2
+- group CMP-Functionalities/ properties into own Model
+- additional help texts, translations, explanations
+- extended docs
+- auto safe on first approach ga4 + cmp-mod
+- onActivate/ onDeactivate
+## Changed
+- declare module settings consistency
+- configParamGetter
+- clear dead code
+- template code upgrade
+- lang text
+- amount of save-buttons
+- Usercentrics-Class constants and adjust global-module-code to it
+- CMP-output in tpl
+- clear code and adjust Naming
+## Fixed
+- false class-property declaration
+- wrong to-save param
+## Removed
+- deprecated and obsolete module-settings
+- false composer xml-excludation
 
 ## [2.17.2](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.17.1...2.17.2) - 2024-04-11
 ### Fixed

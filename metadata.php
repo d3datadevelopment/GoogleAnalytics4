@@ -50,7 +50,7 @@ $aModule          = [
                       Die Entwicklung basiert auf einem Fork von Marat Bedoev - <a href='https://github.com/vanilla-thunder/oxid-module-gtm'>Github-Link</a>
                       ",
     'thumbnail'   => 'thumbnail.png',
-    'version'     => 'Dev-2.18.0',
+    'version'     => '2.18.2',
     'author'      => 'Data Development (Inh.: Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'https://www.oxidmodule.com/',
@@ -175,5 +175,9 @@ $aModule          = [
             'file'     => '/Application/views/blocks/remove_from_cart.tpl',
             'position' => 150
         ]
-    ]
+    ],
+    'events'      => [
+        'onActivate'    => '\D3\GoogleAnalytics4\Setup\Events::onActivate',
+        'onDeactivate'  => '\D3\GoogleAnalytics4\Setup\Events::onDeactivate',
+    ],
 ];
