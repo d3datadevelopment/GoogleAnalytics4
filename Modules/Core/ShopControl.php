@@ -4,7 +4,7 @@ namespace D3\GoogleAnalytics4\Modules\Core;
 
 use OxidEsales\EshopCommunity\Core\Registry;
 
-class WidgetControl extends WidgetControl_parent{
+class ShopControl extends ShopControl_parent{
     protected function _getStartController() // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
     {
         /*
