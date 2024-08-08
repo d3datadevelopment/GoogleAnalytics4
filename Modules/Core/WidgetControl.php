@@ -4,7 +4,7 @@ namespace D3\GoogleAnalytics4\Modules\Core;
 
 use OxidEsales\EshopCommunity\Core\Registry;
 
-class ShopControl extends ShopControl_parent{
+class WidgetControl extends WidgetControl_parent{
     protected function _getStartController() // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
     {
         /*
@@ -27,33 +27,20 @@ class ShopControl extends ShopControl_parent{
         )
          */
 
+        $sScriptName = $_SERVER['SCRIPT_NAME'];
+        if($sScriptName != '/widget.php')
+        {
+            return parent::getFrontendStartControllerKey();
+        }
+
         $aParameter = $_GET;
-        if( is_null($aParameter['actcontrol'])
+        if(is_null($aParameter['actcontrol'])
             && is_null($aParameter['actcontrol'])
-            && is_null($aParameter['actcontrol'])
+            && is_null($aParameter['oxwparent'])
         )
         {
             return 'D3\GoogleAnalytics4\Application\Component\Widget\d3GtmStartWidget';
         }
-
-        return $this->getStartControllerKey();
-    }
-
-    protected function getStartControllerKey()
-    {
-        $controllerKey = Registry::getConfig()->getRequestControllerId();
-
-        // Use default route in case no controller id is given
-        if (!$controllerKey) {
-            $session = \OxidEsales\Eshop\Core\Registry::getSession();
-            if ($this->isAdmin()) {
-                $controllerKey = $session->getVariable("auth") ? 'admin_start' : 'login';
-            } else {
-                $controllerKey = $this->getFrontendStartControllerKey();
-            }
-            $session->setVariable('cl', $controllerKey);
-        }
-
-        return $controllerKey;
+        return parent::getFrontendStartControllerKey();
     }
 }
