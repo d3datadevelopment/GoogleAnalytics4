@@ -60,6 +60,7 @@ $aModule          = [
     'extend'      => [
         // Core
         OEViewConfig::class                     => ViewConfig::class,
+        \OxidEsales\Eshop\Core\WidgetControl::class                     => \D3\GoogleAnalytics4\Modules\Core\WidgetControl::class,
 
         // Model
         OECategory::class                       => Category::class,
