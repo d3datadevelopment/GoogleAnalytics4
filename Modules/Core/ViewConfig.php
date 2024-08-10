@@ -12,6 +12,8 @@
 
 namespace D3\GoogleAnalytics4\Modules\Core;
 
+use D3\GoogleAnalytics4\Application\Model\CMP\Usercentrics;
+use D3\GoogleAnalytics4\Application\Model\Constants;
 use D3\GoogleAnalytics4\Application\Model\ManagerHandler;
 use D3\GoogleAnalytics4\Application\Model\ManagerTypes;
 use OxidEsales\Eshop\Application\Controller\FrontendController;
@@ -28,16 +30,18 @@ class ViewConfig extends ViewConfig_parent
 
     // Google Tag Manager Container ID
     private $sContainerId = null;
-    private $sCookieManagerType = null;
+
+    // used CMP
+    private $sCookieManagerType = null;#
+
+    // isModule Activated properly?
+    private $blGA4enabled = null;
 
     public function getGtmContainerId()
     {
         if ($this->sContainerId === null)
         {
-            $this->sContainerId = ContainerFactory::getInstance()
-                                                  ->getContainer()
-                                                  ->get(ModuleSettingBridgeInterface::class)
-                                                  ->get('d3_gtm_sContainerID', 'd3googleanalytics4');
+            $this->sContainerId = $this->d3GetModuleConfigParam("_sContainerID");
         }
         return $this->sContainerId;
     }
@@ -59,7 +63,7 @@ class ViewConfig extends ViewConfig_parent
      */
     public function shallUseOwnCookieManager() :bool
     {
-        return (bool) Registry::getConfig()->getConfigParam('d3_gtm_settings_hasOwnCookieManager');
+        return (bool) $this->d3GetModuleConfigParam('_blEnableOwnCookieManager');
     }
 
     /**
@@ -70,14 +74,18 @@ class ViewConfig extends ViewConfig_parent
         /** @var Config $oConfig */
         $oConfig = Registry::getConfig();
 
+        if (false === $this->isGA4enabled()){
+            return false;
+        }
+
         // No Cookie Manager in use
-        if (!$this->shallUseOwnCookieManager()) {
+        if (false === $this->shallUseOwnCookieManager()) {
             return true;
         }
 
         $this->defineCookieManagerType();
 
-        $sCookieID = trim($oConfig->getConfigParam('d3_gtm_settings_controlParameter'));
+        $sCookieID = trim($this->d3GetModuleConfigParam('_sControlParameter'));
 
         // Netensio Cookie Manager
         if ($this->sCookieManagerType === ManagerTypes::NET_COOKIE_MANAGER) {
@@ -96,8 +104,8 @@ class ViewConfig extends ViewConfig_parent
 
         // UserCentrics or consentmanager
         if (
-            $this->sCookieManagerType       === ManagerTypes::USERCENTRICS_MODULE
-            or $this->sCookieManagerType    === ManagerTypes::USERCENTRICS_MANUALLY
+            $this->sCookieManagerType       === Usercentrics::sModuleIncludationInternalName
+            or $this->sCookieManagerType    === Usercentrics::sExternalIncludationInternalName
             or $this->sCookieManagerType    === ManagerTypes::CONSENTMANAGER
             or $this->sCookieManagerType    === ManagerTypes::COOKIEFIRST
             or $this->sCookieManagerType    === ManagerTypes::COOKIEBOT
@@ -118,15 +126,15 @@ class ViewConfig extends ViewConfig_parent
      */
     public function getGtmScriptAttributes() :string
     {
-        $sControlParameter = trim(Registry::getConfig()->getConfigParam('d3_gtm_settings_controlParameter'));
+        $sControlParameter = trim($this->d3GetModuleConfigParam('_sControlParameter'));
 
         if (false === $this->shallUseOwnCookieManager() or ($sControlParameter === '')){
             return "";
         }
 
         if (
-            $this->sCookieManagerType === ManagerTypes::USERCENTRICS_MODULE
-            or $this->sCookieManagerType === ManagerTypes::USERCENTRICS_MANUALLY
+            $this->sCookieManagerType === Usercentrics::sModuleIncludationInternalName
+            or $this->sCookieManagerType === Usercentrics::sExternalIncludationInternalName
         )
         {
             return 'data-usercentrics="' . $sControlParameter . '" type="text/plain" async=""';
@@ -148,8 +156,6 @@ class ViewConfig extends ViewConfig_parent
         return "";
     }
 
-    private $blGA4enabled = null;
-
     /**
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
@@ -158,13 +164,15 @@ class ViewConfig extends ViewConfig_parent
     {
         if ($this->blGA4enabled === null)
         {
-            $this->sContainerId = ContainerFactory::getInstance()
-                                                  ->getContainer()
-                                                  ->get(ModuleSettingBridgeInterface::class)
-                                                  ->get('d3_gtm_blEnableGA4', 'd3googleanalytics4');
+            $this->blGA4enabled = $this->d3GetModuleConfigParam("_blEnableGA4");
         }
 
         return $this->blGA4enabled;
+    }
+
+    public function isGtmConsentModeSetActivated() :bool
+    {
+        return $this->d3GetModuleConfigParam("_blEnableConsentMode")?: false;
     }
 
     public function getGtmDataLayer()
@@ -206,12 +214,47 @@ class ViewConfig extends ViewConfig_parent
 
     public function isDebugModeOn() :bool
     {
-        return Registry::getConfig()->getConfigParam('d3_gtm_blEnableDebug');
+        return $this->d3GetModuleConfigParam("_blEnableDebug")?: false;
     }
 
-    public function isPromotionList($listId)
+    /**
+     * @return string
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function getServerSidetaggingJsDomain() :string
     {
-        $oConfig           = Registry::getConfig();
-        $aPromotionListIds = $oConfig->getConfigParam("") ?? ['bargainItems', 'newItems', 'topBox', 'alsoBought', 'accessories', 'cross'];
+        return $this->d3GetModuleConfigParam("_sServersidetagging_js")?: "";
+    }
+
+    /**
+     * @return string
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function getServerSidetaggingNoJsDomain() :string
+    {
+        return $this->d3GetModuleConfigParam('_sServersidetagging_nojs')?: "";
+    }
+
+    /**
+     * @param string $configParamName
+     * @return mixed
+     */
+    public function d3GetModuleConfigParam(string $configParamName)
+    {
+        return Registry::getConfig()->getShopConfVar(Constants::OXID_MODULE_ID.$configParamName, null, Constants::OXID_MODULE_ID);
+    }
+
+    /**
+     * @return bool
+     */
+    public function d3IsUsercentricsCMPChosen() :bool
+    {
+        $sCMPPubName    = $this->d3GetModuleConfigParam('_HAS_STD_MANAGER');
+        $aPossibleCMP   = (oxNew(ManagerTypes::class))->getManagerList();
+
+        return (bool) ($sCMPPubName === Usercentrics::sExternalIncludationInternalName
+            or $sCMPPubName === Usercentrics::sModuleIncludationInternalName);
     }
 }

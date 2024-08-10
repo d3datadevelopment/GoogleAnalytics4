@@ -1,5 +1,5 @@
 
-[{if $d3CmpBasket->getAddToBasketDecision() && $d3CmpBasket->d3GtmRequestedArticleLoadedByAnid() !== null}]
+[{if $d3CmpBasket && $d3CmpBasket->getAddToBasketDecision() && $d3CmpBasket->d3GtmRequestedArticleLoadedByAnid() !== null}]
   [{assign var="oGtmProduct"              value=$d3CmpBasket->d3GtmRequestedArticleLoadedByAnid()}]
   [{assign var="oGtmAmountArticlesAdded"  value=$d3CmpBasket->getD3GtmAddToCartAmountArticles()}]
   [{*$smarty.block.parent*}]

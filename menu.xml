@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<OX>
+    <OXMENU id="d3mxd3modules">
+        <MAINMENU id="d3mxgoogleanalytics4">
+            <SUBMENU id="d3mxgoogleanalytics4set" cl="d3googleanalytics4_main"/>
+        </MAINMENU>
+    </OXMENU>
+</OX>

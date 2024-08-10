@@ -37,15 +37,14 @@
         "*.md",
         "composer.json",
         ".php-cs-fixer.php",
-        "*.xml",
         "*.neon"
       ],
       "target-directory": "d3/googleanalytics4"
     }
   },
   "require": {
-    "php": ">=7.1",
-    "oxid-esales/oxideshop-ce": "^6.5",
+    "php": "7.1 - 8.2",
+    "oxid-esales/oxideshop-ce": "^6.5.3",
     "google/apiclient":" ^2.0",
     "phpstan/phpstan": "^1.10"
   },

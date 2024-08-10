@@ -1,5 +1,7 @@
 <?php
 
+use D3\GoogleAnalytics4\Application\Controller\Admin\GA4AdminUserInterface_main as GA4AdminUserInterfaceMainController;
+use D3\GoogleAnalytics4\Application\Model\Constants as Constants;
 use D3\GoogleAnalytics4\Modules\Application\Component\d3GtmBasketComponentExtension;
 use D3\GoogleAnalytics4\Modules\Application\Component\Widget\d3GtmWidgetArticleDetails as d3GtmWidgetArticleDetails;
 use D3\GoogleAnalytics4\Modules\Application\Controller\ArticleDetailsController;
@@ -35,7 +37,7 @@ use OxidEsales\Eshop\Core\ViewConfig as OEViewConfig;
 
 $sMetadataVersion = '2.1';
 $aModule          = [
-    'id'          => 'd3googleanalytics4',
+    'id'          => Constants::OXID_MODULE_ID,
     'title'       => 'Google Analytics 4',
     'description' => "Dieses Modul bietet die Möglichkeit in Ihrem OXID eShop (6.x) die neue 'Property' 
                       Google Analytics 4 (GA4) von Google zu integrieren.<br>
@@ -48,10 +50,13 @@ $aModule          = [
                       Die Entwicklung basiert auf einem Fork von Marat Bedoev - <a href='https://github.com/vanilla-thunder/oxid-module-gtm'>Github-Link</a>
                       ",
     'thumbnail'   => 'thumbnail.png',
-    'version'     => '2.15.0',
+    'version'     => '2.19.0',
     'author'      => 'Data Development (Inh.: Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'https://www.oxidmodule.com/',
+    'controllers' => [
+        'd3googleanalytics4_main' => GA4AdminUserInterfaceMainController::class
+    ],
     'extend'      => [
         // Core
         OEViewConfig::class                     => ViewConfig::class,
@@ -92,6 +97,10 @@ $aModule          = [
         'page/account/d3gtmnoticelist.tpl'          => 'd3/googleanalytics4/Application/views/tpl/page/account/d3gtmnoticelist.tpl',
         'page/account/d3gtmrecommendationlist.tpl'  => 'd3/googleanalytics4/Application/views/tpl/page/account/d3gtmrecommendationlist.tpl',
         'page/account/d3gtmwishlist.tpl'            => 'd3/googleanalytics4/Application/views/tpl/page/account/d3gtmwishlist.tpl',
+
+        // Admin Templates
+        'ga4/admin/d3ga4uimain.tpl'                 => 'd3/googleanalytics4/Application/views/admin/tpl/d3googleanalytics4_main.tpl',
+        'ga4/admin/d3ga4uiheaditem.tpl'             => 'd3/googleanalytics4/Application/views/admin/tpl/d3googleanalytics4_headitem.tpl',
     ],
     'blocks'      => [
         // tag manager js
@@ -167,48 +176,8 @@ $aModule          = [
             'position' => 150
         ]
     ],
-    'settings'    => [
-        [
-            'group'    => 'd3_gtm_settings',
-            'name'     => 'd3_gtm_sContainerID',
-            'type'     => 'str',
-            'value'    => 'GTM-',
-            'position' => 0
-        ],
-        [
-            'group'    => 'd3_gtm_settings',
-            'name'     => 'd3_gtm_blGA4enab',
-            'type'     => 'bool',
-            'value'    => true,
-            'position' => 1
-        ],
-        [
-            'group'    => 'd3_gtm_settings',
-            'name'     => 'd3_gtm_blEnableDebug',
-            'type'     => 'bool',
-            'value'    => false,
-            'position' => 999
-        ],
-        [
-            'group'    => 'd3_gtm_settings_cookiemanager',
-            'name'     => 'd3_gtm_settings_hasOwnCookieManager',
-            'type'     => 'bool',
-            'value'    => false,
-            'position' => 999
-        ],
-        [
-            'group'    => 'd3_gtm_settings_cookiemanager',
-            'name'     => 'd3_gtm_settings_controlParameter',
-            'type'     => 'str',
-            'value'    => '',
-            'position' => 999
-        ],
-        [
-            'group' => 'd3_gtm_settings_cookiemanager',
-            'name' => 'd3_gtm_settings_HAS_STD_MANAGER',
-            'type' => 'select',
-            'value' => 'none',
-            'constraints' => 'NONE|CONSENTMANAGER|USERCENTRICS|COOKIEFIRST|COOKIEBOT',
-        ],
-    ]
+    'events'      => [
+        'onActivate'    => '\D3\GoogleAnalytics4\Setup\Events::onActivate',
+        'onDeactivate'  => '\D3\GoogleAnalytics4\Setup\Events::onDeactivate',
+    ],
 ];

@@ -8,6 +8,8 @@ use OxidEsales\Eshop\Core\ViewConfig;
 class ManagerHandler
 {
     /**
+     * Gets current chosen Manager
+     *
      * @return string
      */
     public function getCurrManager() :string
@@ -20,13 +22,32 @@ class ManagerHandler
 
         $aManagerList =  $oManagerTypes->getManagerList();
 
-        foreach ($aManagerList as $managerName){
-           if ($oViewConfig->isModuleActive($managerName)){
-               return $managerName;
+        if ($this->getModuleSettingExplicitManagerSelectValue()){
+            return $this->getExplicitManager();
+        }
+
+        foreach ($aManagerList as $shopModuleId => $publicCMPName){
+           if ($oViewConfig->isModuleActive($shopModuleId)){
+               $this->d3SaveShopConfVar($shopModuleId);
+               return $shopModuleId;
            }
         }
 
-       return $this->getExplicitManager();
+        return "";
+    }
+
+    /**
+     * @param string $sParam
+     * @return void
+     */
+    public function d3SaveShopConfVar(string $sParam){
+        Registry::getConfig()->saveShopConfVar(
+            'select',
+            Constants::OXID_MODULE_ID."_HAS_STD_MANAGER",
+            $sParam,
+            Registry::getConfig()->getShopId(),
+            Constants::OXID_MODULE_ID
+        );
     }
 
     /**
@@ -34,7 +55,7 @@ class ManagerHandler
      */
     public function getModuleSettingExplicitManagerSelectValue() :string
     {
-        return Registry::getConfig()->getConfigParam('d3_gtm_settings_HAS_STD_MANAGER');
+        return Registry::get(ViewConfig::class)->d3GetModuleConfigParam('_HAS_STD_MANAGER')?:"";
     }
 
     /**
@@ -46,8 +67,12 @@ class ManagerHandler
 
         /** @var ManagerTypes $oManagerTypes */
         $oManagerTypes = oxNew(ManagerTypes::class);
-        return $oManagerTypes->isManagerInList($sPotentialManagerName)
+        $sCMPName = $oManagerTypes->isManagerInList($sPotentialManagerName)
             ? $sPotentialManagerName
             : "NONE";
+
+        $this->d3SaveShopConfVar($sCMPName);
+
+        return $sCMPName;
     }
 }
