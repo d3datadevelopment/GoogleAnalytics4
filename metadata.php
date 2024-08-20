@@ -50,7 +50,7 @@ $aModule          = [
                       Die Entwicklung basiert auf einem Fork von Marat Bedoev - <a href='https://github.com/vanilla-thunder/oxid-module-gtm'>Github-Link</a>
                       ",
     'thumbnail'   => 'thumbnail.png',
-    'version'     => '2.19.0',
+    'version'     => 'DEV-2.20.0',
     'author'      => 'Data Development (Inh.: Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'https://www.oxidmodule.com/',
@@ -84,13 +84,14 @@ $aModule          = [
     ],
     'templates'   => [
         // Event files that store the GA4 Event-Information
-        'event/add_to_cart.tpl'                     => 'd3/googleanalytics4/Application/views/event/add_to_cart.tpl',
-        'event/view_item.tpl'                       => 'd3/googleanalytics4/Application/views/event/view_item.tpl',
-        'event/view_cart.tpl'                       => 'd3/googleanalytics4/Application/views/event/view_cart.tpl',
-        'event/purchase.tpl'                        => 'd3/googleanalytics4/Application/views/event/purchase.tpl',
-        'event/view_item_list.tpl'                  => 'd3/googleanalytics4/Application/views/event/view_item_list.tpl',
-        'event/view_search_result.tpl'              => 'd3/googleanalytics4/Application/views/event/view_search_result.tpl',
-        'event/remove_from_cart.tpl'                => 'd3/googleanalytics4/Application/views/event/remove_from_cart.tpl',
+        'event/add_to_cart.tpl'                 => 'd3/googleanalytics4/Application/views/event/add_to_cart.tpl',
+        'event/view_item.tpl'                    => 'd3/googleanalytics4/Application/views/event/view_item.tpl',
+        'event/view_item.tpl'                    => 'd3/googleanalytics4/Application/views/event/view_item.tpl',
+        'event/begin_checkout.tpl'          => 'd3/googleanalytics4/Application/views/event/begin_checkout.tpl',
+        'event/purchase.tpl'                     => 'd3/googleanalytics4/Application/views/event/purchase.tpl',
+        'event/view_item_list.tpl'            => 'd3/googleanalytics4/Application/views/event/view_item_list.tpl',
+        'event/view_search_result.tpl'    => 'd3/googleanalytics4/Application/views/event/view_search_result.tpl',
+        'event/remove_from_cart.tpl'     => 'd3/googleanalytics4/Application/views/event/remove_from_cart.tpl',
 
         // complete overwritten file of OXID-Originals
         // the path of the template-name is the original path to the file in OXID-context from tpl/->
@@ -123,11 +124,25 @@ $aModule          = [
             'file'     => '/Application/views/blocks/view_item.tpl',
             'position' => 150
         ],
-        // checkout
+        // View Cart
         [
             'template' => 'page/checkout/basket.tpl',
             'block'    => 'checkout_basket_main',
             'file'     => '/Application/views/blocks/view_cart.tpl'
+        ],
+        // add_to_cart
+        [
+            'template' => 'page/details/inc/productmain.tpl',
+            'block'    => 'details_productmain_tobasket',
+            'file'     => '/Application/views/blocks/details_productmain_tobasket.tpl',
+            'position' => 150
+        ],
+        // remove_from_cart
+        [
+            'template' => 'page/checkout/basket.tpl',
+            'block'    => 'checkout_basket_main',
+            'file'     => '/Application/views/blocks/remove_from_cart.tpl',
+            'position' => 150
         ],
         [
             'template' => 'page/checkout/thankyou.tpl',
@@ -149,13 +164,6 @@ $aModule          = [
             'file'     => '/Application/views/blocks/view_search_result.tpl',
             'position' => 150
         ],
-        // add_to_cart
-        [
-            'template' => 'page/details/inc/productmain.tpl',
-            'block'    => 'details_productmain_tobasket',
-            'file'     => '/Application/views/blocks/details_productmain_tobasket.tpl',
-            'position' => 150
-        ],
         [
             'template' => 'page/list/list.tpl',
             'block'    => 'page_list_listbody',
@@ -168,13 +176,14 @@ $aModule          = [
             'file'     => '/Application/views/blocks/start_welcome_text.tpl',
             'position' => 150
         ],
-        // remove_from_cart
+        // Checkout process
+        // Begin CHeckout
         [
-            'template' => 'page/checkout/basket.tpl',
-            'block'    => 'checkout_basket_main',
-            'file'     => '/Application/views/blocks/remove_from_cart.tpl',
+            'template' => 'page/checkout/user.tpl',
+            'block'    => 'checkout_user_main',
+            'file'     => '/Application/views/blocks/begin_checkout.tpl',
             'position' => 150
-        ]
+        ],
     ],
     'events'      => [
         'onActivate'    => '\D3\GoogleAnalytics4\Setup\Events::onActivate',
