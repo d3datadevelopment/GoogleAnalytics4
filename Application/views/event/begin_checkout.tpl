@@ -3,6 +3,7 @@
 [{assign var="d3BasketPrice" value=$oxcmp_basket->getPrice()}]
 [{assign var="d3BasketObject" value=$oxcmp_basket}]
 [{assign var='gtmCartArticles' value=$d3BasketObject->getBasketArticles()}]
+[{assign var="gtmCurrency"      value=$oView->getActCurrency()}]
 
 [{block name="d3_ga4_begin_checkout_block"}]
     [{capture name="d3_ga4_begin_checkout"}]
@@ -14,7 +15,7 @@
             'ecommerce':
             {
             'actionField': "Begin",
-            'currency': "[{$currency->name}]",
+            'currency': "[{$gtmCurrency->name}]",
             'value': [{$d3BasketPrice->getPrice()}],
             'coupon':         '[{foreach from=$oxcmp_basket->getVouchers() item=sVoucher key=key name=Voucher}][{$sVoucher->sVoucherNr}][{if !$smarty.foreach.Voucher.last}], [{/if}][{/foreach}]',
             'items':
