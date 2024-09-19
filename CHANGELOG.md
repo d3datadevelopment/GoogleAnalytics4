@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.17.2...rel_2.x) - 2024-x
 
+## [2.21.0](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.20.1...2.21.0) - 2024-09-19
+### Fixed
+- missing parameters for widget.php call
+
 ## [2.20.1](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.20.0...2.20.1) - 2024-09-11
 ### Fixed
 - missing currency name in begin_checkout template
