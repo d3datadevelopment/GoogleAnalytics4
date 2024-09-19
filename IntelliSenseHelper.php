@@ -18,9 +18,14 @@ namespace D3\GoogleAnalytics4\Modules\Core{
 }
 
 namespace D3\GoogleAnalytics4\Modules\Application\Model{
+
+    use OxidEsales\Eshop\Application\Model\Payment;
+
     class Category_parent extends \OxidEsales\Eshop\Application\Model\Category {}
     class Basket_parent extends \OxidEsales\Eshop\Application\Model\Basket {}
     class Manufacturer_parent extends \OxidEsales\Eshop\Application\Model\Manufacturer {}
+
+    class gtmPayment_parent extends Payment {}
 }
 
 namespace D3\GoogleAnalytics4\Modules\Application\Controller{
