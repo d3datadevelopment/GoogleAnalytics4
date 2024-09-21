@@ -101,15 +101,13 @@ class ViewConfig extends ViewConfig_parent
                 return $this->isCookieCategoryEnabled($sCookieID);
             }
         }
-
-        // UserCentrics or consentmanager
+		
         if (
-            $this->sCookieManagerType       === Usercentrics::sModuleIncludationInternalName
-            or $this->sCookieManagerType    === Usercentrics::sExternalIncludationInternalName
-            or $this->sCookieManagerType    === ManagerTypes::CONSENTMANAGER
-            or $this->sCookieManagerType    === ManagerTypes::COOKIEFIRST
-            or $this->sCookieManagerType    === ManagerTypes::COOKIEBOT
-            or $this->sCookieManagerType    === ManagerTypes::EXTERNAL_SERVICE
+	        in_array
+	        (
+				$this->sCookieManagerType,
+				(oxNew(ManagerTypes::class)->scriptTagDeliveredByDefaultArray())
+	        )
         )
         {
             // Always needs the script-tags delivered to the DOM.

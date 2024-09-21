@@ -16,6 +16,7 @@ class ManagerTypes
     const AGCOOKIECOMPLIANCE        = "Aggrosoft Cookie Compliance";
 
     const CONSENTMANAGER            = "Consentmanager";
+    const INTERNAL_CONSENTMANAGER            = "cmconsentmanager";
 
     const COOKIEFIRST               = "Cookiefirst";
 
@@ -46,4 +47,22 @@ class ManagerTypes
     {
         return in_array($sManager, array_keys($this->getManagerList()), true);
     }
+	
+	/**
+	 * @return array
+	 *
+	 * the CMP from this method always needs the script tag delivered to the dom.
+	 */
+	public function scriptTagDeliveredByDefaultArray() :array
+	{
+		return [
+			Usercentrics::sModuleIncludationInternalName,
+			Usercentrics::sExternalIncludationInternalName,
+			ManagerTypes::CONSENTMANAGER,
+			ManagerTypes::INTERNAL_CONSENTMANAGER,
+			ManagerTypes::COOKIEFIRST,
+			ManagerTypes::COOKIEBOT,
+			ManagerTypes::EXTERNAL_SERVICE
+		];
+	}
 }
