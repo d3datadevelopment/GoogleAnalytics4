@@ -12,7 +12,7 @@ use OxidEsales\Eshop\Core\ViewConfig;
 
 class GA4AdminUserInterface_main extends \OxidEsales\Eshop\Application\Controller\Admin\AdminDetailsController
 {
-    protected $_sThisTemplate = 'ga4/admin/d3ga4uimain.tpl';
+    protected $_sThisTemplate = '@' . Constants::OXID_MODULE_ID . '/admin/d3ga4uimain';
 
     public function render()
     {

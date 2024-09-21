@@ -34,7 +34,7 @@
         </p>
     [{/if}]
 
-    [{include file="event/add_to_cart.tpl" htmlIdAmountOfArticles='#amountToBasket'}]
+    [{include file='@d3googleanalytics4/event/add_to_cart.tpl' htmlIdAmountOfArticles='#amountToBasket'}]
 
     [{insert name="oxid_tracker" title=$template_title}]
 [{/capture}]
