@@ -88,7 +88,7 @@ class ViewConfig extends ViewConfig_parent
         $sCookieID = trim($this->d3GetModuleConfigParam('_sControlParameter'));
 
         // Netensio Cookie Manager
-        if ($this->sCookieManagerType === ManagerTypes::NET_COOKIE_MANAGER) {
+        if ($this->sCookieManagerType === ManagerTypes::INTERNAL_NET_COOKIE_MANAGER) {
             $oSession = Registry::getSession();
             $aCookies = $oSession->getVariable("aCookieSel");
 
@@ -96,7 +96,7 @@ class ViewConfig extends ViewConfig_parent
         }
 
         // Aggrosoft Cookie Consent
-        if ($this->sCookieManagerType === ManagerTypes::AGCOOKIECOMPLIANCE) {
+        if ($this->sCookieManagerType === ManagerTypes::INTERNAL_AGCOOKIECOMPLIANCE) {
             if (method_exists($this, "isCookieCategoryEnabled")) {
                 return $this->isCookieCategoryEnabled($sCookieID);
             }
@@ -139,16 +139,16 @@ class ViewConfig extends ViewConfig_parent
             return 'data-usercentrics="' . $sControlParameter . '" type="text/plain" async=""';
         }
 
-        if ($this->sCookieManagerType === ManagerTypes::CONSENTMANAGER)
+        if ($this->sCookieManagerType === ManagerTypes::INTERNAL_CONSENTMANAGER)
         {
             return 'type="text/plain" class="cmplazyload" data-cmp-vendor="'.$sControlParameter.'"';
         }
 
-        if ($this->sCookieManagerType === ManagerTypes::COOKIEFIRST){
+        if ($this->sCookieManagerType === ManagerTypes::INTERNAL_COOKIEFIRST){
             return 'type="text/plain" data-cookiefirst-category="' . $sControlParameter .'"';
         }
 
-        if ($this->sCookieManagerType === ManagerTypes::COOKIEBOT){
+        if ($this->sCookieManagerType === ManagerTypes::INTERNAL_COOKIEBOT){
             return 'type="text/plain" data-cookieconsent="' . $sControlParameter .'"';
         }
 
