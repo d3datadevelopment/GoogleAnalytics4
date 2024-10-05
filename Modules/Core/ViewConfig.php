@@ -18,9 +18,11 @@ use D3\GoogleAnalytics4\Application\Model\ManagerHandler;
 use D3\GoogleAnalytics4\Application\Model\ManagerTypes;
 use OxidEsales\Eshop\Application\Controller\FrontendController;
 use OxidEsales\Eshop\Core\Config;
-use OxidEsales\Eshop\Application\Model\User;use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Application\Model\User;
+use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
-use OxidEsales\EshopCommunity\Internal\Framework\Module\Configuration\Bridge\ModuleSettingBridgeInterface;
+use OxidEsales\EshopCommunity\Internal\Framework\Module\Configuration\Exception\ModuleConfigurationNotFoundException;
+use OxidEsales\EshopCommunity\Internal\Framework\Module\Setup\Bridge\ModuleActivationBridgeInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
@@ -256,4 +258,26 @@ class ViewConfig extends ViewConfig_parent
         return (bool) ($sCMPPubName === Usercentrics::sExternalIncludationInternalName
             or $sCMPPubName === Usercentrics::sModuleIncludationInternalName);
     }
+	
+	/**
+	 * @return bool
+	 */
+	public function d3IsModuleActive(string $sModuleId) :bool
+	{
+		/** @var ModuleActivationBridgeInterface $moduleActivationBridge */
+		$moduleActivationBridge = $this
+			->getContainer()
+			->get(ModuleActivationBridgeInterface::class);
+		
+		try {
+			$isActiveBool = $moduleActivationBridge->isActive(
+				$sModuleId,
+				Registry::getConfig()->getShopId()
+			);
+		}catch (\Exception|ModuleConfigurationNotFoundException $e){
+			return false;
+		}
+		
+		return (bool) $isActiveBool;
+	}
 }

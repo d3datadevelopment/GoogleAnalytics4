@@ -17,7 +17,7 @@ class ManagerHandler
         /** @var ManagerTypes $oManagerTypes */
         $oManagerTypes = oxNew(ManagerTypes::class);
 
-        /** @var ViewConfig $oViewConfig */
+        /** @var ViewConfig|\D3\GoogleAnalytics4\Modules\Core\ViewConfig $oViewConfig */
         $oViewConfig = oxNew(ViewConfig::class);
 
         $aManagerList =  $oManagerTypes->getManagerList();
@@ -27,7 +27,7 @@ class ManagerHandler
         }
 
         foreach ($aManagerList as $shopModuleId => $publicCMPName){
-           if ($oViewConfig->isModuleActive($shopModuleId)){
+           if ($oViewConfig->d3IsModuleActive($shopModuleId)){
                $this->d3SaveShopConfVar($shopModuleId);
                return $shopModuleId;
            }
