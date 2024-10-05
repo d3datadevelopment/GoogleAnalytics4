@@ -28,19 +28,8 @@
       "homepage": "https://www.d3data.de"
     }
   ],
-  "support": {
+  "supports": {
     "email": "support@shopmodule.com"
-  },
-  "extra": {
-    "oxideshop": {
-      "blacklist-filter": [
-        "*.md",
-        "composer.json",
-        ".php-cs-fixer.php",
-        "*.neon"
-      ],
-      "target-directory": "d3/googleanalytics4"
-    }
   },
   "require": {
     "php": "^8.0",
@@ -50,7 +39,7 @@
   },
   "autoload": {
     "psr-4": {
-      "D3\\GoogleAnalytics4\\": "../../../source/modules/d3/googleanalytics4"
+      "D3\\GoogleAnalytics4\\": ""
     }
   }
 }

@@ -80,7 +80,6 @@
                                             [{oxmultilang ident="D3CMP"}]
                                         </label>
                                         <select class="form-select w-50" name="editval[select][_HAS_STD_MANAGER]" aria-label="Default select example">
-                                            <option value="NONE" selected>[{oxmultilang ident="D3NONE"}]</option>
                                             [{foreach from=$d3ManagerTypeArray key="sInternalName" item="sPublicName" name="editval[aCmpNameArray]"}]
                                             <option value="[{$sInternalName}]" [{if $sInternalName === $d3CurrentCMP}]SELECTED[{/if}]>[{$sPublicName}]</option>
                                             [{/foreach}]
