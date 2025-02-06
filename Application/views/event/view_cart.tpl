@@ -24,13 +24,13 @@
                         [{assign var="gtmBasketItemCategory" value=$gtmBasketItem->getCategory()}]
                         {
                             'item_id':          '[{$gtmCartArticles[$basketindex]->getFieldData('oxartnum')}]',
-                            'item_name':        '[{$gtmCartArticles[$basketindex]->getFieldData('oxtitle')}]',
+                            'item_name': '[{$gtmCartArticles[$basketindex]->getRawFieldData('oxtitle')}]',
                             'item_variant':     '[{$gtmCartArticles[$basketindex]->getFieldData('oxvarselect')}]',
                             [{if $gtmBasketItemCategory}]
                             'item_category':    '[{$gtmBasketItemCategory->getSplitCategoryArray(0, true)}]',
-                            'item_category_2':  '[{$gtmBasketItemCategory->getSplitCategoryArray(1, true)}]',
-                            'item_category_3':  '[{$gtmBasketItemCategory->getSplitCategoryArray(2, true)}]',
-                            'item_category_4':  '[{$gtmBasketItemCategory->getSplitCategoryArray(3, true)}]',
+                            'item_category2':  '[{$gtmBasketItemCategory->getSplitCategoryArray(1, true)}]',
+                            'item_category3':  '[{$gtmBasketItemCategory->getSplitCategoryArray(2, true)}]',
+                            'item_category4':  '[{$gtmBasketItemCategory->getSplitCategoryArray(3, true)}]',
                             'item_list_name':   '[{$gtmBasketItemCategory->getSplitCategoryArray()}]',
                             [{/if}]
                             [{oxhasrights ident="SHOWARTICLEPRICE"}]'price':            [{$d3oItemPrice->getPrice()}],[{/oxhasrights}]

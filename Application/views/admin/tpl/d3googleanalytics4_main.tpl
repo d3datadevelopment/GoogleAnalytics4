@@ -54,6 +54,24 @@
                                 [{oxmultilang ident="D3USEGOOGLECONSENTMODE"}][{oxinputhelp ident="D3USEGOOGLECONSENTMODE_HELP"}]
                             </label>
                         </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="_blUseRealCategoyTitles"
+                                name="editval[bool][_blUseRealCategoyTitles]"
+                                [{if $d3ViewObject->d3GetModuleConfigParam('_blUseRealCategoyTitles')}]checked[{/if}]>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                [{oxmultilang ident="D3USEREALCATTITLES"}][{oxinputhelp ident="D3USEREALCATTITLES_HELP"}]
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group w-50">
+                                <span class="input-group-text"
+                                    id="basic-addon3">[{oxmultilang ident="D3REPLACECHARS"}]</span>
+                                <input type="text" class="form-control" id="_sReplaceChars"
+                                    name="editval[str][_sReplaceChars]" aria-describedby="basic-addon3"
+                                    value='[{$d3ViewObject->d3GetModuleConfigParam('_sReplaceChars')}]'/>
+                                </div>
+                            <div class="text-muted">[{oxmultilang ident="D3REPLACECHARS_HELP"}]</div>
+                        </div>
                     </div>
                     <button type="submit" name="save" class="btn btn-light" onClick="Javascript:document.d3gtmformedit.fnc.value='save'">[{oxmultilang ident="GENERAL_SAVE"}]</button>
                 </div>

@@ -21,13 +21,13 @@
                             [{assign var="gtmBasketItemCategory" value=$rmItem->getCategory()}]
                             {
                             'item_id':          '[{$rmItem->getFieldData('oxartnum')}]',
-                            'item_name':        '[{$rmItem->getFieldData('oxtitle')}]',
+                            'item_name': '[{$rmItem->getRawFieldData('oxtitle')}]',
                             'item_variant':     '[{$rmItem->getFieldData('oxvarselect')}]',
                             [{if $gtmBasketItemCategory}]
                             'item_category':    '[{$gtmBasketItemCategory->getSplitCategoryArray(0)}]',
-                            'item_category_2':  '[{$gtmBasketItemCategory->getSplitCategoryArray(1)}]',
-                            'item_category_3':  '[{$gtmBasketItemCategory->getSplitCategoryArray(2)}]',
-                            'item_category_4':  '[{$gtmBasketItemCategory->getSplitCategoryArray(3)}]',
+                            'item_category2':  '[{$gtmBasketItemCategory->getSplitCategoryArray(1)}]',
+                            'item_category3':  '[{$gtmBasketItemCategory->getSplitCategoryArray(2)}]',
+                            'item_category4':  '[{$gtmBasketItemCategory->getSplitCategoryArray(3)}]',
                             'item_list_name':   '[{$gtmBasketItemCategory->getSplitCategoryArray()}]',
                             [{/if}]
                             [{oxhasrights ident="SHOWARTICLEPRICE"}]'price':            [{$d3oItemPrice->getPrice()}],[{/oxhasrights}]

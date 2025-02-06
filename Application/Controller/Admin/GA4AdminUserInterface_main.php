@@ -37,6 +37,7 @@ class GA4AdminUserInterface_main extends \OxidEsales\Eshop\Application\Controlle
             '_blEnableDebug',
             '_blEnableConsentMode',
             '_blEnableOwnCookieManager',
+            '_blUseRealCategoyTitles',
             '_blEnableMeasurementCapabilities',
             '_blEnableUsercentricsConsentModeApi',
         ];

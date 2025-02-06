@@ -67,6 +67,14 @@ class ViewConfig extends ViewConfig_parent
     }
 
     /**
+     * @return string
+     */
+    public function getCharsToReplaceInCategorTitles(): string
+    {
+        return (string) $this->d3GetModuleConfigParam('_sReplaceChars');
+    }
+
+    /**
      * @return bool
      */
     public function D3blShowGtmScript()
@@ -238,6 +246,11 @@ class ViewConfig extends ViewConfig_parent
     public function isDebugModeOn() :bool
     {
         return $this->d3GetModuleConfigParam("_blEnableDebug")?: false;
+    }
+
+    public function useRealCategoryTitles(): bool
+    {
+        return $this->d3GetModuleConfigParam("_blUseRealCategoyTitles") ?: false;
     }
 
     /**

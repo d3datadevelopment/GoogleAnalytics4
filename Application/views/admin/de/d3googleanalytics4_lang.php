@@ -42,6 +42,13 @@ $aLang = array(
                                         Ein einfaches anschalten dieser Funktion regelt noch <strong>nicht</strong> die völlige Funktionsweise
                                         aller beteiligten Instanzen; diese bedarf eine detailliertere Konfiguration!<br>",
 
+
+    'D3USEREALCATTITLES'        => "Für 'item_category'-Werte die Kategorie-Titel verwenden?",
+    'D3USEREALCATTITLES_HELP'   => "Für die 'item_category' Werte keine URL-Teile, sondern die Klartext-Kategorie-Titel verwenden, also z.B. 'Haarbürsten' statt 'haarbuersten'.",
+
+    'D3REPLACECHARS'            => "Zeichen ersetzen",
+    'D3REPLACECHARS_HELP'       => 'Hier alle Zeichen, die aus Kategorie-Titeln entfernt werden sollen, eintragen, also z.B. " um ein Zoll-Zeichen zu entfernen oder "0-9 um das Zollzeichen und alle Ziffern zu entfernen.',
+
     // Use CMP?
     'D3CMPTABTITLE'             => 'Cookie Manager Einstellungen',
     'D3CMPUSEQ'                 => 'Consent Management Platform ( CMP ) nutzen?',

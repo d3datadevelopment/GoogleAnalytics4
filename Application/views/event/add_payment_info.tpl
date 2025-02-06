@@ -25,15 +25,17 @@
                     [{assign var="gtmItemPriceObject" value=$basketitem->getPrice()}]
                     [{assign var="gtmBasketItem" value=$basketitem->getArticle()}]
                     [{assign var="gtmBasketItemCategory" value=$gtmBasketItem->getCategory()}]
+                    [{assign var="gtmManufacturer" value=$gtmBasketItem->getManufacturer()}]
                     {
                     'item_id':          '[{$gtmCartArticles[$basketindex]->getFieldData('oxartnum')}]',
-                    'item_name':        '[{$gtmCartArticles[$basketindex]->getFieldData('oxtitle')}]',
+                    'item_name': '[{$gtmCartArticles[$basketindex]->getRawFieldData('oxtitle')}]',
                     'item_variant':     '[{$gtmCartArticles[$basketindex]->getFieldData('oxvarselect')}]',
+                    'item_brand': '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value}][{/if}]',
                     [{if $gtmBasketItemCategory}]
                     'item_category':    '[{$gtmBasketItemCategory->getSplitCategoryArray(0, true)}]',
-                    'item_category_2':  '[{$gtmBasketItemCategory->getSplitCategoryArray(1, true)}]',
-                    'item_category_3':  '[{$gtmBasketItemCategory->getSplitCategoryArray(2, true)}]',
-                    'item_category_4':  '[{$gtmBasketItemCategory->getSplitCategoryArray(3, true)}]',
+                    'item_category2':  '[{$gtmBasketItemCategory->getSplitCategoryArray(1, true)}]',
+                    'item_category3':  '[{$gtmBasketItemCategory->getSplitCategoryArray(2, true)}]',
+                    'item_category4':  '[{$gtmBasketItemCategory->getSplitCategoryArray(3, true)}]',
                     'item_list_name':   '[{$gtmBasketItemCategory->getSplitCategoryArray()}]',
                     [{/if}]
                     [{oxhasrights ident="SHOWARTICLEPRICE"}]'price':            [{$gtmItemPriceObject->getPrice()}],[{/oxhasrights}]

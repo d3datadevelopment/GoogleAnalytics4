@@ -26,18 +26,19 @@
                         [{assign var="gtmPurchaseItemPriceObject"   value=$gtmBasketItem->getPrice()}]
                         [{assign var="gtmPurchaseItem"              value=$gtmBasketItem->getArticle()}]
                         [{assign var="gtmPurchaseItemCategory"      value=$gtmPurchaseItem->getCategory()}]
-
+                        [{assign var="gtmManufacturer"              value=$gtmPurchaseItem->getManufacturer()}]
                         {
                             'item_id':          '[{$gtmBasketItem->getFieldData("oxartnum")}]',
-                            'item_name':        '[{$gtmBasketItem->getFieldData("oxtitle")}]',
+                            'item_name': '[{$gtmBasketItem->getRawFieldData("oxtitle")}]',
                             'affiliation':      '[{$gtmBasketItem->getFieldData("oxtitle")}]',
                             'coupon':           '[{foreach from=$gtmOrderVouchers item="gtmOrderVoucher" name="gtmOrderVoucherIteration"}][{$gtmOrderVoucher}][{if !$smarty.foreach.gtmOrderVoucherIteration.last}], [{/if}][{/foreach}]',
                             'item_variant':     '[{$gtmBasketItem->getFieldData("oxselvariant")}]',
+                            'item_brand': '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value}][{/if}]',
                             [{if $gtmPurchaseItemCategory}]
                             'item_category':    '[{$gtmPurchaseItemCategory->getSplitCategoryArray(0, true)}]',
-                            'item_category_2':  '[{$gtmPurchaseItemCategory->getSplitCategoryArray(1, true)}]',
-                            'item_category_3':  '[{$gtmPurchaseItemCategory->getSplitCategoryArray(2, true)}]',
-                            'item_category_4':  '[{$gtmPurchaseItemCategory->getSplitCategoryArray(3, true)}]',
+                            'item_category2':  '[{$gtmPurchaseItemCategory->getSplitCategoryArray(1, true)}]',
+                            'item_category3':  '[{$gtmPurchaseItemCategory->getSplitCategoryArray(2, true)}]',
+                            'item_category4':  '[{$gtmPurchaseItemCategory->getSplitCategoryArray(3, true)}]',
                             'item_list_name':   '[{$gtmPurchaseItemCategory->getSplitCategoryArray()}]',
                             [{/if}]
                             [{oxhasrights ident="SHOWARTICLEPRICE"}]'price':            [{$gtmPurchaseItemPriceObject->getPrice()}],[{/oxhasrights}]

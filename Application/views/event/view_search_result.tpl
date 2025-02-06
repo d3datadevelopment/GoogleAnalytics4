@@ -17,14 +17,14 @@
               [{assign var="gtmCategory" value=$gtmProduct->getCategory()}]
               {
                 'item_id': '[{$gtmProduct->getFieldData("oxartnum")}]',
-                'item_name': '[{$gtmProduct->getFieldData("oxtitle")}]',
+                'item_name': '[{$gtmProduct->getRawFieldData("oxtitle")}]',
                 [{oxhasrights ident="SHOWARTICLEPRICE"}]'price': [{$d3PriceObject->getPrice()}],[{/oxhasrights}]
                 'item_brand': '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value}][{/if}]',
                 [{if $gtmCategory}]
                 'item_category':  '[{$gtmCategory->getSplitCategoryArray(0, true)}]',
-                'item_category_2':'[{$gtmCategory->getSplitCategoryArray(1, true)}]',
-                'item_category_3':'[{$gtmCategory->getSplitCategoryArray(2, true)}]',
-                'item_category_4':'[{$gtmCategory->getSplitCategoryArray(3, true)}]',
+                'item_category2':'[{$gtmCategory->getSplitCategoryArray(1, true)}]',
+                'item_category3':'[{$gtmCategory->getSplitCategoryArray(2, true)}]',
+                'item_category4':'[{$gtmCategory->getSplitCategoryArray(3, true)}]',
                 'item_list_name':'[{$gtmCategory->getSplitCategoryArray()}]',
                 [{/if}]
                 'quantity': 1
