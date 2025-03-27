@@ -90,7 +90,7 @@ $aModule = [
         // Event files that store the GA4 Event-Information
         'event/add_to_cart.tpl' => 'd3/googleanalytics4/Application/views/event/add_to_cart.tpl',
         'event/view_item.tpl' => 'd3/googleanalytics4/Application/views/event/view_item.tpl',
-        'event/view_item.tpl' => 'd3/googleanalytics4/Application/views/event/view_item.tpl',
+        'event/view_cart.tpl' => 'd3/googleanalytics4/Application/views/event/view_cart.tpl',
         'event/begin_checkout.tpl' => 'd3/googleanalytics4/Application/views/event/begin_checkout.tpl',
         'event/add_payment_info.tpl' => 'd3/googleanalytics4/Application/views/event/add_payment_info.tpl',
         'event/purchase.tpl' => 'd3/googleanalytics4/Application/views/event/purchase.tpl',
