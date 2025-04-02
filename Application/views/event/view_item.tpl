@@ -30,6 +30,25 @@
                                 [{assign var="d3PriceObject" value=$gtmProduct->getPrice()}]
                                 'price': [{$d3PriceObject->getPrice()}]
                             }
+                            [{if $oViewConf->d3GetModuleConfigParam('_blViewItemAddVariants')}],
+                                [{foreach from=$gtmProduct->getVariants() item="oVariant"}]
+                                    , {
+                                        'item_name': '[{$oVariant->getFieldData("oxtitle")}]',
+                                        'item_id': '[{$oVariant->getFieldData("oxartnum")}]',
+                                        'item_brand': '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value}][{/if}]',
+                                        'item_variant': '[{if $oVariant->getFieldData("oxvarselect")}][{$oVariant->getFieldData("oxvarselect")}][{/if}]',
+                                        [{if $gtmCategory}]
+                                            'item_category':  '[{$gtmCategory->getSplitCategoryArray(0, true)}]',
+                                            'item_category_2':'[{$gtmCategory->getSplitCategoryArray(1, true)}]',
+                                            'item_category_3':'[{$gtmCategory->getSplitCategoryArray(2, true)}]',
+                                            'item_category_4':'[{$gtmCategory->getSplitCategoryArray(3, true)}]',
+                                            'item_list_name':'[{$gtmCategory->getSplitCategoryArray()}]',
+                                        [{/if}]
+                                        [{assign var="d3PriceObject" value=$oVariant->getPrice()}]
+                                        'price': [{$d3PriceObject->getPrice()}]
+                                    }
+                                [{/foreach}]
+                            [{/if}]
                         ]
                 }[{if $oViewConf->isDebugModeOn()}],
                 'debug_mode': 'true'

@@ -193,6 +193,22 @@
                     </div>
                 </div>
             </div>
+            <div class="col-6">
+                <div class="card mb-5">
+                    <div class="card-header">
+                        [{oxmultilang ident="D3EXTENDEDCONFIG"}]
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="" name="editval[bool][_blViewItemAddVariants]" [{if $d3ViewObject->d3GetModuleConfigParam('_blViewItemAddVariants')}]checked[{/if}] id="blGA4enab">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                [{oxmultilang ident="D3VIEWITEMADDVARIANTS"}][{oxinputhelp ident="D3VIEWITEMADDVARIANTS_HELP"}]
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" name="save" class="btn btn-light" onClick="Javascript:document.d3gtmformedit.fnc.value='save'">[{oxmultilang ident="GENERAL_SAVE"}]</button>
+                </div>
+            </div>
         </div>
     </form>
 </div>
