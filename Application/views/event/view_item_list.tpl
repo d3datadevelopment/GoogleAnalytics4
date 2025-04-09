@@ -20,6 +20,7 @@
                             [{assign var="gtmManufacturer" value=$gtmProduct->getManufacturer()}]
                             [{if !$gtmCategory}][{assign var="gtmCategory" value=$gtmProduct->getCategory()}][{/if}]
                             {
+                                'item_oxid': '[{$gtmProduct->getFieldData("oxid")}]',
                                 'item_id': '[{$gtmProduct->getFieldData("oxartnum")}]',
                                 'item_name': '[{$gtmProduct->getFieldData("oxtitle")}]',
                                 [{oxhasrights ident="SHOWARTICLEPRICE"}]'price': [{$d3PriceObject->getPrice()}],[{/oxhasrights}]

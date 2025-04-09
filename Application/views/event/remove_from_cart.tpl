@@ -18,6 +18,7 @@
                             [{assign var="d3oItemPrice" value=$rmItem->getPrice()}]
                             [{assign var="gtmBasketItemCategory" value=$rmItem->getCategory()}]
                             {
+                            'item_oxid':        '[{$rmItem->getFieldData('oxid')}]',
                             'item_id':          '[{$rmItem->getFieldData('oxartnum')}]',
                             'item_name':        '[{$rmItem->getFieldData('oxtitle')}]',
                             'item_variant':     '[{$rmItem->getFieldData('oxvarselect')}]',

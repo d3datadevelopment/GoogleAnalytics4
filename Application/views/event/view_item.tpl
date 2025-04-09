@@ -15,6 +15,7 @@
                     'items':
                         [
                             {
+                                'item_oxid': '[{$gtmProduct->getFieldData("oxid")}]',
                                 'item_name': '[{$gtmProduct->getFieldData("oxtitle")}]',
                                 'item_id': '[{$gtmProduct->getFieldData("oxartnum")}]',
                                 'item_brand': '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value}][{/if}]',

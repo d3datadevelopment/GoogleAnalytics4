@@ -28,6 +28,7 @@
                         [{assign var="gtmPurchaseItemCategory"      value=$gtmPurchaseItem->getCategory()}]
 
                         {
+                            'item_oxid':        '[{$gtmBasketItem->getFieldData("oxid")}]',
                             'item_id':          '[{$gtmBasketItem->getFieldData("oxartnum")}]',
                             'item_name':        '[{$gtmBasketItem->getFieldData("oxtitle")}]',
                             'affiliation':      '[{$gtmBasketItem->getFieldData("oxtitle")}]',

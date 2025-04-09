@@ -23,6 +23,7 @@
                         [{assign var="gtmBasketItem" value=$basketitem->getArticle()}]
                         [{assign var="gtmBasketItemCategory" value=$gtmBasketItem->getCategory()}]
                         {
+                            'item_oxid':        '[{$gtmCartArticles[$basketindex]->getFieldData('oxid')}]',
                             'item_id':          '[{$gtmCartArticles[$basketindex]->getFieldData('oxartnum')}]',
                             'item_name':        '[{$gtmCartArticles[$basketindex]->getFieldData('oxtitle')}]',
                             'item_variant':     '[{$gtmCartArticles[$basketindex]->getFieldData('oxvarselect')}]',
