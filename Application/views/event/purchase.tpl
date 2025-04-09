@@ -49,7 +49,7 @@
                 }[{if $oViewConf->isDebugModeOn()}],
                 'debug_mode': 'true'
                 [{/if}]
-            })
+            });
         [{/strip}]
     [{/capture}]
     [{oxscript add=$smarty.capture.d3_ga4_purchase}]
