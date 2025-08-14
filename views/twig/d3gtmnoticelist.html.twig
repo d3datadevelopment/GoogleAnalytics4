@@ -1,18 +1,28 @@
-{% set oxidBlock_content %}
+{% capture append = "oxidBlock_content" %}
     {% set template_title = "MY_WISH_LIST"|translate %}
-    <h1 class="page-header">{{ translate({ ident: "MY_WISH_LIST" }) }}</h1>
+    <div class="container-xxl py-5">
+        <div class="row">
+            <h1 class="h3 page-header col pl-0 ml-3">
+                {{ translate({ ident: "MY_WISH_LIST" }) }}
+            </h1>
+            <div class="col-12 col-sm-3 button-col">
+                {% include "page/account/inc/account_menu.html.twig" with {active_link: "noticelist"} %}
+            </div>
+        </div>
 
-    {% if oView.getNoticeProductList() %}
-    {% include "widget/product/list.html.twig" with {type: "line", listId: "noticelistProductList", title: "", products: oView.getNoticeProductList(), removeFunction: "tonoticelist", owishid: oxcmp_user.oxuser__oxid.value} %}
-    {% else %}
-    <p class="alert alert-info">{{ translate({ ident: "WISH_LIST_EMPTY" }) }}</p>
-    {% endif %}
+        {% if oView.getNoticeProductList() %}
+            {% include "widget/product/list.html.twig" with {type: "line", listId: "noticelistProductList", title: "", products: oView.getNoticeProductList(), removeFunction: "tonoticelist", owishid: oxcmp_user.oxuser__oxid.value} %}
+        {% else %}
+            <div class="card card-lg">
+                <div class="card-body">
+                    <p class="alert alert-info">{{ translate({ ident: "WISH_LIST_EMPTY" }) }}</p>
+                </div>
+            </div>
+        {% endif %}
 
-    {% include '@d3googleanalytics4/event/add_to_cart.html.twig' with {htmlIdAmountOfArticles: 'amountToBasket'} %}
-
+    </div>
     {{ insert_tracker({title: template_title}) }}
-    {% endset %}
-{% set oxidBlock_sidebar %}
-    {% include "page/account/inc/account_menu.html.twig" with {active_link: "noticelist"} %}
-    {% endset %}
-{% include "layout/page.html.twig" with {sidebar: "Left"} %}
+    {% include '@d3googleanalytics4/event/add_to_cart.html.twig' with {htmlIdAmountOfArticles: 'amountToBasket'} %}
+{% endcapture %}
+
+{% include "layout/page.html.twig" %}

@@ -1,4 +1,4 @@
-{% set oxidBlock_content %}
+{% capture append = "oxidBlock_content" %}
     {% set template_title = "MY_GIFT_REGISTRY"|translate %}
     {% if not oView.getWishListUsers() and oView.getWishListSearchParam() %}
         {% set _statusMessage = "MESSAGE_SORRY_NO_GIFT_REGISTRY"|translate %}
@@ -9,36 +9,41 @@
         {% set _statusMessage = "GIFT_REGISTRY_SENT_SUCCESSFULLY"|translate(editval.rec_email) %}
         {% include "message/notice.html.twig" with {statusMessage: _statusMessage} %}
     {% endif %}
+    <div class="container-xxl py-5">
+        <div class="row">
+            <h1 class="h3 page-header col pl-0 ml-3">
+                {{ oView.getTitle() }}
+            </h1>
+            <div class="col-12 col-sm-3 button-col">
+                {% include "page/account/inc/account_menu.html.twig" with {active_link: "wishlist"} %}
+            </div>
+        </div>
+        <div class="card card-lg">
+            <div class="card-body">
+                <div class="wishlist-search max-600">
+                    {% include "form/wishlist_search.html.twig" with {searchClass: "account_wishlist"} %}
+                </div>
 
-    <h1 class="page-header">{{ oView.getTitle() }}</h1>
+                <div class="wishlist">
+                    {% if oView.getWishList() %}
+                        {% include "form/wishlist_publish.html.twig" %}
+                        {% include "form/wishlist_suggest.html.twig" %}
+                    {% endif %}
+                </div>
 
-    <div class="wishlist-search">
-        {% include "form/wishlist_search.html.twig" with {searchClass: "account_wishlist"} %}
+                {% if oView.getWishList() %}
+                    {% include "widget/product/list.html.twig" with {type: "line", listId: "wishlistProductList", title: "", products: oView.getWishProductList(), removeFunction: "towishlist", toBasketFunction: "tobasket", owishid: oxcmp_user.oxuser__oxid.value} %}
+                {% else %}
+                    <p class="alert alert-info">
+                        {{ translate({ ident: "GIFT_REGISTRY_EMPTY" }) }}
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+
     </div>
-
-    <hr>
-
-    <div class="wishlist">
-        {% if oView.getWishList() %}
-            {% include "form/wishlist_publish.html.twig" %}
-            <hr>
-            {% include "form/wishlist_suggest.html.twig" %}
-        {% endif %}
-    </div>
-
-    {% if oView.getWishList() %}
-        {% include "widget/product/list.html.twig" with {type: "line", listId: "wishlistProductList", title: "", products: oView.getWishProductList(), removeFunction: "towishlist", toBasketFunction: "tobasket", owishid: oxcmp_user.oxuser__oxid.value} %}
-    {% else %}
-        <p class="alert alert-info">
-            {{ translate({ ident: "GIFT_REGISTRY_EMPTY" }) }}
-        </p>
-    {% endif %}
-
-    {% include '@d3googleanalytics4/event/add_to_cart.html.twig' with {htmlIdAmountOfArticles: 'amountToBasket'} %}
-
     {{ insert_tracker({title: template_title}) }}
-{% endset %}
-{% set oxidBlock_sidebar %}
-    {% include "page/account/inc/account_menu.html.twig" with {active_link: "wishlist"} %}
-{% endset %}
-{% include "layout/page.html.twig" with {sidebar: "Left"} %}
+    {% include '@d3googleanalytics4/event/add_to_cart.html.twig' with {htmlIdAmountOfArticles: 'amountToBasket'} %}
+{% endcapture %}
+
+{% include "layout/page.html.twig" %}
