@@ -1,9 +1,11 @@
 {% extends "page/checkout/basket.html.twig" %}
 
 {% block checkout_basket_main %}
-    {{ parent() }}
-
-    {% include "@d3googleanalytics4/event/view_cart.html.twig" %}
-
-    {% include "@d3googleanalytics4/event/remove_from_cart.html.twig" %}
+    {% if oViewConf.isGA4enabled() %}
+        {{ parent() }}
+        {% include "@d3googleanalytics4/event/view_cart.html.twig" %}
+        {% include "@d3googleanalytics4/event/remove_from_cart.html.twig" %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
 {% endblock %}
