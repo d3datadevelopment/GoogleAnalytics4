@@ -16,7 +16,7 @@
                         [
                             {
                                 'item_oxid':    '[{$gtmProduct->getFieldData("oxid")}]',
-                                'item_name':    '[{$gtmProduct->getRawFieldData("oxtitle")}]',
+                                'item_name':    '[{$gtmProduct->getFieldData("oxtitle")}]',
                                 'item_id':      '[{$gtmProduct->getFieldData("oxartnum")}]',
                                 'item_brand':   '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value}][{/if}]',
                                 'item_variant': '[{if $gtmProduct->getFieldData("oxvarselect")}][{$gtmProduct->getFieldData("oxvarselect")}][{/if}]',
@@ -35,7 +35,7 @@
                             ,'item_variants':[
                                 [{foreach from=$gtmProduct->getVariants() item="oVariant"}]
                                 {
-                                    'item_name':    '[{$oVariant->getRawFieldData("oxtitle")}]',
+                                    'item_name':    '[{$oVariant->getFieldData("oxtitle")}]',
                                     'item_id':      '[{$oVariant->getFieldData("oxartnum")}]',
                                     'item_brand':   '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value}][{/if}]',
                                     'item_variant': '[{if $oVariant->getFieldData("oxvarselect")}][{$oVariant->getFieldData("oxvarselect")}][{/if}]',

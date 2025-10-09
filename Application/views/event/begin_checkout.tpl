@@ -28,7 +28,7 @@
             {
             'item_oxid':        '[{$gtmCartArticles[$basketindex]->getFieldData('oxid')}]',
             'item_id':          '[{$gtmCartArticles[$basketindex]->getFieldData('oxartnum')}]',
-            'item_name':        '[{$gtmCartArticles[$basketindex]->getRawFieldData('oxtitle')}]',
+            'item_name':        '[{$gtmCartArticles[$basketindex]->getFieldData('oxtitle')}]',
             'item_variant':     '[{$gtmCartArticles[$basketindex]->getFieldData('oxvarselect')}]',
             'item_brand': '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value}][{/if}]',
             [{if $gtmBasketItemCategory}]

@@ -31,8 +31,8 @@
                         {
                             'item_oxid':        '[{$gtmBasketItem->getFieldData("oxid")}]',
                             'item_id':          '[{$gtmBasketItem->getFieldData("oxartnum")}]',
-                            'item_name':        '[{$gtmBasketItem->getRawFieldData("oxtitle")}]',
-                            'affiliation':      '[{$gtmBasketItem->getRawFieldData("oxtitle")}]',
+                            'item_name':        '[{$gtmBasketItem->getFieldData("oxtitle")}]',
+                            'affiliation':      '[{$gtmBasketItem->getFieldData("oxtitle")}]',
                             'coupon':           '[{foreach from=$gtmOrderVouchers item="gtmOrderVoucher" name="gtmOrderVoucherIteration"}][{$gtmOrderVoucher}][{if !$smarty.foreach.gtmOrderVoucherIteration.last}], [{/if}][{/foreach}]',
                             'item_variant':     '[{$gtmBasketItem->getFieldData("oxselvariant")}]',
                             'item_brand': '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value}][{/if}]',

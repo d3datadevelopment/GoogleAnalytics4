@@ -20,7 +20,7 @@
                             {
                             'item_oxid':        '[{$rmItem->getFieldData('oxid')}]',
                             'item_id':          '[{$rmItem->getFieldData('oxartnum')}]',
-                            'item_name':        '[{$rmItem->getRawFieldData('oxtitle')}]',
+                            'item_name':        '[{$rmItem->getFieldData('oxtitle')}]',
                             'item_variant':     '[{$rmItem->getFieldData('oxvarselect')}]',
                             [{if $gtmBasketItemCategory}]
                             'item_category':    '[{$gtmBasketItemCategory->getSplitCategoryArray(0, true)}]',
