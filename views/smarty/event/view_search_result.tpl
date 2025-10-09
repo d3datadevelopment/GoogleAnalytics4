@@ -18,7 +18,7 @@
               {
                 'item_oxid': '[{$gtmProduct->getFieldData("oxid")}]',
                 'item_id': '[{$gtmProduct->getFieldData("oxartnum")}]',
-                'item_name': '[{$gtmProduct->getRawFieldData("oxtitle")}]',
+                'item_name': '[{$gtmProduct->getFieldData("oxtitle")}]',
                 [{oxhasrights ident="SHOWARTICLEPRICE"}]'price': [{$d3PriceObject->getPrice()}],[{/oxhasrights}]
                 'item_brand': '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value}][{/if}]',
                 [{if $gtmCategory}]
