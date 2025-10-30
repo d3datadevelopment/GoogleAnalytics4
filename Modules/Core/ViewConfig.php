@@ -157,7 +157,7 @@ class ViewConfig extends ViewConfig_parent
         }
 
         if ($this->sCookieManagerType === ManagerTypes::INTERNAL_COOKIEBOT){
-            return 'type="text/plain" data-cookieconsent="' . $sControlParameter .'"';
+            return 'type="text/javascript" data-cookieconsent="' . $sControlParameter .'"';
         }
 
         return "";
