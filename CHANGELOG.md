@@ -48,6 +48,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - installability OXID 7
 - don't submit item prices, if user doesn't have "show price" right
 
+## [2.24.0.2](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.22.0.1...2.24.0.2) - 2025-10-10
+### Fixed
+- wrong script attribute for Cookiebot CMP
+
 ## [2.24.0.1](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.24.0.0...2.24.0.1) - 2025-10-09
 ### Fixed
 - getRawFieldData introduced in Oxid 6.4
