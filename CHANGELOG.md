@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [unreleased](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.24.0.0...rel_2.x) - 2025-x
 
 
-## [2.24.0.1](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.23.0.2...2.24.0.0) - 2025-10-09
+## [2.24.0.2](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.22.0.1...2.24.0.2) - 2025-10-10
+### Fixed
+- wrong script attribute for Cookiebot CMP
+
+## [2.24.0.1](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.24.0.0...2.24.0.1) - 2025-10-09
 ### Fixed
 - getRawFieldData introduced in Oxid 6.4
 
