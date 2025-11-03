@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.1.0.1...rel_3.x) - 2025-x
 
+## [3.2.0.0](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.1.0.2...3.2.0.0) - 2025-11-03
+### Fixed
+- "datalayer missing" JS-error
+- false baseCode template usage (Now Apex instead of Wave)
+### Changed
+- format comment
+
 ## [3.1.0.2](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.1.0.1...3.1.0.2) - 2025-10-30
 ### Fixed
 - Cookiebot skript attributes
