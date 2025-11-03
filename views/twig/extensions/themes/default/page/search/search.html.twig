@@ -1,7 +1,10 @@
 {% extends "page/search/search.html.twig" %}
 
 {% block search_results %}
-    {{ parent() }}
-
-    {% include "@d3googleanalytics4/event/view_search_result.html.twig" %}
+    {% if oViewConf.isGA4enabled() %}
+        {{ parent() }}
+        {% include "@d3googleanalytics4/event/view_search_result.html.twig" %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
 {% endblock %}

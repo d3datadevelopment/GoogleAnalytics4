@@ -1,7 +1,10 @@
 {% extends "page/checkout/thankyou.html.twig" %}
 
 {% block checkout_thankyou_main %}
-    {{ parent() }}
-
-    {% include "@d3googleanalytics4/event/purchase.html.twig" %}
+    {% if oViewConf.isGA4enabled() %}
+        {{ parent() }}
+        {% include "@d3googleanalytics4/event/purchase.html.twig" %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
 {% endblock %}

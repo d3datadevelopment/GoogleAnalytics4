@@ -1,13 +1,20 @@
 {% extends "page/list/list.html.twig" %}
 
 {% block page_list_productlist %}
-    {{ parent() }}
-
-    {% include "@d3googleanalytics4/event/view_item_list.html.twig" %}
+    {% if oViewConf.isGA4enabled() %}
+        {{ parent() }}
+        {% include "@d3googleanalytics4/event/view_item_list.html.twig" %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
 {% endblock %}
 
 {% block page_list_listbody %}
-    {{ parent() }}
-    {# ToDo: fix add_to_cart #}
-    {# {% include '@d3googleanalytics4/event/add_to_cart.html.twig' with {htmlIdAmountOfArticles: 'amountToBasket'} %} #}
+    {% if oViewConf.isGA4enabled() %}
+        {{ parent() }}
+        {# ToDo: fix add_to_cart #}
+        {# {% include '@d3googleanalytics4/event/add_to_cart.html.twig' with {htmlIdAmountOfArticles: 'amountToBasket'} %} #}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
 {% endblock %}

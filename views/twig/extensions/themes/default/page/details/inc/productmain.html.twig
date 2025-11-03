@@ -1,13 +1,19 @@
 {% extends "page/details/inc/productmain.html.twig" %}
 
 {% block details_productmain_title %}
-    {{ parent() }}
-
-    {% include "@d3googleanalytics4/event/view_item.html.twig" %}
+    {% if oViewConf.isGA4enabled() %}
+        {{ parent() }}
+        {% include "@d3googleanalytics4/event/view_item.html.twig" %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
 {% endblock %}
 
 {% block details_productmain_tobasket %}
-    {{ parent() }}
-
-    {% include '@d3googleanalytics4/event/add_to_cart.html.twig' with {htmlIdAmountOfArticles: 'amountToBasket'} %}
+    {% if oViewConf.isGA4enabled() %}
+        {{ parent() }}
+        {% include '@d3googleanalytics4/event/add_to_cart.html.twig' with {htmlIdAmountOfArticles: 'amountToBasket'} %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
 {% endblock %}

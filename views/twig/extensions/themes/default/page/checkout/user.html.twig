@@ -1,13 +1,19 @@
 {% extends "page/checkout/user.html.twig" %}
 
 {% block checkout_user_main %}
-    {{ parent() }}
-
-    {% include "@d3googleanalytics4/event/begin_checkout.html.twig" %}
+    {% if oViewConf.isGA4enabled() %}
+        {{ parent() }}
+        {% include "@d3googleanalytics4/event/begin_checkout.html.twig" %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
 {% endblock %}
 
 {% block checkout_user %}
-    {{ parent() }}
-
-    {% include "@d3googleanalytics4/event/begin_checkout.html.twig" %}
+    {% if oViewConf.isGA4enabled() %}
+        {{ parent() }}
+        {% include "@d3googleanalytics4/event/begin_checkout.html.twig" %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
 {% endblock %}
