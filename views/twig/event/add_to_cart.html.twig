@@ -37,7 +37,7 @@
                                             'items': [{
                                                 'item_oxid': '{{ gtmProduct.getFieldData("oxid") }}',
                                                 'item_id':        '{{ oGtmProduct.getFieldData('oxartnum') }}',
-                                                'item_name':      '{{ oGtmProduct.getRawFieldData('oxtitle')|raw }}',
+                                                'item_name':      '{{ oGtmProduct.getFieldData('oxtitle') }}',
                                                 'price':          {{ d3PriceObject.getPrice() }},
                                                 'item_brand':     '{% if gtmManufacturer %}{{ gtmManufacturer.getFieldData('oxtitle')|raw }}{% endif %}',
                                                 'item_variant':   '{% if oGtmProduct.getFieldData('oxvarselect') %}{{ oGtmProduct.getFieldData('oxvarselect') }}{% endif %}',

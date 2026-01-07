@@ -36,7 +36,7 @@
                                     'affiliation':      '{{ gtmBasketItem.getFieldData('oxtitle')|raw }}',
                                     'coupon':           '{% for gtmOrderVoucher in gtmOrderVouchers %}{{ gtmOrderVoucher }}{% if not loop.last %}, {% endif %}{% endfor %}',
                                     'item_variant':     '{{ gtmBasketItem.getFieldData("oxselvariant") }}',
-                                    'item_brand': '{% if gtmManufacturer %}{{ gtmManufacturer.getRawFieldData('oxtitle') }}{% endif %}',
+                                    'item_brand': '{% if gtmManufacturer %}{{ gtmManufacturer.getFieldData('oxtitle') }}{% endif %}',
                                     {% if gtmPurchaseItemCategory %}
                                     'item_category':    '{{ gtmPurchaseItemCategory.getSplitCategoryArray(0, true) }}',
                                     'item_category2':  '{{ gtmPurchaseItemCategory.getSplitCategoryArray(1, true) }}',

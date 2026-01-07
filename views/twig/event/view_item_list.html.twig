@@ -23,7 +23,7 @@
                                     {
                                         'item_oxid': '{{ gtmProduct.getFieldData("oxid") }}',
                                         'item_id': '{{ gtmProduct.getFieldData("oxartnum") }}',
-                                        'item_name': '{{ gtmProduct.getRawFieldData('oxtitle')|raw }}',
+                                        'item_name': '{{ gtmProduct.getFieldData('oxtitle') }}',
                                         'price': {{ d3PriceObject.getPrice() }},
                                         'item_brand': '{% if gtmManufacturer %}{{ gtmManufacturer.getFieldData('oxtitle')|raw }}{% endif %}',
                                         {% if gtmCategory %}
