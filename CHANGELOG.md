@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [unreleased](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.1.0.1...rel_3.x) - 2025-x
+## [unreleased](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.1.0.2...rel_3.x) - 2026-x
+
+## [3.2.0.2](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.2.0.1...3.2.0.2) - 2026-01-07
+### Fixed
+- replace getRaeFieldData with getFieldData
 
 ## [3.2.0.1](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.2.0.0...3.2.0.1) - 2025-12-10
 ### Fixed
@@ -43,6 +47,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - installability OXID 7
 - don't submit item prices, if user doesn't have "show price" right
+
+## [2.24.0.1](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.24.0.0...2.24.0.1) - 2025-10-09
+### Fixed
+- getRawFieldData introduced in Oxid 6.4
 
 ## [2.24.0.0](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/2.23.0.2...2.24.0.0) - 2025-06-12
 ### Fixed
