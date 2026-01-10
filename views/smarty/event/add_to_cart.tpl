@@ -37,15 +37,15 @@
             {
               'item_oxid':      '[{$oGtmProduct->getFieldData('oxid')}]',
               'item_id':        '[{$oGtmProduct->getFieldData('oxartnum')}]',
-              'item_name':      '[{$oGtmProduct->getFieldData('oxtitle')}]',
+              'item_name':      '[{$oGtmProduct->getFieldData('oxtitle')|escape:'quotes'}]',
               [{oxhasrights ident="SHOWARTICLEPRICE"}]'price':          [{$d3PriceObject->getPrice()}],[{/oxhasrights}]
-              'item_brand':     '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value}][{/if}]',
-              'item_variant':   '[{if $oGtmProduct->getFieldData('oxvarselect')}][{$oGtmProduct->getFieldData('oxvarselect')}][{/if}]',
+              'item_brand':     '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value|escape:'quotes'}][{/if}]',
+              'item_variant':   '[{if $oGtmProduct->getFieldData('oxvarselect')}][{$oGtmProduct->getFieldData('oxvarselect')|escape:'quotes'}][{/if}]',
               [{if $gtmCategory}]
-              'item_category':  '[{$gtmCategory->getSplitCategoryArray(0, true)}]',
-              'item_category2': '[{$gtmCategory->getSplitCategoryArray(1, true)}]',
-              'item_category3': '[{$gtmCategory->getSplitCategoryArray(2, true)}]',
-              'item_category4': '[{$gtmCategory->getSplitCategoryArray(3, true)}]',
+              'item_category':  '[{$gtmCategory->getSplitCategoryArray(0, true)|escape:'quotes'}]',
+              'item_category2': '[{$gtmCategory->getSplitCategoryArray(1, true)|escape:'quotes'}]',
+              'item_category3': '[{$gtmCategory->getSplitCategoryArray(2, true)|escape:'quotes'}]',
+              'item_category4': '[{$gtmCategory->getSplitCategoryArray(3, true)|escape:'quotes'}]',
               'item_list_name': '[{$gtmCategory->getSplitCategoryArray()}]',
               [{/if}]
               'quantity': iArtQuantity

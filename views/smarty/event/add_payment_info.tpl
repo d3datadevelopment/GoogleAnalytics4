@@ -28,14 +28,14 @@
                     {
                     'item_oxid':        '[{$gtmCartArticles[$basketindex]->getFieldData('oxid')}]',
                     'item_id':          '[{$gtmCartArticles[$basketindex]->getFieldData('oxartnum')}]',
-                    'item_name':        '[{$gtmCartArticles[$basketindex]->getFieldData('oxtitle')}]',
-                    'item_variant':     '[{$gtmCartArticles[$basketindex]->getFieldData('oxvarselect')}]',
-                    'item_brand': '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value}][{/if}]',
+                    'item_name':        '[{$gtmCartArticles[$basketindex]->getFieldData('oxtitle')|escape:'quotes'}]',
+                    'item_variant':     '[{$gtmCartArticles[$basketindex]->getFieldData('oxvarselect')|escape:'quotes'}]',
+                    'item_brand': '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value|escape:'quotes'}][{/if}]',
                     [{if $gtmBasketItemCategory}]
-                    'item_category':    '[{$gtmBasketItemCategory->getSplitCategoryArray(0, true)}]',
-                    'item_category2':   '[{$gtmBasketItemCategory->getSplitCategoryArray(1, true)}]',
-                    'item_category3':  '[{$gtmBasketItemCategory->getSplitCategoryArray(2, true)}]',
-                    'item_category4':  '[{$gtmBasketItemCategory->getSplitCategoryArray(3, true)}]',
+                    'item_category':    '[{$gtmBasketItemCategory->getSplitCategoryArray(0, true)|escape:'quotes'}]',
+                    'item_category2':   '[{$gtmBasketItemCategory->getSplitCategoryArray(1, true)|escape:'quotes'}]',
+                    'item_category3':  '[{$gtmBasketItemCategory->getSplitCategoryArray(2, true)|escape:'quotes'}]',
+                    'item_category4':  '[{$gtmBasketItemCategory->getSplitCategoryArray(3, true)|escape:'quotes'}]',
                     'item_list_name':   '[{$gtmBasketItemCategory->getSplitCategoryArray()}]',
                     [{/if}]
                     [{oxhasrights ident="SHOWARTICLEPRICE"}]'price':            [{$gtmItemPriceObject->getPrice()}],[{/oxhasrights}]

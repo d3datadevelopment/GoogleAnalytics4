@@ -20,13 +20,13 @@
                             {
                             'item_oxid':        '[{$rmItem->getFieldData('oxid')}]',
                             'item_id':          '[{$rmItem->getFieldData('oxartnum')}]',
-                            'item_name':        '[{$rmItem->getFieldData('oxtitle')}]',
-                            'item_variant':     '[{$rmItem->getFieldData('oxvarselect')}]',
+                            'item_name':        '[{$rmItem->getFieldData('oxtitle')|escape:'quotes'}]',
+                            'item_variant':     '[{$rmItem->getFieldData('oxvarselect')|escape:'quotes'}]',
                             [{if $gtmBasketItemCategory}]
-                            'item_category':    '[{$gtmBasketItemCategory->getSplitCategoryArray(0, true)}]',
-                            'item_category2':   '[{$gtmBasketItemCategory->getSplitCategoryArray(1, true)}]',
-                            'item_category3':   '[{$gtmBasketItemCategory->getSplitCategoryArray(2, true)}]',
-                            'item_category4':   '[{$gtmBasketItemCategory->getSplitCategoryArray(3, true)}]',
+                            'item_category':    '[{$gtmBasketItemCategory->getSplitCategoryArray(0, true)|escape:'quotes'}]',
+                            'item_category2':   '[{$gtmBasketItemCategory->getSplitCategoryArray(1, true)|escape:'quotes'}]',
+                            'item_category3':   '[{$gtmBasketItemCategory->getSplitCategoryArray(2, true)|escape:'quotes'}]',
+                            'item_category4':   '[{$gtmBasketItemCategory->getSplitCategoryArray(3, true)|escape:'quotes'}]',
                             'item_list_name':   '[{$gtmBasketItemCategory->getSplitCategoryArray()}]',
                             [{/if}]
                             [{oxhasrights ident="SHOWARTICLEPRICE"}]'price':            [{$d3oItemPrice->getPrice()}],[{/oxhasrights}]
