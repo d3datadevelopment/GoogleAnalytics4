@@ -19,7 +19,7 @@
                     'shipping':       [{$gtmOrder->getFieldData("oxdelcost")}],
                     'currency':       '[{$gtmOrder->getFieldData('oxcurrency')}]',
                     'coupon':         '[{foreach from=$gtmOrderVouchers item="gtmOrderVoucher" name="gtmOrderVoucherIteration"}][{$gtmOrderVoucher}][{if !$smarty.foreach.gtmOrderVoucherIteration.last}], [{/if}][{/foreach}]',
-                    'paymentType':    '[{$gtmBasket->getPaymentOnPaymentId()}]',
+                    'paymentType':    '[{$gtmBasket->getPaymentOnPaymentId($gtmOrder->getFieldData("oxpaymenttype"))|escape:'quotes'}]',
                     'items':
                     [
                         [{foreach from=$gtmArticles item="gtmBasketItem" name="gtmArticles"}]
@@ -31,16 +31,16 @@
                         {
                             'item_oxid':        '[{$gtmBasketItem->getFieldData("oxid")}]',
                             'item_id':          '[{$gtmBasketItem->getFieldData("oxartnum")}]',
-                            'item_name':        '[{$gtmBasketItem->getFieldData("oxtitle")}]',
+                            'item_name':        '[{$gtmBasketItem->getFieldData("oxtitle")|escape:'quotes'}]',
                             'affiliation':      '[{$gtmBasketItem->getFieldData("oxtitle")}]',
                             'coupon':           '[{foreach from=$gtmOrderVouchers item="gtmOrderVoucher" name="gtmOrderVoucherIteration"}][{$gtmOrderVoucher}][{if !$smarty.foreach.gtmOrderVoucherIteration.last}], [{/if}][{/foreach}]',
-                            'item_variant':     '[{$gtmBasketItem->getFieldData("oxselvariant")}]',
+                            'item_variant':     '[{$gtmBasketItem->getFieldData("oxselvariant")|escape:'quotes'}]',
                             'item_brand': '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value}][{/if}]',
                             [{if $gtmPurchaseItemCategory}]
-                            'item_category':    '[{$gtmPurchaseItemCategory->getSplitCategoryArray(0, true)}]',
-                            'item_category2':   '[{$gtmPurchaseItemCategory->getSplitCategoryArray(1, true)}]',
-                            'item_category3':   '[{$gtmPurchaseItemCategory->getSplitCategoryArray(2, true)}]',
-                            'item_category4':   '[{$gtmPurchaseItemCategory->getSplitCategoryArray(3, true)}]',
+                            'item_category':    '[{$gtmPurchaseItemCategory->getSplitCategoryArray(0, true)|escape:'quotes'}]',
+                            'item_category2':   '[{$gtmPurchaseItemCategory->getSplitCategoryArray(1, true)|escape:'quotes'}]',
+                            'item_category3':   '[{$gtmPurchaseItemCategory->getSplitCategoryArray(2, true)|escape:'quotes'}]',
+                            'item_category4':   '[{$gtmPurchaseItemCategory->getSplitCategoryArray(3, true)|escape:'quotes'}]',
                             'item_list_name':   '[{$gtmPurchaseItemCategory->getSplitCategoryArray()}]',
                             [{/if}]
                             [{oxhasrights ident="SHOWARTICLEPRICE"}]'price':            [{$gtmPurchaseItemPriceObject->getPrice()}],[{/oxhasrights}]
