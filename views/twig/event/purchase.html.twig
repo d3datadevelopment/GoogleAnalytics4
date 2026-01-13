@@ -21,7 +21,7 @@
                             'shipping':       {{ gtmOrder.getFieldData("oxdelcost") }},
                             'currency':       '{{ gtmOrder.getFieldData('oxcurrency') }}',
                             'coupon':         '{% for gtmOrderVoucher in gtmOrderVouchers %}{{ gtmOrderVoucher }}{% if not loop.last %}, {% endif %}{% endfor %}',
-                            'paymentType':    '{{ gtmBasket.getPaymentOnPaymentId()|e('js') }}',
+                            'paymentType':    '{{ gtmBasket.getPaymentOnPaymentId(gtmOrder.getFieldData('oxpaymenttype'))|e('js') }}',
                             'items':
                             [
                                 {% for gtmBasketItem in gtmArticles %}
