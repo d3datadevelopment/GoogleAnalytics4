@@ -37,10 +37,10 @@
                                             'items': [{
                                                 'item_oxid': '{{ gtmProduct.getFieldData("oxid") }}',
                                                 'item_id':        '{{ oGtmProduct.getFieldData('oxartnum') }}',
-                                                'item_name':      '{{ oGtmProduct.getFieldData('oxtitle') }}',
+                                                'item_name':      '{{ oGtmProduct.getFieldData('oxtitle')|e('js') }}',
                                                 'price':          {{ d3PriceObject.getPrice() }},
-                                                'item_brand':     '{% if gtmManufacturer %}{{ gtmManufacturer.getFieldData('oxtitle')|raw }}{% endif %}',
-                                                'item_variant':   '{% if oGtmProduct.getFieldData('oxvarselect') %}{{ oGtmProduct.getFieldData('oxvarselect') }}{% endif %}',
+                                                'item_brand':     '{% if gtmManufacturer %}{{ gtmManufacturer.getFieldData('oxtitle')|e('js') }}{% endif %}',
+                                                'item_variant':   '{% if oGtmProduct.getFieldData('oxvarselect') %}{{ oGtmProduct.getFieldData('oxvarselect')|e('js') }}{% endif %}',
                                                 {% if gtmCategory %}
                                                     'item_category':  '{{ gtmCategory.getSplitCategoryArray(0, true) }}',
                                                     'item_category2':'{{ gtmCategory.getSplitCategoryArray(1, true) }}',

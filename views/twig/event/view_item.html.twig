@@ -16,10 +16,10 @@
                         'items': [
                             {
                             'item_oxid': '{{ gtmProduct.getFieldData("oxid") }}',
-                            'item_name': '{{ gtmProduct.getFieldData('oxtitle')|raw }}',
+                            'item_name': '{{ gtmProduct.getFieldData('oxtitle')|e('js') }}',
                             'item_id': '{{ gtmProduct.getFieldData("oxartnum") }}',
-                            'item_brand': '{% if gtmManufacturer %}{{ gtmManufacturer.getFieldData('oxtitle')|raw }}{% endif %}',
-                            'item_variant': '{% if gtmProduct.getFieldData("oxvarselect") %}{{ gtmProduct.getFieldData("oxvarselect") }}{% endif %}',
+                            'item_brand': '{% if gtmManufacturer %}{{ gtmManufacturer.getFieldData('oxtitle')|e('js') }}{% endif %}',
+                            'item_variant': '{% if gtmProduct.getFieldData("oxvarselect") %}{{ gtmProduct.getFieldData("oxvarselect")|e('js') }}{% endif %}',
                             {% if gtmCategory %}
                                 'item_category':  '{{ gtmCategory.getSplitCategoryArray(0, true) }}',
                                 'item_category2':'{{ gtmCategory.getSplitCategoryArray(1, true) }}',
@@ -36,10 +36,10 @@
                             [
                                 {% for oVariant in gtmProduct.getVariants() %}
                                 {
-                                    'item_name':    '{{ oVariant.getFieldData("oxtitle") }}',
+                                    'item_name':    '{{ oVariant.getFieldData("oxtitle")|e('js') }}',
                                     'item_id':      '{{ oVariant.getFieldData("oxartnum") }}',
-                                    'item_brand': '{% if gtmManufacturer %}{{ gtmManufacturer.getFieldData('oxtitle')|raw }}{% endif %}',
-                                    'item_variant': '{% if oVariant.getFieldData("oxvarselect") %}{{ oVariant.getFieldData("oxvarselect") }}{% endif %}',
+                                    'item_brand': '{% if gtmManufacturer %}{{ gtmManufacturer.getFieldData('oxtitle')|e('js') }}{% endif %}',
+                                    'item_variant': '{% if oVariant.getFieldData("oxvarselect") %}{{ oVariant.getFieldData("oxvarselect")|e('js') }}{% endif %}',
                                     {% if gtmCategory %}
                                     'item_category':  '{{ gtmCategory.getSplitCategoryArray(0, true) }}',
                                     'item_category2':'{{ gtmCategory.getSplitCategoryArray(1, true) }}',

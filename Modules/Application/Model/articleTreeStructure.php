@@ -14,12 +14,12 @@ trait articleTreeStructure
      */
     protected function getParentCategoryTitles() :array
     {
-        $parentTitles[] = $this->getTitle();
+        $parentTitles[] = htmlspecialchars($this->getTitle());
         // we may be in Manufacturer, Vendor, etc.
         if (method_exists($this, 'getParentCategory')) {
             $parent = $this->getParentCategory();
             while ($parent != null) {
-                $parentTitles[] = $parent->getTitle();
+                $parentTitles[] = htmlspecialchars($parent->getTitle());
                 $parent = $parent->getParentCategory();
             }
         }

@@ -15,13 +15,13 @@
                         'ecommerce':
                         {
                             'transaction_id': '{{ gtmOrder.getFieldData("oxordernr") }}',
-                            'affiliation':    '{{ oxcmp_shop.getFieldData("oxname") }}',
+                            'affiliation':    '{{ oxcmp_shop.getFieldData("oxname")|e('js') }}',
                             'value':          {{ gtmOrder.getTotalOrderSum() }},
                             'tax':            {{ gtmOrder.getFieldData("oxartvatprice1")+gtmOrder.getFieldData("oxartvatprice2") }},
                             'shipping':       {{ gtmOrder.getFieldData("oxdelcost") }},
                             'currency':       '{{ gtmOrder.getFieldData('oxcurrency') }}',
                             'coupon':         '{% for gtmOrderVoucher in gtmOrderVouchers %}{{ gtmOrderVoucher }}{% if not loop.last %}, {% endif %}{% endfor %}',
-                            'paymentType':    '{{ gtmBasket.getPaymentOnPaymentId() }}',
+                            'paymentType':    '{{ gtmBasket.getPaymentOnPaymentId()|e('js') }}',
                             'items':
                             [
                                 {% for gtmBasketItem in gtmArticles %}
@@ -32,11 +32,11 @@
                                 {
                                     'item_oxid': '{{ gtmProduct.getFieldData("oxid") }}',
                                     'item_id':          '{{ gtmBasketItem.getFieldData("oxartnum") }}',
-                                    'item_name':        '{{ gtmBasketItem.getFieldData('oxtitle')|raw }}',
-                                    'affiliation':      '{{ gtmBasketItem.getFieldData('oxtitle')|raw }}',
+                                    'item_name':        '{{ gtmBasketItem.getFieldData('oxtitle')|e('js') }}',
+                                    'affiliation':      '{{ gtmBasketItem.getFieldData('oxtitle')|e('js') }}',
                                     'coupon':           '{% for gtmOrderVoucher in gtmOrderVouchers %}{{ gtmOrderVoucher }}{% if not loop.last %}, {% endif %}{% endfor %}',
-                                    'item_variant':     '{{ gtmBasketItem.getFieldData("oxselvariant") }}',
-                                    'item_brand': '{% if gtmManufacturer %}{{ gtmManufacturer.getFieldData('oxtitle') }}{% endif %}',
+                                    'item_variant':     '{{ gtmBasketItem.getFieldData("oxselvariant")|e('js') }}',
+                                    'item_brand': '{% if gtmManufacturer %}{{ gtmManufacturer.getFieldData('oxtitle')|e('js') }}{% endif %}',
                                     {% if gtmPurchaseItemCategory %}
                                     'item_category':    '{{ gtmPurchaseItemCategory.getSplitCategoryArray(0, true) }}',
                                     'item_category2':  '{{ gtmPurchaseItemCategory.getSplitCategoryArray(1, true) }}',
