@@ -9,7 +9,7 @@
     {% block d3_ga4_add_to_cart_list_block %}
         {% set doNotShow %}{% apply spaceless %}
             <script type="text/javascript">
-                {% set d3_ga4_add_to_cart_listtpl %}
+                {% set d3_ga4_add_to_cart_productmain %}
                     {% apply spaceless %}
                         document.addEventListener('DOMContentLoaded', function() {
                             var toBasketButton = document.getElementById('toBasket');
@@ -61,6 +61,6 @@
                 {% endset %}
             </script>
         {% endapply %}{% endset %}
-        {{ script({ add: d3_ga4_add_to_cart_listtpl.__toString(), dynamic: __oxid_include_dynamic }) }}
+        {{ script({ add: d3_ga4_add_to_cart_productmain.__toString(), dynamic: __oxid_include_dynamic }) }}
     {% endblock %}
 {% endif %}
