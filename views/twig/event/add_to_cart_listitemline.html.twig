@@ -1,0 +1,70 @@
+{% block d3_ga4_add_to_cart_list_block %}
+    {% set gtmManufacturer = product.getManufacturer() %}
+    {% set gtmCategory = product.getCategory() %}
+    {% set doNotShow %}{% apply spaceless %}
+        <script>
+            {% set d3_ga4_add_to_cart_listtpl %}
+                {% apply spaceless %}
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var toBasketButton = document.getElementById('toBasket_{{ testid }}');
+
+                        {% if product.isRangePrice() %}
+                            {{ translate({ ident: "PRICE_FROM" }) }}
+                            {% set rangePrice = product.getVarMinPrice() %}
+                            {% if not product.isParentNotBuyable() %}
+                                {% set rangePrice = product.getMinPrice() %}
+                            {% endif %}
+
+                            {% set ga4ProductPrice = format_price(rangePrice)|replace({"€": ""})|replace({' ': ''})|replace({'.': ''})|replace({',': '.'}) %}
+                        {% else %}
+                            {% set variantPrice = product.getVarMinPrice() %}
+                            {% if not product.isParentNotBuyable() %}
+                                {% set variantPrice = product.getPrice() %}
+                            {% endif %}
+
+                            {% set ga4ProductPrice = format_price(variantPrice)|replace({"€": ""})|replace({' ': ''})|replace({'.': ''})|replace({',': '.'}) %}
+                        {% endif %}
+
+                        if (toBasket_{{ testid }}) {
+                            toBasketButton.addEventListener('click', function() {
+                                dataLayer.push({"event": null, "eventLabel": null, "ecommerce": null});
+
+                                var iAmount = parseInt(document.getElementById('amountToBasket_{{ testid }}').value);
+                                var iValue = (iAmount*{{ ga4ProductPrice }});
+
+                                dataLayer.push({
+                                    'isAddToBasket': true,
+                                    'event':'add_to_cart',
+                                    'eventLabel': 'add_to_cart',
+                                    'ecommerce': {
+                                        'currency':   "{{ currency.name }}",
+                                        'value':      iValue,
+                                        'items': [{
+                                            'item_oxid': '{{ product.getFieldData("oxid") }}',
+                                            'item_id':        '{{ product.getFieldData('oxartnum') }}',
+                                            'item_name':      '{{ product.getFieldData('oxtitle') }}',
+                                            'price':          {{ ga4ProductPrice }},
+                                            'item_brand':     '{% if gtmManufacturer %}{{ gtmManufacturer.getFieldData('oxtitle')|raw }}{% endif %}',
+                                            'item_variant':   '{% if product.getFieldData('oxvarselect') %}{{ product.getFieldData('oxvarselect') }}{% endif %}',
+                                            {% if gtmCategory %}
+                                                'item_category':  '{{ gtmCategory.getSplitCategoryArray(0, true) }}',
+                                                'item_category2':'{{ gtmCategory.getSplitCategoryArray(1, true) }}',
+                                                'item_category3':'{{ gtmCategory.getSplitCategoryArray(2, true) }}',
+                                                'item_category4':'{{ gtmCategory.getSplitCategoryArray(3, true) }}',
+                                                'item_list_name':'{{ gtmCategory.getSplitCategoryArray() }}',
+                                            {% endif %}
+                                            'quantity': iAmount
+                                        }]
+                                    }{% if oViewConf.isDebugModeOn() %},
+                                    'debug_mode': 'true'
+                                    {% endif %}
+                                });
+                            });
+                        }
+                    });
+                {% endapply %}
+            {% endset %}
+        </script>
+    {% endapply %}{% endset %}
+    {{ script({ add: d3_ga4_add_to_cart_listtpl.__toString(), dynamic: __oxid_include_dynamic }) }}
+{% endblock %}

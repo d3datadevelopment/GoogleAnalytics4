@@ -1,0 +1,6 @@
+{% extends "widget/product/listitem_line.html.twig" %}
+
+{% block widget_product_listitem_line_tobasket %}
+    {{ parent() }}
+    {% include '@d3googleanalytics4/event/add_to_cart_listitemline.html.twig' %}
+{% endblock %}

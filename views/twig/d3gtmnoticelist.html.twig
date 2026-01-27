@@ -22,7 +22,6 @@
 
     </div>
     {{ insert_tracker({title: template_title}) }}
-    {% include '@d3googleanalytics4/event/add_to_cart.html.twig' with {htmlIdAmountOfArticles: 'amountToBasket'} %}
 {% endcapture %}
 
 {% include "layout/page.html.twig" %}
