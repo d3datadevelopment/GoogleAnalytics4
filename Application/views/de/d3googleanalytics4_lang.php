@@ -61,7 +61,7 @@ return [
                                     <br>
                                     Um Google Analytics 4 ( <a target="_blank" href="https://marketingplatform.google.com/intl/de/about/analytics/">Google Analytics</a> ) weiterhin nutzen zu können,
                                     und dank fortschreitendem Datenschutz unserer personenbezogener Daten, ist das Nutzen eines konformen CMP
-                                    heute zwangläufig nötig.<br>
+                                    heute zwangsläufig nötig.<br>
                                     <br>
                                     Diese konformen CMP sind in 
                                     <a target="_blank" href="https://cmppartnerprogram.withgoogle.com/">offizieller Partnerschaft mit Google ( Liste der Partner )</a> 
@@ -82,7 +82,32 @@ return [
                                             Dokumentation von Usercentrics selbst: <a target="_blank" href="https://docs.usercentrics.com/#/consent-mode" class="text-primary"><i class="bi bi-book-half"></i> Dokumentation</a>',
     'D3USRCNTRCSCFG_WARNING'            => "Bevor Sie hier Anpassungen machen, konsultieren Sie bitte einen technischen Support!<br>
                                             Anpassungen können zu Beeinträchtigungen und Ausfall von Funktionen im Frontend führen!",
-
+	
+	// Consentmanager modes
+	'D3USECONSENTMANAGERMODE'    => "Consentmanager-Modus: Automatisch/ Manuell",
+	'D3USECONSENTMANAGERMODE_HELP'    => "Der Consentmanager hat zwei Möglichkeiten eingebunden zu werden. Eine \"Automatische\" und eine \"Manuelle\".
+																							Den für Ihren Fall passenden Modus evaluieren Sie bitte mit einem technischen Ansprechpartner, um falsche Konfigurationen
+																							oder ein ungewünschtes Verhalten zu verhindern.<br>
+																							<br>
+																							<strong>Automatisch</strong><br>
+																							Dieser Modus bietet eine automatische deaktivierung von Skripten (beispielsweise GA4) oder Services. Das bringt den entscheidenden Vorteil, dass
+																							Skripte nicht nochmals angepasst werden müssen. Zudem werden in diesem Modus \"pings\" an GA4 gesendet, die eine rechnerische korrektur fehlender Nutzerdaten
+																							ermöglichen und damit konsistentere Übersichten final erstellbar machen.<br>
+																							Dieser Modus punktet mit einfacher modularen installation, jedoch \"geringerer\" legaler Sicherheit. Vertrauen steht hier auf GA4-Seiten.<br>
+																							<br>
+																							<strong>Manuell</strong><br>
+																							Erfordert eine händische Anpassung aller Skripte, die eingebunden werden, um diese vom CMP erkennbar zu machen. Damit kommt jedoch auch
+																							eine höhere \"Sicherheit\" einher, da damit eineindeutig abgesichert ist, was geblockt wird. Zudem blockt der CMP in diesem Modus die Sendung aller Daten an den GTM-Selbst<br>
+																							 (Mittelposition Nutzer <-> GA4).<br>
+																							<hr>
+																							Weitere Informationen finden Sie auf den offiziellen Seiten von Consentmanager<br>
+																							<ul>
+																								<li><a href='https://help.consentmanager.net/books/cmp/page/google-tag-manager-%28gtm%29'>Nutzung GTM & Consentmanager</a></li>
+																								<li><a href='https://help.consentmanager.de/books/cmp/page/automatic-blocking-of-codes-and-cookies'>Automatisches Blockieren von Codes und Cookies</a></li>
+																								<li><a href='https://help.consentmanager.de/books/cmp/page/working-with-google-consent-mode-v2-manualsemiautomatic-blocking-code'>Google Consent Mode v2 über manuellen Blockierungscode</a></li>
+																								<li><a href='https://help.consentmanager.de/books/cmp/page/working-with-google-consent-mode-v2-automatic-blocking-code'>Google Consent Mode v2 über automatischen Blockierungscode</a></li>
+																							</ul>",
+	
     // Additional Config
     // Server-Side tagging
     'D3SERVERSIDETAGGING'       => 'Server-Side tagging',

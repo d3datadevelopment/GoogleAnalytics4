@@ -264,6 +264,11 @@ $aModule = [
             'value' => false
         ],
         [
+            'name'  => Constants::OXID_MODULE_ID.'_CONSENTMANAGER_MODE',
+            'type'  => 'str',
+            'value' => '-'
+        ],
+        [
             'name'  => Constants::OXID_MODULE_ID.'_blViewItemAddVariants',
             'type'  => 'bool',
             'value' => false

@@ -46,6 +46,11 @@
                         w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
                         var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
                         j.async = true;
+
+                        {% if oViewConf.isConsentmanagerChosen() and oViewConf.isConsentmanagerAutomaticBlocking() %}
+                        j.setAttribute("data-cmp-ab","1");
+                        {% endif %}
+
                         j.src = '{{ oViewConf.getServerSidetaggingJsDomain() }}?id=' + i + dl;
                         f.parentNode.insertBefore(j, f);
                     })(window, document, 'script', 'dataLayer', '{{ d3GtmContainerIdString }}');

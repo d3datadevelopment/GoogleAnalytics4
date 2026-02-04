@@ -37,7 +37,7 @@ class ViewConfig extends ViewConfig_parent
     private $sContainerId = null;
 
     // used CMP
-    private $sCookieManagerType = null;#
+    private $sCookieManagerType = null;
 
     // isModule Activated properly?
     private $blGA4enabled = null;
@@ -149,7 +149,7 @@ class ViewConfig extends ViewConfig_parent
         }
 
         if ($this->sCookieManagerType === ManagerTypes::INTERNAL_CONSENTMANAGER) {
-            return 'type="text/plain" class="cmplazyload" data-cmp-vendor="'.$sControlParameter.'"';
+            return $this->getConsentmanagerScriptAttributes();
         }
 
         if ($this->sCookieManagerType === ManagerTypes::INTERNAL_COOKIEFIRST) {
@@ -162,7 +162,59 @@ class ViewConfig extends ViewConfig_parent
 
         return "";
     }
-
+	
+	/**
+	 * @return bool
+	 */
+	public function isConsentmanagerChosen() :bool
+	{
+		/** @var ManagerHandler $oManagerHandler */
+		$oManagerHandler = oxNew(ManagerHandler::class);
+		return (bool) ($oManagerHandler->getActManager() === ManagerTypes::INTERNAL_CONSENTMANAGER);
+	}
+	
+	/**
+	 * @return string
+	 *
+	 * This method is needed, because consentmanager offers two distinguished options to be included.
+	 *
+	 * Automatic: Via GTM (Soft)) - "Advanced Implementation" approach with Google Consent Mode
+	 *  Which then does NOT allow to add - 'type="text/plain" class="cmplazyload" data-cmp-vendor="'.$sControlParameter.'"'
+	 *  But needs only j.setAttribute("data-cmp-ab","1"); and  data-cmp-ab="1" to the script-node
+	 *
+	 * Manual: Hard - Block GTM entirely until consent
+	 *  Which then allows/ needs - 'type="text/plain" class="cmplazyload" data-cmp-vendor="'.$sControlParameter.'"
+	 *  As script-attribute in the script-node
+	 */
+	protected function getConsentmanagerScriptAttributes() :string
+	{
+		// Is Consentmanager automatic blocking active?
+			// AUTO BLOCKING:
+		if ($this->isConsentmanagerAutomaticBlocking()){
+			return 'data-cmp-ab="1"';
+		}else{
+			// MANUAL BLOCKING:
+			$sControlParameter = trim($this->d3GetModuleConfigParam('_sControlParameter'));
+			return 'type="text/plain" class="cmplazyload" data-cmp-vendor="'.$sControlParameter.'"';
+		}
+	}
+	
+	/**
+	 * @return bool
+	 */
+	public function isConsentmanagerAutomaticBlocking() :bool
+	{
+		return (bool)($this->getChosenConsentmanagerMode() === 'auto');
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getChosenConsentmanagerMode() :string
+	{
+		return $this->d3GetModuleConfigParam('_CONSENTMANAGER_MODE');
+	}
+	
     /**
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
@@ -357,4 +409,12 @@ class ViewConfig extends ViewConfig_parent
 
         return (bool) $isActiveBool;
     }
+	
+	/**
+	 * @return string
+	 */
+	public function getChosenCookieManagertype() :string
+	{
+		return $this->sCookieManagerType;
+	}
 }

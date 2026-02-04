@@ -85,6 +85,19 @@
                                             {% endfor %}
                                         </select>
                                     </div>
+                                    {% if d3ViewConfObject.isConsentmanagerChosen() %}
+                                        <div class="mb-3">
+                                            <label>
+                                                {{ translate({ ident: "D3USECONSENTMANAGERMODE" }) }}{% include "inputhelp.html.twig" with {'sHelpId': help_id("D3USECONSENTMANAGERMODE_HELP"), 'sHelpText': help_text("D3USECONSENTMANAGERMODE_HELP")} %}
+                                            </label>
+                                            <select class="form-select w-50 {% if d3ViewConfObject.getChosenConsentmanagerMode() is same as('-') %}border-danger border-3 rounded {% else %} border-start border-success rounded {% endif %}" name="editval[select][_CONSENTMANAGER_MODE]" aria-label="Default select example">
+                                                <option value="-" {% if d3ViewConfObject.getChosenConsentmanagerMode() is same as('-') %}SELECTED{% endif %}>Auswahl treffen!</option>
+                                                <option value="auto" {% if d3ViewConfObject.getChosenConsentmanagerMode() is same as('auto') %}SELECTED{% endif %}>Automatisch</option>
+                                                <option value="manu" {% if d3ViewConfObject.getChosenConsentmanagerMode() is same as('manu') %}SELECTED{% endif %}>Manuel</option>
+                                            </select>
+                                        </div>
+                                    {# If Consentmanager is chosen, then show this button to determine which consentmanager-mode is active #}
+                                    {% endif %}
                                     <div>
                                         <div class="input-group w-75">
                                             <span class="input-group-text" id="basic-addon3">{{ translate({ ident: "D3CNTRLPARAM" }) }}</span>
