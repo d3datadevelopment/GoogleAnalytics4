@@ -18,14 +18,13 @@
                                 toBasketButton.addEventListener('click', function() {
                                     dataLayer.push({"event": null, "eventLabel": null, "ecommerce": null});
 
-                                    let iArtQuantity = document.getElementById("{{ htmlIdAmountOfArticles }}").value;
-                                    let iArtQuantityAdded = {{ oGtmAmountArticlesAdded }};
+                                    const quantityInput =
+                                        document.getElementById('amountToBasket') ||
+                                        document.querySelector('input.quantity-input') ||
+                                        document.querySelector('[id^="quantityInput_"]') ||
+                                        document.querySelector('.tobasket-function input[type="text"], .tobasket-function input[type="number"]');
 
-                                    if(!iArtQuantity && (iArtQuantityAdded === 1)){
-                                        iArtQuantity = 1;
-                                    }else{
-                                        iArtQuantity = iArtQuantityAdded;
-                                    }
+                                    let iArtQuantity = quantityInput ? quantityInput.valueAsNumber : 1;
 
                                     dataLayer.push({
                                         'isAddToBasket': true,
@@ -33,7 +32,7 @@
                                         'eventLabel': 'add_to_cart',
                                         'ecommerce': {
                                             'currency':   "{{ currency.name }}",
-                                            'value':      iArtQuantity*{{ d3PriceObject.getPrice() }},
+                                            'value':      parseFloat((iArtQuantity*{{ d3PriceObject.getPrice() }}).toFixed(2)),
                                             'items': [{
                                                 'item_oxid': '{{ gtmProduct.getFieldData("oxid") }}',
                                                 'item_id':        '{{ oGtmProduct.getFieldData('oxartnum') }}',
