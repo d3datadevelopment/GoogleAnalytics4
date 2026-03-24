@@ -49,8 +49,8 @@
                                     'price': [{$d3PriceObject->getPrice()}]
                                 },
                             [{/foreach}]
-                            ]
                         [{/if}]
+                        ]
                 }[{if $oViewConf->isDebugModeOn()}],
                 'debug_mode': 'true'
                 [{/if}]
