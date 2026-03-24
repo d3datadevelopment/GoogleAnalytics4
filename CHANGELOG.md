@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.1.0.3...rel_3.x) - 2026-x
 
-## [3.2.0.4](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.2.0.3...3.2.0.4) - 2026-02-24
+## [3.2.0.5](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.2.0.3...3.2.0.4) - 2026-02-24
+### Fixed
+- Syntax error Detailspage, Smarty
+
+- ## [3.2.0.4](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.2.0.3...3.2.0.4) - 2026-02-24
 ### Fixed
 - add_to_cart quality js-querySelector
 
