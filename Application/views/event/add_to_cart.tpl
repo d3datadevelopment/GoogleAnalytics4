@@ -12,49 +12,54 @@
   [{block name="d3_ga4_add_to_cart_list_block"}]
     [{capture name="d3_ga4_add_to_cart_listtpl"}]
       [{strip}]
-      dataLayer.push({"event": null, "eventLabel": null, "ecommerce": null});  /* Clear the previous ecommerce object. */
 
-      [{*** Debug cases ***}]
-      [{*event.preventDefault();*}]
+    $(document).ready(function() {
+        $('[id$="toBasket"]').on('click', function() {
+          dataLayer.push({"event": null, "eventLabel": null, "ecommerce": null});  /* Clear the previous ecommerce object. */
 
-      let iArtQuantity = $("[{$htmlIdAmountOfArticles}]").val();
-      let iArtQuantityAdded = [{$oGtmAmountArticlesAdded}];
+          [{*** Debug cases ***}]
+          [{*event.preventDefault();*}]
 
-      if(!iArtQuantity && (iArtQuantityAdded === 1)){
-        iArtQuantity = 1;
-      }else{
-        iArtQuantity = iArtQuantityAdded;
-      }
+          let iArtQuantity = $("[{$htmlIdAmountOfArticles}]").val();
+          let iArtQuantityAdded = [{$oGtmAmountArticlesAdded}];
 
-      dataLayer.push({
-        'isAddToBasket': true,
-        'event':'add_to_cart',
-        'eventLabel': 'add_to_cart',
-        'ecommerce': {
-          'currency':   "[{$currency->name}]",
-          'value':      iArtQuantity*[{$d3PriceObject->getPrice()}],
-          'items':      [
-            {
-              'item_oxid':      '[{$oGtmProduct->getFieldData('oxid')}]',
-              'item_id':        '[{$oGtmProduct->getFieldData('oxartnum')}]',
-              'item_name':      '[{$oGtmProduct->getFieldData('oxtitle')|escape:'quotes'}]',
-              [{oxhasrights ident="SHOWARTICLEPRICE"}]'price':          [{$d3PriceObject->getPrice()}],[{/oxhasrights}]
-              'item_brand':     '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value|escape:'quotes'}][{/if}]',
-              'item_variant':   '[{if $oGtmProduct->getFieldData('oxvarselect')}][{$oGtmProduct->getFieldData('oxvarselect')|escape:'quotes'}][{/if}]',
-              [{if $gtmCategory}]
-              'item_category':  '[{$gtmCategory->getSplitCategoryArray(0, true)|escape:'quotes'}]',
-              'item_category2': '[{$gtmCategory->getSplitCategoryArray(1, true)|escape:'quotes'}]',
-              'item_category3': '[{$gtmCategory->getSplitCategoryArray(2, true)|escape:'quotes'}]',
-              'item_category4': '[{$gtmCategory->getSplitCategoryArray(3, true)|escape:'quotes'}]',
-              'item_list_name': '[{$gtmCategory->getSplitCategoryArray()}]',
-              [{/if}]
-              'quantity': iArtQuantity
-            }
-          ]
-        }[{if $oViewConf->isDebugModeOn()}],
-        'debug_mode': 'true'
-        [{/if}]
-      });
+          if(!iArtQuantity && (iArtQuantityAdded === 1)){
+            iArtQuantity = 1;
+          }else{
+            iArtQuantity = iArtQuantityAdded;
+          }
+
+          dataLayer.push({
+            'isAddToBasket': true,
+            'event':'add_to_cart',
+            'eventLabel': 'add_to_cart',
+            'ecommerce': {
+              'currency':   "[{$currency->name}]",
+              'value':      iArtQuantity*[{$d3PriceObject->getPrice()}],
+              'items':      [
+                {
+                  'item_oxid':      '[{$oGtmProduct->getFieldData('oxid')}]',
+                  'item_id':        '[{$oGtmProduct->getFieldData('oxartnum')}]',
+                  'item_name':      '[{$oGtmProduct->getFieldData('oxtitle')|escape:'quotes'}]',
+                  [{oxhasrights ident="SHOWARTICLEPRICE"}]'price':          [{$d3PriceObject->getPrice()}],[{/oxhasrights}]
+                  'item_brand':     '[{if $gtmManufacturer}][{$gtmManufacturer->oxmanufacturers__oxtitle->value|escape:'quotes'}][{/if}]',
+                  'item_variant':   '[{if $oGtmProduct->getFieldData('oxvarselect')}][{$oGtmProduct->getFieldData('oxvarselect')|escape:'quotes'}][{/if}]',
+                  [{if $gtmCategory}]
+                  'item_category':  '[{$gtmCategory->getSplitCategoryArray(0, true)|escape:'quotes'}]',
+                  'item_category2': '[{$gtmCategory->getSplitCategoryArray(1, true)|escape:'quotes'}]',
+                  'item_category3': '[{$gtmCategory->getSplitCategoryArray(2, true)|escape:'quotes'}]',
+                  'item_category4': '[{$gtmCategory->getSplitCategoryArray(3, true)|escape:'quotes'}]',
+                  'item_list_name': '[{$gtmCategory->getSplitCategoryArray()}]',
+                  [{/if}]
+                  'quantity': iArtQuantity
+                }
+              ]
+            }[{if $oViewConf->isDebugModeOn()}],
+            'debug_mode': 'true'
+            [{/if}]
+          });
+        });
+    });
       [{/strip}]
     [{/capture}]
     [{oxscript add=$smarty.capture.d3_ga4_add_to_cart_listtpl}]
