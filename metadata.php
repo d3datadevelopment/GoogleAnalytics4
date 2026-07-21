@@ -93,6 +93,7 @@ $aModule = [
         'event/view_cart.tpl' => 'd3/googleanalytics4/Application/views/event/view_cart.tpl',
         'event/begin_checkout.tpl' => 'd3/googleanalytics4/Application/views/event/begin_checkout.tpl',
         'event/add_payment_info.tpl' => 'd3/googleanalytics4/Application/views/event/add_payment_info.tpl',
+        'event/add_shipping_info.tpl' => 'd3/googleanalytics4/Application/views/event/add_shipping_info.tpl',
         'event/purchase.tpl' => 'd3/googleanalytics4/Application/views/event/purchase.tpl',
         'event/view_item_list.tpl' => 'd3/googleanalytics4/Application/views/event/view_item_list.tpl',
         'event/view_search_result.tpl' => 'd3/googleanalytics4/Application/views/event/view_search_result.tpl',
@@ -196,6 +197,12 @@ $aModule = [
             'template' => 'page/checkout/order.tpl',
             'block' => 'checkout_order_main',
             'file' => '/Application/views/blocks/add_payment_info.tpl',
+            'position' => 150
+        ],
+        [
+            'template' => 'page/checkout/order.tpl',
+            'block' => 'checkout_order_main',
+            'file' => '/Application/views/blocks/add_shipping_info.tpl',
             'position' => 150
         ],
     ],
