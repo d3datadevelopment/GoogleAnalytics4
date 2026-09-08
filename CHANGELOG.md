@@ -4,9 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [unreleased](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.1.0.3...rel_3.x) - 2026-x
+## [unreleased](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.2.0.6...rel_3.x) - 2026-x
 
-## [3.2.0.5](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.2.0.3...3.2.0.4) - 2026-02-24
+## [3.2.0.6](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.2.0.5...3.2.0.6) - 2026-09-08
+### Changed
+- required-return of method d3GetModuleSettings()
+
+## [3.2.0.5](https://git.d3data.de/D3Public/GoogleAnalytics4/compare/3.2.0.4...3.2.0.5) - 2026-02-24
 ### Fixed
 - Syntax error Detailspage, Smarty
 
