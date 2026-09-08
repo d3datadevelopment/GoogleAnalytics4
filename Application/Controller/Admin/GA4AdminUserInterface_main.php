@@ -14,6 +14,7 @@ use OxidEsales\Eshop\Core\Str;
 use OxidEsales\Eshop\Core\ViewConfig;
 use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
 use OxidEsales\EshopCommunity\Internal\Framework\Module\Facade\ModuleSettingService;
+use OxidSupport\ModulePerformance\Internal\Framework\Module\Facade\ModuleSettingService as oxSupportModuleSettingService;
 use OxidEsales\EshopCommunity\Internal\Framework\Module\Facade\ModuleSettingServiceInterface;
 
 class GA4AdminUserInterface_main extends \OxidEsales\Eshop\Application\Controller\Admin\AdminDetailsController
@@ -71,11 +72,11 @@ class GA4AdminUserInterface_main extends \OxidEsales\Eshop\Application\Controlle
     }
 
     /**
-     * @return ModuleSettingService
+     * @return ModuleSettingService|oxSupportModuleSettingService
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
-    public function d3GetModuleSettings() :ModuleSettingService
+    public function d3GetModuleSettings() :ModuleSettingService|oxSupportModuleSettingService
     {
         return ContainerFactory::getInstance()
             ->getContainer()
