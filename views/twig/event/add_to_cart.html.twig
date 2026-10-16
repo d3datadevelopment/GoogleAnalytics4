@@ -1,4 +1,4 @@
-{% if d3CmpBasket and d3CmpBasket.d3GtmRequestedArticleLoadedByAnid() != "null" %}
+{% if d3CmpBasket and d3CmpBasket.getAddToBasketDecision() and d3CmpBasket.d3GtmRequestedArticleLoadedByAnid() is not null %}
     {% set oGtmProduct = d3CmpBasket.d3GtmRequestedArticleLoadedByAnid() %}
     {% set oGtmAmountArticlesAdded = d3CmpBasket.getD3GtmAddToCartAmountArticles() %}
     {% set d3PriceObject = oGtmProduct.getPrice() %}
